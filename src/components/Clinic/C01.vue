@@ -130,7 +130,7 @@
 <script>
 //swiper 套件
 import Swiper, { Navigation, Pagination } from 'swiper';
-import 'swiper/swiper-bundle.css';
+// import 'swiper/swiper-bundle.css';
 // import { vue2Dropzone } from "vue2-dropzone";
 // import "src/vue2-dropzone/dist/vue2Dropzone.min.css";
 import { mapGetters, mapActions } from 'vuex';
