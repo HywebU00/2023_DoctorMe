@@ -1,0 +1,213 @@
+.clinicInfo {
+  background: linear-gradient(to right, $primaryDark, $secondary);
+  border-radius: 0 0 $radius $radius;
+  height: 4.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  &:after {
+    content: '';
+    height: 64px;
+    width: 100%;
+    position: absolute;
+    background: #fff;
+    top: -64px;
+  }
+  h2 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.5rem;
+    font-family: $font-family;
+    margin-left: 2.5rem;
+    margin-bottom: 0;
+  }
+}
+.titleInfo {
+  position: sticky;
+  top: 64px;
+  z-index: 2;
+
+  .datePicker {
+    display: flex;
+    align-items: center;
+    margin-left: 2.5rem;
+    margin-bottom: 0.5rem;
+    .v-btn {
+      height: 2.5rem;
+      width: 2.5rem;
+      box-shadow: none;
+    }
+    p {
+      margin: 0em 0.75rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      span {
+        margin-left: 0.5rem;
+      }
+    }
+    @include screen('notebook') {
+      margin-bottom: 0.75rem;
+    }
+    @include screen('mobile') {
+      margin-bottom: 0.75rem;
+      margin-left: 1rem;
+    }
+  }
+  .selectNav {
+    padding: 1rem 0 !important;
+    background: $gray;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    h3 {
+      font-size: 1.25rem;
+      margin: 0 1rem 0 0.5rem;
+    }
+    .v-input__control {
+      height: 2.5rem;
+      @include screen('mobile') {
+        margin-bottom: 0.75rem;
+      }
+    }
+    .submitBtn {
+      // margin-bottom: 1.75rem;
+      @include screen('mobile') {
+        width: 20%;
+      }
+    }
+  }
+  .selectGroup {
+    display: flex;
+    margin-left: 2.5rem;
+    @include screen('tablet') {
+      margin-left: 2.5rem;
+    }
+    .v-input {
+      margin-right: 0.75rem;
+      @include screen('mobile') {
+        max-width: 38%;
+        margin-right: 2%;
+      }
+      .v-select__selections {
+        flex-wrap: nowrap;
+        overflow: hidden;
+        .v-chip {
+          width: 60px;
+          min-width: 60px;
+        }
+      }
+    }
+
+    @include screen('notebook') {
+      margin: 0 2rem;
+    }
+    @include screen('mobile') {
+      flex-wrap: wrap;
+      margin: 0 1rem;
+    }
+  }
+}
+.dataSection {
+  margin: 0 auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: calc(100vh - 136px);
+  padding: 4rem 2rem 0 2rem;
+  > div {
+    width: 100%;
+  }
+  @include screen('notebook') {
+    height: calc(100vh - 197px);
+  }
+  @include screen('mobile') {
+    height: calc(100vh - 301px);
+    padding: 4rem 1rem 0 1rem;
+  }
+}
+.dataTitle {
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  font-weight: 400;
+}
+.title {
+  // margin-left: 2rem;
+  display: flex;
+  margin-bottom: 1rem;
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0;
+    margin-right: 0.75rem;
+    span {
+      line-height: 2.5rem;
+    }
+  }
+}
+.emptyImg {
+  // margin: 10rem 0;
+  // width: 30%;
+  margin: 10rem auto;
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+  p {
+    text-align: center;
+    color: $gray3;
+    margin: 1rem 0;
+  }
+  button {
+    margin: 0 auto;
+    display: block;
+  }
+}
+// .cardGroup {
+//   margin-bottom: 1.25rem;
+//   // max-width: 1220px;
+//   // max-width: 1440px;
+//   background: none !important;
+// }
+
+.tabletList {
+  margin: 2rem 0;
+  .tabletSelect {
+    // width: 300px;
+    .v-input__control {
+      .v-input__slot {
+        &::before {
+          border-color: rgba(0, 0, 0, 0);
+        }
+      }
+    }
+  }
+
+  button.v-btn {
+    margin: 0 0 0 1rem;
+    background-color: rgba(0, 0, 0, 0);
+    height: 2.25rem !important;
+    width: 6.25rem;
+    span {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+  button.viewBtn {
+    width: 1.5rem;
+  }
+}
+.tableTitle {
+  display: flex;
+  align-items: center;
+  h5 {
+    margin: 0 1rem 0 0.5rem;
+    font-size: 1.25rem;
+    span {
+      margin-left: 0.5rem;
+    }
+  }
+}
+.tableSearch {
+  padding-top: 0;
+  max-width: 30%;
+  margin-left: auto;
+}

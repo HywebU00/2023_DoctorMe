@@ -1,0 +1,240 @@
+.navTitle {
+  height: 64px;
+  background-color: #fff;
+  border-bottom: 1px solid $gray;
+  transition: all 0.3s;
+  width: calc(100% - 256px);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  position: absolute;
+  .navUser {
+    margin: 0 0 0 auto;
+    button {
+      margin: 0 0.2rem;
+      font-weight: 500;
+      font-size: 0.8rem;
+    }
+  }
+  .navLogo {
+    border-bottom: none;
+  }
+  .userBtnMobile {
+    display: none;
+  }
+  .userContent {
+    position: fixed;
+    right: 0.5rem;
+    top: 0.75rem;
+  }
+  .userMobileContent {
+    display: none;
+  }
+  @include screen('mobile') {
+    padding: 0 0.25rem;
+    .navLogo {
+      h1 {
+        span {
+          font-size: 1.5rem;
+        }
+      }
+    }
+    .userBtnMobile {
+      display: block;
+      background-color: #fff !important;
+      border: 2px solid #ececec;
+      box-shadow: none !important;
+    }
+    .userContent {
+      display: none;
+    }
+    .userMobileContent {
+      position: absolute;
+      left: 0;
+      top: 64px;
+      z-index: 99;
+      padding: 1rem 0.5rem;
+      background: #fff;
+      width: 100%;
+      display: flex;
+      justify-content: end;
+    }
+  }
+  @include screen('tablet') {
+    width: 100%;
+  }
+}
+.navTitle.closeMenu {
+  width: calc(100% - 76px);
+  @include screen('tablet') {
+    width: 100%;
+  }
+}
+.navLogo {
+  display: flex;
+  align-items: center;
+  height: 65px;
+  padding-left: 1.5rem;
+  border-bottom: 1px solid $gray;
+  .title {
+    margin-bottom: 0;
+    font-size: 2rem !important;
+    font-weight: 700;
+    margin-left: 0rem;
+    color: $primaryDark;
+  }
+}
+.sidebarBtn {
+  width: 1.8rem !important;
+  height: 1.8rem !important;
+  box-shadow: $boxShadow;
+  position: absolute;
+  z-index: 99;
+  background-color: $secondary;
+  top: 1rem;
+  left: 14.5rem;
+  transition: all 0.2s;
+  .v-icon {
+    color: #fff !important;
+    transform: rotateY(0deg);
+  }
+  @include screen('tablet') {
+    z-index: 100;
+  }
+}
+.mobileSidebarBtn {
+  background-color: $secondary;
+  box-shadow: $boxShadow;
+  display: flex;
+  border-radius: 50% !important;
+  width: 1.8rem !important;
+  height: 1.8rem !important;
+  min-width: unset !important;
+  .v-icon {
+    color: #fff !important;
+    transform: rotateY(180deg);
+  }
+}
+
+.mobileTitle {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-left: 0rem;
+  .v-avatar {
+    border-radius: 0.5rem;
+    // margin-left: 0.5rem;
+    margin-right: 0.5rem !important;
+  }
+  @include screen('tablet') {
+    display: flex;
+  }
+}
+.wrap {
+  display: flex;
+  height: 100vh;
+}
+.aside {
+  .scrollContent {
+    position: relative !important;
+    z-index: 999 !important;
+    overflow-y: scroll;
+    height: 100%;
+    .v-list-group {
+      div {
+        border-radius: 0.25rem;
+        font-weight: 500;
+        color: $gray3;
+      }
+      .v-list-group__header {
+        height: 44px;
+        .v-list-item__icon {
+          &:first-child {
+            margin: 0;
+            height: 44px;
+            margin-right: 1em;
+          }
+        }
+      }
+      .v-list-item__action {
+        &:first-child {
+          margin: 0px;
+        }
+      }
+    }
+    .v-list {
+      margin: 0.5rem;
+    }
+    .v-list-group--active {
+      .v-list-group__header {
+        div {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  aside.v-navigation-drawer {
+    width: 256px !important;
+    @include screen('tablet') {
+      position: absolute;
+      z-index: 99;
+    }
+  }
+  .v-navigation-drawer__content {
+    overflow: hidden;
+  }
+  .v-avatar {
+    border-radius: 0.25rem;
+    margin-right: 0.5rem !important;
+  }
+  .v-navigation-drawer__border {
+    display: none;
+  }
+  @include screen('tablet') {
+    .navLogo {
+      padding-right: 2.8rem;
+      padding-left: 1rem;
+    }
+    .sidebarBtn {
+      display: none;
+      position: absolute;
+      left: 13rem;
+    }
+  }
+  .sidebarBtnInTitle {
+    display: none;
+    @include screen('tablet') {
+      display: block;
+    }
+  }
+}
+
+.aside.closeMenu {
+  aside.v-navigation-drawer {
+    width: 76px !important;
+    @include screen('tablet') {
+      width: 0px !important;
+    }
+  }
+  .sidebarBtn {
+    left: 3.5rem;
+    .v-btn__content {
+      transform: rotate(180deg);
+    }
+    @include screen('tablet') {
+      display: none;
+    }
+  }
+  .navLogo {
+    padding: 0 0.5rem 0 1rem;
+  }
+}
+.main {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  width: 100%;
+  background-color: $backgroundColor;
+}

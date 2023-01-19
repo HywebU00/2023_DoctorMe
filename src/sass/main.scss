@@ -1,0 +1,11 @@
+// $color-pack: false;
+
+@import '~vuetify/src/styles/main.sass';
+@import '~@/sass/common/mixins/_mediaquery.scss';
+@import 'variables.scss';
+//material-icons-round
+@import '~@/sass/vendor/material-icons-round.scss';
+@import '~@/sass/page/layout.scss';
+@import '~@/sass/page/pageDefault.scss';
+//component
+@import '~@/sass/component/cardSlider.scss';
