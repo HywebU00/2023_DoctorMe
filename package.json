@@ -58,6 +58,7 @@
     "google-fonts-webpack-plugin": "^0.4.4",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
+    "swiper":"^6.8.4",
     "vue-cli-plugin-vuetify": "^1.1.2",
     "vue-template-compiler": "^2.6.11",
     "vuetify-loader": "^1.4.3"

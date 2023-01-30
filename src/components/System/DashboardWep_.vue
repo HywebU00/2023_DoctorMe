@@ -30,7 +30,7 @@
                     <v-list-item-title>{{ item.text }}</v-list-item-title>
                   </template>
                   <v-list-item v-for="(child, i) in item.children" :key="i" link v-ripple="{ class: `primary--text rounded-list` }" @click="pushObject(child.link)">
-                    <v-list-item-action> </v-list-item-action>
+                    <!-- <v-list-item-action> </v-list-item-action> -->
                     <v-list-item-content>
                       <v-list-item-title>
                         <li>{{ child.text }}</li></v-list-item-title
@@ -67,10 +67,27 @@
             </v-list-item>
             <!-- pc版本user按鈕 start -->
             <div class="userContent">
-              <v-btn class="reserveBtn" color=" accent">
-                <v-icon class="material-icons-round" color="light" left>add</v-icon>
-                <span>新增預約</span>
-              </v-btn>
+              <!-- 新增預約按鈕start -->
+              <v-menu class="">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn class="reserveBtn" color=" accent" v-bind="attrs" v-on="on">
+                    <v-icon class="material-icons-round" color="light" left>add</v-icon>
+                    <span>新增預約</span>
+                  </v-btn>
+                </template>
+                <v-list class="reserveSelect text-center">
+                  <v-list-item @click="onClick">
+                    <v-list-item-title>一般門診</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item @click="onClick">
+                    <v-list-item-title>新冠診療</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item @click="onClick">
+                    <v-list-item-title>疫苗注射</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+              <!-- 新增預約按鈕end -->
               <v-btn class="userBtn" plain>
                 <v-icon class="material-icons-round" left>notifications</v-icon>
                 <span>林小華</span>
@@ -146,9 +163,9 @@ export default {
           children: [
             // { icon: "add", text: "Create 名單" }
             { icon: 'mdi-circle', text: '門診預約', link: '/C01' },
-            { icon: 'mdi-circle-small', text: '新冠診療預約', link: '/List2' },
-            { icon: 'mdi-circle-small', text: '疫苗注射預約', link: '/List2' },
-            { icon: 'mdi-circle-small', text: '疫苗紀錄查詢', link: '/List2' },
+            { icon: 'mdi-circle-small', text: '新冠診療預約', link: '/C02' },
+            { icon: 'mdi-circle-small', text: '疫苗注射預約', link: '/C03' },
+            { icon: 'mdi-circle-small', text: '疫苗紀錄查詢', link: '/C04' },
           ],
         },
         { icon: 'medical_services', text: '診所資料設定', link: '/T00' },
@@ -199,7 +216,7 @@ export default {
   },
   methods: {
     ...mapActions(['updateAutoSaveStatus']),
-
+    onClick() {},
     logoutObject() {
       var vm = this;
       vm.logoutWep1Util();

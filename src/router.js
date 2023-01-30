@@ -2,23 +2,13 @@
 
 import Router from 'vue-router';
 import goTo from 'vuetify/es5/services/goto';
-
-
 import Login from './components/System/Login';
-
-
-
-
-
-
-
 //wep1
 import DashboardWep1 from './components/System/DashboardWep_';
-
-
-
 //Clinic
 import C01 from './components/Clinic/C01';
+import C02 from './components/Clinic/C02';
+import C03 from './components/Clinic/C03';
 
 export default new Router({
   scrollBehavior: (to, from, savedPosition) => {
@@ -37,25 +27,29 @@ export default new Router({
       path: '/',
       name: 'DashboardWep1',
       component: DashboardWep1,
-
       children: [
-
         {
           path: '/C01',
           name: '診所後台',
           component: C01,
         },
+        {
+          path: '/C02',
+          name: '診所後台',
+          component: C02,
+        },
+        {
+          path: '/C03',
+          name: '診所後台',
+          component: C03,
+        },
       ],
     },
-
 
     {
       path: '/Login',
       name: 'Login',
       component: Login,
     },
-
-
-
   ],
 });
