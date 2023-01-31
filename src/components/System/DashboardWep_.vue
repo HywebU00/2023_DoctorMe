@@ -68,7 +68,7 @@
             <!-- pc版本user按鈕 start -->
             <div class="userContent">
               <!-- 新增預約按鈕start -->
-              <v-menu class="">
+              <v-menu offset-y>
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn class="reserveBtn" color=" accent" v-bind="attrs" v-on="on">
                     <v-icon class="material-icons-round" color="light" left>add</v-icon>
@@ -232,21 +232,6 @@ export default {
     },
     fetchData() {
       let vm = this;
-
-      //TEST
-      // if (!this.isNotBlankUtil(this.$localStorage.get("userProfileStr"))) {
-      //   swal({
-      //     title: "<font face='Microsoft JhengHei'>Please login again.</font>",
-      //     html: "<font face='Microsoft JhengHei'>" + "</font>",
-      //     type: "warning",
-      //     confirmButtonText: "<font face='Microsoft JhengHei'>Confirm</font>",
-      //     confirmButtonColor: "teal",
-      //   });
-      //   this.logoutObject();
-      // }
-
-      // vm.endTime = new Date().getTime() + 30 * 60 * 1000;
-      // vm.$localStorage.set("idb_login_token_expire_date", vm.endTime);
     },
   },
   watch: {
@@ -255,41 +240,10 @@ export default {
   },
   mounted() {
     var vm = this;
-
-    //test
-    // vm.items = JSON.parse(vm.$localStorage.get("idb_funcIdList"));
-    // vm.items = vm.getFakeModel("menu");
-
-    // let recaptchaScript = document.createElement("script");
-    // recaptchaScript.setAttribute(
-    //   "src",
-    //   "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
-    // );
-    // document.head.appendChild(recaptchaScript);
   },
   created() {
     var vm = this;
-    // vm.endTime = parseInt(vm.$localStorage.get("idb_login_token_expire_date"));
-    // vm.startTime = vm.endTime - 30 * 60 * 1000;
-    // vm.axios.interceptors.request.use(
-    //   function(config) {
-    //     // Any status code that lie within the range of 2xx cause this function to trigger
-    //     // Do something with response data
-    //     // console.log(config.url);
-    //     if (config.url.indexOf("idb/refreshToken") == -1) {
-    //       vm.endTime = new Date().getTime() + 30 * 60 * 1000;
-    //       vm.$localStorage.set("idb_login_token_expire_date", vm.endTime);
-    //     }
-    //     return config;
-    //   },
-    //   function(error) {
-    //     // Any status codes that falls outside the range of 2xx cause this function to trigger
-    //     // Do something with response error
-    //     return Promise.reject(error);
-    //   }
-    // );
-    // //每5分鐘重取token
-    // vm.refreshId = setInterval(this.refreshToken, 5 * 60 * 1000);
+
     vm.fetchData();
   },
   destroyed() {

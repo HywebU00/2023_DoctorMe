@@ -41,9 +41,9 @@
           </v-btn>
         </div>
       </div>
+      <!-- 選取的科別 -->
+      <h4 class="dataTitle">{{ item1 }}</h4>
       <div v-for="(menu, i) in item2" :key="i">
-        <!-- 選取的科別 -->
-        <h4 class="dataTitle">{{ item1 }}</h4>
         <!-- 選取的時間 -->
         <h4 class="dataTitle">{{ menu }}</h4>
         <!-- 卡片 slide-groups -->
@@ -79,12 +79,7 @@
 <script>
 //swiper 套件
 import Swiper, { Navigation, Pagination } from 'swiper';
-// import 'swiper/swiper-bundle.css';
-// import { vue2Dropzone } from "vue2-dropzone";
-// import "src/vue2-dropzone/dist/vue2Dropzone.min.css";
 import { mapGetters, mapActions } from 'vuex';
-
-import 'vue2-dropzone/dist/vue2Dropzone.min.css';
 
 export default {
   computed: {
@@ -117,67 +112,17 @@ export default {
       items1: [{ text: '家醫科' }, { text: '牙科' }, { text: '胸腔科' }, { text: '內科' }],
       item1: '家醫科',
       items2: [{ text: '上午診' }, { text: '下午診' }, { text: '晚上診' }],
-      item2: ['上午診'],
+      item2: ['上午診', '下午診', '晚上診'],
       requiredRules: [(v) => !!v || '此欄位是必填'],
-      dropzonePicOptions: {
-        url: 'https://idb.m20cloud.tk:8443/idb/uploadFile',
-        headers: { Authorization: this.$localStorage.get('land_login_token') },
-        maxFilesize: 9999, // MB
-        maxFiles: 10,
-        filesizeBase: 1024,
-        thumbnailWidth: 300,
-        // chunking: true,
-        // chunkSize: 500, // Bytes
-        // uploadMultiple: true,
-        // parallelUploads: 3,
-        autoProcessQueue: true,
-        // acceptedFiles: ".pdf",
-        // dictDefaultMessage:
-        //   "<i class='fa fa-cloud-upload'></i>請點擊或拖曳檔案上傳<br/>檔案請勿超過5MB<br/>",
-        // dictFileTooBig: "檔案太大",
-        // dictInvalidFileType: "不允許的檔案格式",
-        // dictMaxFilesExceeded: "檔案數量超過限制",
-        // dictCancelUploadConfirmation: "是否確定要取消上傳",
-        init: function() {
-          // var self = this;
-          // self.on("uploadprogress", function(file, progress) {
-          //   console.log("File progress", progress);
-          // });
-          // self.removeAllFiles();,
-        },
-        addRemoveLinks: true,
-        addDownloadLinks: true,
-        // dictDefaultMessage: "<i class='fa fa-cloud-upload'></i>UPLOAD",
-      },
       expand: false,
       picker: new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10),
-
-      //表單的ＪＳ
-      dialog: false,
-      dialogDelete: false,
-      headers: [
-        {
-          text: '預約號碼',
-          align: 'start',
-          sortable: false,
-          value: 'num',
-          width: '100px',
-        },
-        { text: '姓名', value: 'name', sortable: false },
-        { text: '類型', value: 'type', sortable: false, width: '200px' },
-        { text: '報到', value: 'check', sortable: false, width: '200px' },
-        { text: '檢視預約資料', value: 'file', sortable: false, width: '60px' },
-      ],
-      desserts: [],
-      editedIndex: -1,
-      tableSelect: ['視訊', '門診'],
     };
   },
 
   methods: {
     init() {
       Swiper.use([Navigation]);
-      var swiper = new Swiper('.cardSlider', {
+      new Swiper('.cardSlider', {
         slidesPerView: 1.5,
         spaceBetween: 10,
         navigation: {
@@ -187,7 +132,7 @@ export default {
 
         breakpoints: {
           640: {
-            slidesPerView: 2,
+            slidesPerView: 1.5,
           },
           768: {
             slidesPerView: 2,
@@ -209,10 +154,8 @@ export default {
     },
   },
   created: function() {
-    console.log('!!!! ' + this.$route.params.id);
     // 此時物件尚未被init;
     let vm = this;
-    console.log('vm.idbServerUrl ' + vm.idbServerUrl);
     if (vm.idbServerUrl != '/landProxy/') vm.dropzonePicOptions.url = vm.idbServerUrl + 'land/uploadFile';
     vm.dropzonePicOptions.url = vm.idbServerUrl + 'land/uploadFile';
     this.initialize();

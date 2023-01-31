@@ -4,43 +4,20 @@
       <div class="clinicInfo"><h2>凌網診所台北總院</h2></div>
       <template>
         <div class="selectNav">
-          <div class="datePicker">
-            <v-menu v-model="menu2" :close-on-content-click="false" :nudge-right="40" transition="scale-transition" offset-y min-width="auto">
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn v-model="date" v-bind="attrs" v-on="on" fab color="primary" @click="expand = !expand">
-                  <v-icon>
-                    calendar_today
-                  </v-icon>
-                </v-btn>
-                <h3>
-                  <strong>{{ date }}</strong>
-                  <span>診間列表</span>
-                </h3>
-              </template>
-              <v-date-picker no-title v-model="date" @input="menu2 = false"></v-date-picker>
-            </v-menu>
-          </div>
-          <div class="selectGroup">
-            <v-autocomplete v-model="item1" :items="items1" dense label="科別" solo item-text="text"> </v-autocomplete>
-            <v-select v-model="item2" :items="items2" dense small-chips label="所有時段" multiple solo item-text="text" no-data-text="查無資料" :rules="requiredRules"> </v-select>
-            <v-btn class="submitBtn" depressed color="primaryDark" dark>
-              搜尋
+          <!-- 標題 start-->
+          <div class="title">
+            <h3>
+              <span>預約名單</span>
+            </h3>
+            <v-btn color="primaryDark" dark>
+              新增預約
             </v-btn>
           </div>
+          <!-- 標題 end-->
         </div>
       </template>
     </div>
     <section class="dataSection">
-      <!-- 標題 start-->
-      <div class="title">
-        <h3>
-          <span>預約名單</span>
-        </h3>
-        <v-btn color="primaryDark" dark>
-          新增預約
-        </v-btn>
-      </div>
-      <!-- 標題 end-->
       <template>
         <v-card class="tabletList">
           <v-card-title>
@@ -63,7 +40,7 @@
                 <!-- <v-btn depressed color="rgba(236, 236, 236, 1)">取消報到</v-btn> -->
               </template>
               <template v-slot:[`item.file`]="{ item }">
-                <v-btn class="viewBtn" depressed color="rgba(0,0,0,0)">
+                <v-btn class="viewBtn" depressed color="rgba(0,0,0,0)" @click.stop="openOffcanvas = !openOffcanvas">
                   <v-icon>
                     description
                   </v-icon>
@@ -81,12 +58,96 @@
       </div>
       <!-- 拖曳區塊 end-->
     </section>
+    <!-- offcanvas start -->
+    <section class="offcanvas" :class="{ open: openOffcanvas }">
+      <div class="">
+        <div class="offcanvasHeader">
+          <h5>林小凌</h5>
+          <button>
+            <v-icon @click.stop="openOffcanvas = !openOffcanvas">
+              close
+            </v-icon>
+          </button>
+        </div>
+        <div class="offcanvasBody">
+          <h6>預約資訊</h6>
+          <ul>
+            <li>
+              <span>預約日期</span>
+              <p>2022 / 11 / 20 （一）</p>
+            </li>
+            <li>
+              <span>預約時段</span>
+              <p>晚上診 （19:00-21:30）</p>
+            </li>
+            <li>
+              <span>看診科別</span>
+              <p>家醫科</p>
+            </li>
+            <li>
+              <span>看診醫生</span>
+              <p>診間一：林建凱醫生</p>
+            </li>
+          </ul>
+          <h6>預約資訊</h6>
+          <ul>
+            <li>
+              <span>類型</span>
+              <p>初診病患</p>
+            </li>
+            <li>
+              <span>預約者姓名</span>
+              <p>林小凌</p>
+            </li>
+            <li>
+              <span>身分證字號/居留證號碼</span>
+              <p>P222222222</p>
+            </li>
+            <li>
+              <span>聯絡電話</span>
+              <p>0989101010</p>
+            </li>
+            <li>
+              <span>生日</span>
+              <p>1999/01/01</p>
+            </li>
+          </ul>
+          <!-- 選擇科別 -->
+          <ul>
+            <li>
+              <span>請選擇科別</span>
+              <v-select :items="styles" label="請選擇科別" dense solo></v-select>
+            </li>
+            <li>
+              <span>請選擇醫生</span>
+              <v-select :items="doctors" label="請選擇醫生" dense solo></v-select>
+            </li>
+            <li>
+              <span>請選擇日期</span>
+              <v-menu v-model="menu2" :close-on-content-click="false" transition="scale-transition" max-width="250px" min-width="auto">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-text-field v-model="computedDateFormatted" persistent-hint dense readonly solo v-bind="attrs" v-on="on"></v-text-field>
+                </template>
+                <v-date-picker width="250px" class="datePicker" v-model="date" no-title @input="menu2 = false"></v-date-picker>
+              </v-menu>
+            </li>
+            <li>
+              <span>請選擇時段</span>
+              <v-select :items="times" label="請選擇時段" dense solo></v-select>
+            </li>
+          </ul>
+        </div>
+        <div class="offcanvasFooter">
+          <v-btn color="primaryDark" dark block>更改預約</v-btn>
+          <v-btn color="primaryDark" dark block>取消預約</v-btn>
+        </div>
+      </div>
+    </section>
+    <!-- offcanvas end -->
   </v-form>
 </template>
 <script>
 //swiper 套件
-import Swiper, { Navigation, Pagination } from 'swiper';
-
 import { mapGetters, mapActions } from 'vuex';
 import vue2Dropzone from 'vue2-dropzone';
 import 'vue2-dropzone/dist/vue2Dropzone.min.css';
@@ -98,6 +159,9 @@ export default {
     }),
     formTitle() {
       return this.editedIndex === -1 ? 'New Item' : 'Edit Item';
+    },
+    computedDateFormatted() {
+      return this.formatDate(this.date);
     },
   },
   components: {
@@ -111,6 +175,7 @@ export default {
       menu: false,
       modal: false,
       menu2: false,
+      openOffcanvas: true,
       items1: [{ text: '家醫科' }, { text: '牙科' }, { text: '胸腔科' }, { text: '內科' }],
       item1: '家醫科',
       items2: [{ text: '上午診' }, { text: '下午診' }, { text: '晚上診' }],
@@ -153,6 +218,10 @@ export default {
       desserts: [],
       editedIndex: -1,
       tableSelect: ['視訊', '門診'],
+      //右側選單資料
+      styles: ['家醫科', '牙科'],
+      doctors: ['林子凱', '王子凱'],
+      times: ['上午診', '下午診', '晚上診'],
     };
   },
 
@@ -160,7 +229,6 @@ export default {
     successUploadFile(file, response) {
       var attachFile = {};
       response.type = 'ATT'; //ATT, IMG, DWN
-
       attachFile.uuid = file.upload.uuid;
       attachFile.attachName = response.fileName;
       attachFile.attachFile = response.fileDownloadUri;
@@ -174,7 +242,6 @@ export default {
       // attachFile.title = response.fileName;
       attachFile.type = 'REC';
       attachFile.status = 'T';
-
       this.attachDataDocument.push(attachFile);
     },
     removedFile(file, error, xhr) {
@@ -193,14 +260,11 @@ export default {
     },
     downloadFile(file, error, xhr) {
       var vm = this;
-
       this.attachDataDocument.forEach((element, index) => {
         if ((file.upload && file.upload.uuid == element.uuid) || (!file.upload && file.attachNameNew == element.attachNameNew)) {
           var path = '';
-
           if (element.status == 'T') path = 'downloadTmpFile/' + element.attachNameNew;
           else path = 'downloadFile/' + element.attachNameNew + '/REC';
-          // window.open(vm.landServerUrl + "land/" + path, "_blank");
           window.open(element.attachFile, '_blank');
         }
       });
@@ -234,46 +298,64 @@ export default {
           name: '周敦頤',
           check: '已報到',
         },
+        {
+          num: 3,
+          name: '李清照',
+          check: '已報到',
+        },
+        {
+          num: 4,
+          name: '歐陽脩',
+          check: '已報到',
+        },
+        {
+          num: 5,
+          name: '畢卡索',
+          check: '已報到',
+        },
+        {
+          num: 6,
+          name: '張大千',
+          check: '已報到',
+        },
+        {
+          num: 7,
+          name: '馬蒂斯',
+          check: '已報到',
+        },
+        {
+          num: 8,
+          name: '達文西',
+          check: '已報到',
+        },
+        {
+          num: 9,
+          name: '拉斐爾',
+          check: '已報到',
+        },
+        {
+          num: 10,
+          name: '克林姆',
+          check: '已報到',
+        },
       ];
     },
-    init() {
-      Swiper.use([Navigation]);
-      var swiper = new Swiper('.cardSlider', {
-        slidesPerView: 1.5,
-        spaceBetween: 10,
-        navigation: {
-          nextEl: '.sliderBtnNext',
-          prevEl: '.sliderBtnPrev',
-        },
+    formatDate(date) {
+      if (!date) return null;
 
-        breakpoints: {
-          640: {
-            slidesPerView: 2,
-          },
-          768: {
-            slidesPerView: 2,
-          },
-          991: {
-            slidesPerView: 3,
-          },
-          1024: {
-            slidesPerView: 4,
-          },
-          1200: {
-            slidesPerView: 5,
-          },
-          1440: {
-            slidesPerView: 6,
-          },
-        },
-      });
+      const [year, month, day] = date.split('-');
+      return `${month}/${day}/${year}`;
+    },
+    parseDate(date) {
+      if (!date) return null;
+
+      const [month, day, year] = date.split('/');
+      return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
     },
   },
   created: function() {
-    console.log('!!!! ' + this.$route.params.id);
     // 此時物件尚未被init;
     let vm = this;
-    console.log('vm.idbServerUrl ' + vm.idbServerUrl);
     if (vm.idbServerUrl != '/landProxy/') vm.dropzonePicOptions.url = vm.idbServerUrl + 'land/uploadFile';
     vm.dropzonePicOptions.url = vm.idbServerUrl + 'land/uploadFile';
     this.initialize();
@@ -284,6 +366,9 @@ export default {
     },
     dialogDelete(val) {
       val || this.closeDelete();
+    },
+    date(val) {
+      this.dateFormatted = this.formatDate(this.date);
     },
   },
   mounted() {

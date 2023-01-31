@@ -30,7 +30,7 @@
   .datePicker {
     display: flex;
     align-items: center;
-    margin-left: 2.5rem;
+    margin-left: 2rem;
     margin-bottom: 0.5rem;
     .v-btn {
       height: 2.5rem;
@@ -69,10 +69,15 @@
         margin-bottom: 0.75rem;
       }
     }
+    .title {
+      margin-left: 2rem;
+      margin-bottom: 0;
+    }
     .submitBtn {
       // margin-bottom: 1.75rem;
       @include screen('mobile') {
         width: 20%;
+        min-width: unset;
       }
     }
   }
@@ -120,14 +125,14 @@
     height: calc(100vh - 197px);
   }
   @include screen('mobile') {
-    height: calc(100vh - 301px);
+    // height: calc(100vh - 301px);
     padding: 4rem 1rem 0 1rem;
   }
 }
 .dataTitle {
   font-size: 1rem;
   margin-bottom: 1.25rem;
-  font-weight: 400;
+  font-weight: 700;
 }
 .title {
   // margin-left: 2rem;
@@ -162,7 +167,7 @@
   }
 }
 .tabletList {
-  margin: 2rem 0;
+  margin-bottom: 2rem;
   .tabletSelect {
     // width: 300px;
     .v-input__control {
@@ -203,4 +208,57 @@
   padding-top: 0;
   max-width: 30%;
   margin-left: auto;
+}
+
+.offcanvas {
+  box-shadow: $boxShadow;
+  width: 0px;
+  transition: width 0.4s;
+  z-index: 10;
+  overflow: hidden;
+  background: #fff;
+  position: absolute;
+  height: calc(100vh - 64px);
+  top: 64px;
+  right: 0px;
+  bottom: 0;
+  > div {
+    padding: 1rem;
+  }
+}
+.offcanvas.open {
+  width: 300px;
+
+  transition: width 0.4s;
+}
+.offcanvasHeader {
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h5 {
+    margin-bottom: 0;
+  }
+}
+.offcanvasBody {
+  padding: 0.5rem 0;
+  // background: #ccc;
+  width: calc(300px - 2rem);
+  height: calc(100vh - (115px + 64px + 32px + 1rem));
+  overflow-y: scroll;
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+}
+.offcanvasFooter {
+  width: calc(100% - 2rem);
+  background: #fff;
+  padding-top: 0.5rem;
+  position: absolute;
+  bottom: 1rem;
+  button {
+    margin-bottom: 0.5rem;
+  }
 }
