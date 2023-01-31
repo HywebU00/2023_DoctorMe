@@ -5,6 +5,8 @@ import goTo from 'vuetify/es5/services/goto';
 import Login from './components/System/Login';
 //wep1
 import DashboardWep1 from './components/System/DashboardWep_';
+//import DashboardWep1 from './components/System/Login';
+
 //Clinic
 import C01 from './components/Clinic/C01';
 import C02 from './components/Clinic/C02';
