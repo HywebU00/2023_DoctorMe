@@ -264,8 +264,10 @@
   }
 }
 .main {
-  overflow-y: hidden;
-  overflow-x: hidden;
+  overflow-y: scroll;
   width: 100%;
   background-color: $backgroundColor;
+  .v-main {
+    margin-top: 64px;
+  }
 }

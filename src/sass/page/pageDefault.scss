@@ -23,9 +23,9 @@
   }
 }
 .titleInfo {
-  position: sticky;
-  top: 64px;
-  z-index: 2;
+  // position: sticky;
+  // top: 64px;
+  // z-index: 2;
 
   .datePicker {
     display: flex;
@@ -54,7 +54,7 @@
     }
   }
   .selectNav {
-    padding: 1rem 0 !important;
+    margin: 1rem 0 !important;
     background: $gray;
     display: flex;
     align-items: center;
@@ -112,21 +112,15 @@
     }
   }
 }
+
 .dataSection {
-  margin: 0 auto;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  height: calc(100vh - 136px);
-  padding: 4rem 2rem 0 2rem;
+  padding: 0rem 2rem 0 2rem;
   > div {
     width: 100%;
   }
-  @include screen('notebook') {
-    height: calc(100vh - 197px);
-  }
+
   @include screen('mobile') {
-    // height: calc(100vh - 301px);
-    padding: 4rem 1rem 0 1rem;
+    padding: 0rem 1rem 0 1rem;
   }
 }
 .dataTitle {
@@ -137,7 +131,7 @@
 .title {
   // margin-left: 2rem;
   display: flex;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   h3 {
     font-size: 1.25rem;
     font-weight: 600;
@@ -168,8 +162,16 @@
 }
 .tabletList {
   margin-bottom: 2rem;
+  table {
+    white-space: nowrap;
+    thead {
+      th {
+        padding: 1rem;
+      }
+    }
+  }
+
   .tabletSelect {
-    // width: 300px;
     .v-input__control {
       .v-input__slot {
         &::before {
@@ -178,12 +180,11 @@
       }
     }
   }
-
   button.v-btn {
     margin: 0 0 0 1rem;
     background-color: rgba(0, 0, 0, 0);
     height: 2.25rem !important;
-    width: 6.25rem;
+    // width: 6.25rem;
     span {
       font-size: 1rem;
       font-weight: bold;
@@ -191,6 +192,9 @@
   }
   button.viewBtn {
     width: 1.5rem;
+  }
+  button.checkBtn {
+    width: 6.25rem;
   }
 }
 .tableTitle {
@@ -209,6 +213,90 @@
   max-width: 30%;
   margin-left: auto;
 }
+.selectComponent {
+  position: relative;
+  .selectBtn {
+    cursor: pointer;
+  }
+  .selectContent {
+    position: absolute;
+    .v-list-item__title {
+      font-weight: 400;
+    }
+  }
+}
+.dataSection .listSelect {
+  background-color: unset;
+  padding: 0;
+
+  .title {
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+    i {
+      margin-right: 0.5rem;
+      font-size: 20px;
+      color: $dark;
+    }
+    span {
+      font-size: 1rem;
+      color: $dark;
+    }
+  }
+  .v-item-group {
+    margin-bottom: 1.5rem;
+    > div {
+      margin: 1.5rem 0;
+    }
+  }
+  .v-list-item {
+    background: #fff;
+    border-radius: 0.25rem;
+  }
+}
+.dataSection .listRadio {
+  .v-input--selection-controls__input {
+    display: none;
+  }
+  .v-radio {
+    line-height: 2rem;
+    background: #fff;
+    border-radius: 0.25rem;
+    &:hover {
+      transition: all 0.2s;
+      background: lighten($gray, 5);
+    }
+  }
+  label {
+    margin: 0.6rem 1rem;
+  }
+  .v-item--active {
+    transition: all 0.2s;
+    background: $primaryActive;
+    label {
+      color: $primary;
+    }
+    &:hover {
+      transition: all 0.2s;
+      background: lighten($primaryActive, 10);
+    }
+  }
+  .title {
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+    i {
+      margin-right: 0.5rem;
+      font-size: 20px;
+      color: $dark;
+    }
+    span {
+      font-size: 1rem;
+      color: $dark;
+    }
+  }
+  .v-messages {
+    min-height: 0px;
+  }
+}
 
 .offcanvas {
   box-shadow: $boxShadow;
@@ -217,8 +305,8 @@
   z-index: 10;
   overflow: hidden;
   background: #fff;
-  position: absolute;
-  height: calc(100vh - 64px);
+  position: fixed;
+  // height: calc(100% - 64px);
   top: 64px;
   right: 0px;
   bottom: 0;

@@ -1,141 +1,149 @@
 <template>
   <v-form v-model="valid" class="">
     <div class="titleInfo">
-      <div class="clinicInfo"><h2>凌網診所台北總院</h2></div>
-      <template>
-        <div class="selectNav">
-          <div class="datePicker">
-            <v-menu v-model="menu2" :close-on-content-click="false" :nudge-right="40" transition="scale-transition" offset-y min-width="auto">
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn v-model="date" v-bind="attrs" v-on="on" fab color="primary" @click="expand = !expand">
-                  <v-icon>
-                    calendar_today
-                  </v-icon>
-                </v-btn>
-                <h3>
-                  <strong>{{ date }}</strong>
-                  <span>診間列表</span>
-                </h3>
-              </template>
-              <v-date-picker no-title v-model="date" @input="menu2 = false"></v-date-picker>
-            </v-menu>
-          </div>
-          <div class="selectGroup">
-            <v-autocomplete v-model="item1" :items="items1" dense label="科別" solo item-text="text"> </v-autocomplete>
-            <v-select v-model="item2" :items="items2" dense small-chips label="所有時段" multiple solo item-text="text" no-data-text="查無資料" :rules="requiredRules"> </v-select>
-            <v-btn class="submitBtn" depressed color="primaryDark" dark>
-              搜尋
-            </v-btn>
-          </div>
-        </div>
-      </template>
+      <div class="clinicInfo"><h2>新增預約 - 一般門診</h2></div>
     </div>
-    <!-- 診間卡片 slider start-->
     <section class="dataSection">
-      <div v-show="item2.length == 0">
-        <div class="emptyImg">
-          <img src="~@/assets/empty.svg" alt="" />
-          <p>無門診資訊</p>
-          <v-btn class="submitBtn" depressed color="primaryDark" dark>
-            診所尚未完成設定，請先完成診所設定以啟動完整服務
-          </v-btn>
-        </div>
-      </div>
-      <div v-for="(menu, i) in item2" :key="i">
-        <!-- 選取的科別 -->
-        <h4 class="dataTitle">{{ item1 }}</h4>
-        <!-- 選取的時間 -->
-        <h4 class="dataTitle">{{ menu }}</h4>
-        <!-- 卡片 slide-groups -->
-        <div class="swiper-container cardSlider ">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide " v-for="item in items" :key="item.url">
-              <v-card class="cardItem" :elevation="active ? 10 : 0">
-                <v-card-title class="room">
-                  {{ item.room }}
-                </v-card-title>
-                <v-card-text>
-                  <span class="doctor">{{ item.doctor }}醫生</span>
-                  <span class="number">{{ item.standby }}號</span>
-                </v-card-text>
-                <v-btn color="primaryDark" dark>
-                  預約資料
-                </v-btn>
-                <!-- <v-btn color="primaryDark" dark block @click="toggle">
-                    預約資料
-                  </v-btn> -->
-                <v-btn outlined color="primaryDark"> 叫號管理 </v-btn>
-              </v-card>
-            </div>
-          </div>
-          <div class="swiper-button-next sliderBtnNext"></div>
-          <div class="swiper-button-prev sliderBtnPrev"></div>
-        </div>
-      </div>
-
-      <!-- 診間卡片 slider end-->
-
-      <!-- 標題 start-->
       <div class="title">
         <h3>
-          <span>預約名單</span>
+          <span>請輸入基本資料</span>
         </h3>
-        <v-btn color="primaryDark" dark>
-          新增預約
-        </v-btn>
       </div>
-      <!-- 標題 end-->
-      <template>
-        <v-card class="tabletList">
-          <v-card-title>
-            <div class="tableTitle">
-              <v-icon>
-                calendar_today
-              </v-icon>
-              <h5>2022/11/10 <span> (40筆預約)</span></h5>
-            </div>
-            <v-text-field class="tableSearch" v-model="search" append-icon="mdi-magnify" label="請輸入姓名" single-line hide-details></v-text-field>
-          </v-card-title>
-          <template>
-            <v-data-table :headers="headers" :items="desserts" sort-by="calories" class="elevation-1" :footer-props="{ itemsPerPageText: '1頁顯示 :' }">
-              <template v-slot:[`item.type`]>
-                <v-select class="tabletSelect" multiple :items="tableSelect"> </v-select>
-              </template>
-              <template v-slot:[`item.check`]="{ item }">
-                <span>{{ item.check }}</span>
-                <v-btn depressed color="primaryDark" dark>報到</v-btn>
-                <!-- <v-btn depressed color="rgba(236, 236, 236, 1)">取消報到</v-btn> -->
-              </template>
-              <template v-slot:[`item.file`]="{ item }">
-                <v-btn class="viewBtn" depressed color="rgba(0,0,0,0)">
-                  <v-icon>
-                    description
-                  </v-icon>
-                </v-btn>
-              </template>
-            </v-data-table>
+      <v-form>
+        <label for="idNum">
+          <span>*</span>
+          身分證/居留證號碼</label
+        >
+        <v-text-field placeholder="請輸入身分證/居留證號碼" id="idNum" dense v-model="first" background-color="#fff" outlined></v-text-field>
+        <label for="user">
+          <span>*</span>
+          姓名</label
+        >
+        <v-text-field placeholder="請輸入預約號碼" id="user" dense v-model="first" background-color="#fff" outlined></v-text-field>
+        <label for="phoneNum">
+          <span>*</span>
+          手機號碼</label
+        >
+        <v-text-field id="phoneNum" placeholder="請輸入手機號" dense v-model="first" background-color="#fff" outlined></v-text-field>
+        <label for="style">請選擇科別</label>
+        <v-select id="style" :items="items1" dense background-color="#fff" outlined placeholder="家醫科"></v-select>
+        <label for="doctor">請選擇醫生</label>
+        <v-select id="doctor" :items="items3" dense background-color="#fff" placeholder="不指定醫生" outlined></v-select>
+        <label for="birthday">請選擇生日</label>
+        <v-menu v-model="menu2" id="birthday" :close-on-content-click="false" transition="scale-transition" max-width="250px" min-width="auto">
+          <template v-slot:activator="{ on, attrs }">
+            <v-text-field v-model="computedDateFormatted" persistent-hint dense outlined readonly background-color="#fff" v-bind="attrs" v-on="on"></v-text-field>
           </template>
-        </v-card>
-      </template>
-      <!-- 拖曳區塊 start-->
-      <div class="form-group">
-        <div class="col-md-10 offset-md-1">
-          <vueDropzone ref="myVueDropzoneFile" id="dropzoneFile" :options="dropzonePicOptions" @vdropzone-success="successUploadFile" @vdropzone-removed-file="removedFile" @vdropzone-download-file="downloadFile"></vueDropzone>
-        </div>
+          <v-date-picker width="250px" class="datePicker" v-model="date" no-title @input="menu2 = false"></v-date-picker>
+        </v-menu>
+
+        <!-- 區域日期選擇器 start -->
+        <!-- <label for="date">請選擇日期</label>
+        <v-menu v-model="menu" :close-on-content-click="false" :nudge-right="40" transition="scale-transition" offset-y min-width="auto">
+          <template v-slot:activator="{ on, attrs }">
+            <v-text-field background-color="#fff" dense outlined v-model="dateRangeText" readonly v-bind="attrs" v-on="on"></v-text-field>
+          </template>
+          <v-date-picker v-model="dates" range no-title>
+            <v-spacer></v-spacer>
+            <v-btn text color="primary" @click="menu = false">
+              Cancel
+            </v-btn>
+            <v-btn text color="primary" @click="$refs.menu.save(date)">
+              OK
+            </v-btn>
+          </v-date-picker>
+        </v-menu> -->
+        <!-- 區域日期選擇器 end -->
+
+        <!-- 日期選擇器區塊 start -->
+        <label for="birthday">請選擇日期</label>
+        <v-sheet elevations="0">
+          <div class="d-flex justify-center align-center">
+            <v-date-picker no-title v-model="picker"></v-date-picker>
+          </div>
+        </v-sheet>
+        <!-- 日期選擇器區塊 end -->
+        <!-- 選擇醫生列表 radio start -->
+        <v-radio-group class="listRadio" v-model="radios" v-for="item in doctorItems" :key="item">
+          <div class="title">
+            <v-icon>mdi-clock</v-icon>
+            <span>{{ item.title }}</span>
+          </div>
+          <v-radio :value="item.num">
+            <template v-slot:label>
+              <div>{{ item.text }}</div>
+            </template>
+          </v-radio>
+        </v-radio-group>
+        <!-- 選擇醫生列表 radio end -->
+        <!-- 選擇醫生列表 start -->
+        <!-- <v-list class="listSelect">
+          <v-list-item-group v-model="selectedItem" color="primary">
+            <div class="" v-for="(item, i) in doctorItems" :key="i">
+              <div class="title">
+                <v-icon>mdi-clock</v-icon>
+                <span>{{ item.title }}</span>
+              </div>
+              <v-list-item dense>
+                <v-list-item-content>
+                  <v-list-item-title v-text="item.text"></v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </div>
+          </v-list-item-group>
+        </v-list> -->
+        <!-- 選擇醫生列表 end -->
+        <!-- 預約摘要 start -->
+        <ul class="">
+          <li>
+            <span>預約摘要</span>
+            <ul>
+              <li>2022/11/20</li>
+              <li>晚上診</li>
+              <li>診間一：林子凱醫生</li>
+            </ul>
+          </li>
+        </ul>
+        <!-- 預約摘要 end -->
+      </v-form>
+      <!-- 確認日期區塊 start -->
+      <div class="title">
+        <h3>
+          <span>您已預約完成</span>
+        </h3>
       </div>
-      <!-- 拖曳區塊 end-->
+      <v-sheet>
+        <div class="d-flex justify-center align-center">
+          <ul>
+            <li>您預約號碼</li>
+            <li>21號</li>
+          </ul>
+        </div>
+      </v-sheet>
+      <!-- 確認日期區塊 end -->
+      <!-- 確認預約資訊 start -->
+      <div class="title">
+        <h3>
+          <span>確認預約資訊</span>
+        </h3>
+      </div>
+      <ul class="reserveList">
+        <li v-for="item in reserveList" :key="item">
+          <span v-text="item.title"></span>
+          <p v-text="item.content"></p>
+        </li>
+      </ul>
+      <!-- 確認預約資訊 end -->
     </section>
+    <div class="d-flex justify-center align-center">
+      <v-btn color="primaryDark" dark>上一步</v-btn>
+      <v-btn color="primaryDark" dark>下一步</v-btn>
+    </div>
   </v-form>
 </template>
 <script>
 //swiper 套件
-import Swiper, { Navigation, Pagination } from 'swiper';
-// import 'swiper/swiper-bundle.css';
-// import { vue2Dropzone } from "vue2-dropzone";
-// import "src/vue2-dropzone/dist/vue2Dropzone.min.css";
 import { mapGetters, mapActions } from 'vuex';
-import vue2Dropzone from 'vue2-dropzone';
-import 'vue2-dropzone/dist/vue2Dropzone.min.css';
 
 export default {
   computed: {
@@ -145,25 +153,18 @@ export default {
     formTitle() {
       return this.editedIndex === -1 ? 'New Item' : 'Edit Item';
     },
+    computedDateFormatted() {
+      return this.formatDate(this.date);
+    },
+    dateRangeText() {
+      return this.dates.join(' ~ ');
+    },
   },
-  components: {
-    vueDropzone: vue2Dropzone,
-  },
+  components: {},
   data() {
     return {
       model: null,
       valid: null,
-      items: [
-        { room: '診間一', doctor: '林子凱', standby: '10' },
-        { room: '診間二', doctor: '林黴因', standby: '5' },
-        { room: '診間三', doctor: '林黴因', standby: '7' },
-        { room: '診間四', doctor: '琦君', standby: '30' },
-        { room: '診間五', doctor: '琦君', standby: '31' },
-        { room: '診間四', doctor: '琦君', standby: '30' },
-        { room: '診間五', doctor: '琦君', standby: '31' },
-        { room: '診間四', doctor: '琦君', standby: '30' },
-        { room: '診間五', doctor: '琦君', standby: '31' },
-      ],
       date: new Date().toISOString().substr(0, 10),
       menu: false,
       modal: false,
@@ -171,7 +172,9 @@ export default {
       items1: [{ text: '家醫科' }, { text: '牙科' }, { text: '胸腔科' }, { text: '內科' }],
       item1: '家醫科',
       items2: [{ text: '上午診' }, { text: '下午診' }, { text: '晚上診' }],
+      items3: [{ text: '杜振熙' }, { text: '周敦頤' }, { text: '李清照' }],
       item2: ['上午診'],
+
       requiredRules: [(v) => !!v || '此欄位是必填'],
       dropzonePicOptions: {
         url: 'https://idb.m20cloud.tk:8443/idb/uploadFile',
@@ -180,51 +183,64 @@ export default {
         maxFiles: 10,
         filesizeBase: 1024,
         thumbnailWidth: 300,
-        // chunking: true,
-        // chunkSize: 500, // Bytes
-        // uploadMultiple: true,
-        // parallelUploads: 3,
+
         autoProcessQueue: true,
-        // acceptedFiles: ".pdf",
-        // dictDefaultMessage:
-        //   "<i class='fa fa-cloud-upload'></i>請點擊或拖曳檔案上傳<br/>檔案請勿超過5MB<br/>",
-        // dictFileTooBig: "檔案太大",
-        // dictInvalidFileType: "不允許的檔案格式",
-        // dictMaxFilesExceeded: "檔案數量超過限制",
-        // dictCancelUploadConfirmation: "是否確定要取消上傳",
-        init: function() {
-          // var self = this;
-          // self.on("uploadprogress", function(file, progress) {
-          //   console.log("File progress", progress);
-          // });
-          // self.removeAllFiles();,
-        },
+        init: function() {},
         addRemoveLinks: true,
         addDownloadLinks: true,
-        // dictDefaultMessage: "<i class='fa fa-cloud-upload'></i>UPLOAD",
       },
       expand: false,
+      selectExpand: false,
       picker: new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10),
-
+      selectedItem: 1,
+      doctorItems: [
+        { text: '診間一：林子凱醫生', title: '上午診 （8:30-12:00）', num: 1 },
+        { text: '診間一：林子凱醫生', title: '下午診 （15:00-18:00）', num: 2 },
+        { text: '診間一：林子凱醫生', title: '晚上診 （19:00-21:30）', num: 3 },
+      ],
+      radios: null,
       //表單的ＪＳ
+      search: '',
       dialog: false,
+      dialog2: false,
       dialogDelete: false,
       headers: [
         {
           text: '預約號碼',
           align: 'start',
           sortable: false,
+          filterable: false,
           value: 'num',
           width: '100px',
         },
         { text: '姓名', value: 'name', sortable: false },
-        { text: '類型', value: 'type', sortable: false, width: '200px' },
+        { text: '類型', type: 'select', value: 'type', sortable: true, width: '200px' },
         { text: '報到', value: 'check', sortable: false, width: '200px' },
         { text: '檢視預約資料', value: 'file', sortable: false, width: '60px' },
       ],
       desserts: [],
       editedIndex: -1,
       tableSelect: ['視訊', '門診'],
+      //右側選單資料
+      styles: ['家醫科', '牙科'],
+      doctors: ['林子凱', '王子凱'],
+      times: ['上午診', '下午診', '晚上診'],
+      //select
+      SelectItems: ['視訊', '門診'],
+      dates: ['2019-09-10', '2019-09-20'],
+      //
+
+      reserveList: [
+        { title: '預約科別', content: '家醫科' },
+        { title: '預約日期', content: '2022 / 11 / 10 （一）' },
+        { title: '預約時段', content: '上午診（08:30 ~ 12:00）' },
+        { title: '看診醫生', content: '診間一：林子凱醫生' },
+        { title: '預約者類型', content: '初診' },
+        { title: '預約者姓名', content: '林小凌' },
+        { title: '身分證/居留證號碼', content: 'H879476902' },
+        { title: '生日', content: '1990/10/28' },
+        { title: '手機號碼', content: '0987502895' },
+      ],
     };
   },
 
@@ -232,7 +248,6 @@ export default {
     successUploadFile(file, response) {
       var attachFile = {};
       response.type = 'ATT'; //ATT, IMG, DWN
-
       attachFile.uuid = file.upload.uuid;
       attachFile.attachName = response.fileName;
       attachFile.attachFile = response.fileDownloadUri;
@@ -246,9 +261,6 @@ export default {
       // attachFile.title = response.fileName;
       attachFile.type = 'REC';
       attachFile.status = 'T';
-      // console.log("response!!! " + JSON.stringify(response));
-      // console.log("file!!! " + JSON.stringify(file));
-      // console.log("attachFile??? " + JSON.stringify(attachFile));
       this.attachDataDocument.push(attachFile);
     },
     removedFile(file, error, xhr) {
@@ -264,21 +276,14 @@ export default {
           }
         }
       });
-      // console.log("this.attachDataDocument " + this.attachDataDocument.length);
     },
     downloadFile(file, error, xhr) {
-      // console.log("file is ->", JSON.stringify(file));
-      // console.log("error is ->", JSON.stringify(error));
-      // console.log("xhr is ->", JSON.stringify(xhr));
       var vm = this;
-
       this.attachDataDocument.forEach((element, index) => {
         if ((file.upload && file.upload.uuid == element.uuid) || (!file.upload && file.attachNameNew == element.attachNameNew)) {
           var path = '';
-
           if (element.status == 'T') path = 'downloadTmpFile/' + element.attachNameNew;
           else path = 'downloadFile/' + element.attachNameNew + '/REC';
-          // window.open(vm.landServerUrl + "land/" + path, "_blank");
           window.open(element.attachFile, '_blank');
         }
       });
@@ -306,54 +311,84 @@ export default {
           num: 1,
           name: '杜振熙',
           check: '未報到',
+          type: '門診',
         },
         {
           num: 2,
-          name: '杜振熙',
+          name: '周敦頤',
+          check: '未報到',
+          type: '門診',
+        },
+        {
+          num: 3,
+          name: '李清照',
           check: '已報到',
+          type: '視訊',
+        },
+        {
+          num: 4,
+          name: '歐陽脩',
+          check: '已報到',
+          type: '視訊',
+        },
+        {
+          num: 5,
+          name: '畢卡索',
+          check: '已報到',
+          type: '門診',
+        },
+        {
+          num: 6,
+          name: '張大千',
+          check: '已報到',
+          type: '門診',
+        },
+        {
+          num: 7,
+          name: '馬蒂斯',
+          check: '已報到',
+          type: '視訊',
+        },
+        {
+          num: 8,
+          name: '達文西',
+          check: '已報到',
+          type: '門診',
+        },
+        {
+          num: 9,
+          name: '拉斐爾',
+          check: '已報到',
+          type: '門診',
+        },
+        {
+          num: 10,
+          name: '克林姆',
+          check: '已報到',
+          type: '門診',
         },
       ];
     },
-    init() {
-      Swiper.use([Navigation]);
-      var swiper = new Swiper('.cardSlider', {
-        slidesPerView: 1.5,
-        spaceBetween: 10,
-        navigation: {
-          nextEl: '.sliderBtnNext',
-          prevEl: '.sliderBtnPrev',
-        },
+    formatDate(date) {
+      if (!date) return null;
 
-        breakpoints: {
-          640: {
-            slidesPerView: 2,
-          },
-          768: {
-            slidesPerView: 2,
-          },
-          991: {
-            slidesPerView: 3,
-          },
-          1024: {
-            slidesPerView: 4,
-          },
-          1200: {
-            slidesPerView: 5,
-          },
-          1440: {
-            slidesPerView: 6,
-          },
-        },
-      });
+      const [year, month, day] = date.split('-');
+      return `${month}/${day}/${year}`;
+    },
+    parseDate(date) {
+      if (!date) return null;
+
+      const [month, day, year] = date.split('/');
+      return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
     },
   },
   created: function() {
-    console.log('!!!! ' + this.$route.params.id);
     // 此時物件尚未被init;
     let vm = this;
-    console.log('vm.idbServerUrl ' + vm.idbServerUrl);
-    if (vm.idbServerUrl != '/landProxy/') vm.dropzonePicOptions.url = vm.idbServerUrl + 'land/uploadFile';
-    vm.dropzonePicOptions.url = vm.idbServerUrl + 'land/uploadFile';
+    if (vm.idbServerUrl != '/landProxy/') {
+      vm.dropzonePicOptions.url = vm.idbServerUrl + 'land/uploadFile';
+      vm.dropzonePicOptions.url = vm.idbServerUrl + 'land/uploadFile';
+    }
     this.initialize();
   },
   watch: {
@@ -362,6 +397,9 @@ export default {
     },
     dialogDelete(val) {
       val || this.closeDelete();
+    },
+    date(val) {
+      this.dateFormatted = this.formatDate(this.date);
     },
   },
   mounted() {

@@ -2,35 +2,43 @@
   <v-form v-model="valid" class="">
     <div class="titleInfo">
       <div class="clinicInfo"><h2>凌網診所台北總院</h2></div>
-      <template>
-        <div class="selectNav">
-          <div class="datePicker">
-            <v-menu v-model="menu2" :close-on-content-click="false" :nudge-right="40" transition="scale-transition" offset-y min-width="auto">
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn v-model="date" v-bind="attrs" v-on="on" fab color="primary" @click="expand = !expand">
-                  <v-icon>
-                    calendar_today
-                  </v-icon>
-                </v-btn>
-                <h3>
-                  <strong>{{ date }}</strong>
-                  <span>診間列表</span>
-                </h3>
-              </template>
-              <v-date-picker no-title v-model="date" @input="menu2 = false"></v-date-picker>
-            </v-menu>
-          </div>
-          <div class="selectGroup">
-            <v-autocomplete v-model="item1" :items="items1" dense label="科別" solo item-text="text"> </v-autocomplete>
-            <v-select v-model="item2" :items="items2" dense small-chips label="所有時段" multiple solo item-text="text" no-data-text="查無資料" :rules="requiredRules"> </v-select>
-            <v-btn class="submitBtn" depressed color="primaryDark" dark>
-              搜尋
-            </v-btn>
-          </div>
+
+      <div class="selectNav">
+        <div class="datePicker">
+          <v-menu v-model="menu2" :close-on-content-click="false" :nudge-right="40" transition="scale-transition" offset-y min-width="auto">
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn v-model="date" v-bind="attrs" v-on="on" fab color="primary" @click="expand = !expand">
+                <v-icon>
+                  calendar_today
+                </v-icon>
+              </v-btn>
+              <h3>
+                <strong>{{ date }}</strong>
+                <span>診間列表</span>
+              </h3>
+            </template>
+            <v-date-picker no-title v-model="date" @input="menu2 = false"></v-date-picker>
+          </v-menu>
         </div>
-      </template>
+        <div class="selectGroup">
+          <v-autocomplete v-model="item1" :items="items1" dense label="科別" solo item-text="text"> </v-autocomplete>
+          <v-select v-model="item2" :items="items2" dense small-chips label="所有時段" multiple solo item-text="text" no-data-text="查無資料" :rules="requiredRules"> </v-select>
+          <v-btn class="submitBtn" depressed color="primaryDark" dark>
+            搜尋
+          </v-btn>
+        </div>
+      </div>
     </div>
     <section class="dataSection">
+      <!-- alert-start -->
+      <v-alert>
+        <div class="d-flex ">
+          <v-icon>mdi-alert-octagon-outline</v-icon>
+          <p>提醒您，您目前所選擇的日期非當日。</p>
+          <v-btn>Take action</v-btn>
+        </div>
+      </v-alert>
+      <!-- alert-end -->
       <!-- 診間卡片 slider start-->
       <div v-show="item2.length == 0">
         <div class="emptyImg">
@@ -129,7 +137,6 @@ export default {
           nextEl: '.sliderBtnNext',
           prevEl: '.sliderBtnPrev',
         },
-
         breakpoints: {
           640: {
             slidesPerView: 1.5,
@@ -169,6 +176,9 @@ export default {
     },
   },
   mounted() {
+    this.init();
+  },
+  updated() {
     this.init();
   },
 };

@@ -10,6 +10,7 @@ import DashboardWep1 from './components/System/DashboardWep_';
 //Clinic
 import C01 from './components/Clinic/C01';
 import C02 from './components/Clinic/C02';
+// import C02 from './components/Clinic/test';
 import C03 from './components/Clinic/C03';
 
 export default new Router({
@@ -30,6 +31,11 @@ export default new Router({
       name: 'DashboardWep1',
       component: DashboardWep1,
       children: [
+        {
+          path: '',
+          name: '診所後台',
+          component: C01,
+        },
         {
           path: '/C01',
           name: '診所後台',

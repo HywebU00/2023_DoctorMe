@@ -70,7 +70,7 @@
               <!-- 新增預約按鈕start -->
               <v-menu offset-y>
                 <template v-slot:activator="{ on, attrs }">
-                  <v-btn class="reserveBtn" color=" accent" v-bind="attrs" v-on="on">
+                  <v-btn class="reserveBtn " color=" accent" v-bind="attrs" v-on="on">
                     <v-icon class="material-icons-round" color="light" left>add</v-icon>
                     <span>新增預約</span>
                   </v-btn>
@@ -101,10 +101,46 @@
             </v-btn>
             <v-expand-transition>
               <div class="userMobileContent" v-show="expand" height="100" width="100">
-                <v-btn class="reserveBtn" color="accent">
+                <!-- <v-btn class="reserveBtn" color="accent">
                   <v-icon class="material-icons-round" color="light" left>add</v-icon>
                   <span>新增預約</span>
-                </v-btn>
+                </v-btn> -->
+                <v-dialog v-model="dialogMobile" fullscreen hide-overlay transition="dialog-bottom-transition">
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn class="reserveBtn " color=" accent" v-bind="attrs" v-on="on">
+                      <v-icon class="material-icons-round" color="light" left>add</v-icon>
+                      <span>新增預約</span>
+                    </v-btn>
+                  </template>
+                  <v-card>
+                    <v-btn icon @click="dialogMobile = false">
+                      <v-icon>mdi-close</v-icon>
+                    </v-btn>
+                    <div class="">
+                      <div class="">
+                        <img src="" alt="" />
+                        <h5>新增預約</h5>
+                      </div>
+                      <ul>
+                        <li>
+                          <v-btn color=" accent">
+                            <span>一般門診</span>
+                          </v-btn>
+                        </li>
+                        <li>
+                          <v-btn color=" accent">
+                            <span>新冠診療</span>
+                          </v-btn>
+                        </li>
+                        <li>
+                          <v-btn color=" accent">
+                            <span>疫苗注射</span>
+                          </v-btn>
+                        </li>
+                      </ul>
+                    </div>
+                  </v-card>
+                </v-dialog>
                 <v-btn class="userBtn" plain>
                   <v-icon class="material-icons-round" left>notifications</v-icon>
                   <span>林小華</span>
@@ -156,6 +192,12 @@ export default {
       endTime: null,
       refreshId: null,
       anim: null,
+
+      dialogMobile: false,
+      notifications: false,
+      sound: true,
+      widgets: false,
+
       items: [
         {
           icon: 'assignment',

@@ -2,22 +2,77 @@
   <v-form v-model="valid" class="">
     <div class="titleInfo">
       <div class="clinicInfo"><h2>凌網診所台北總院</h2></div>
-      <template>
-        <div class="selectNav">
-          <!-- 標題 start-->
-          <div class="title">
-            <h3>
-              <span>預約名單</span>
-            </h3>
-            <v-btn color="primaryDark" dark>
-              新增預約
-            </v-btn>
-          </div>
-          <!-- 標題 end-->
-        </div>
-      </template>
     </div>
     <section class="dataSection">
+      <div class="title">
+        <h3>
+          <span>預約名單</span>
+        </h3>
+        <v-dialog v-model="dialog" persistent max-width="600px">
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn color="primaryDark" dark v-bind="attrs" v-on="on">
+              新增預約
+            </v-btn>
+          </template>
+          <v-card>
+            <v-card-title>
+              <h5 color="primaryDark" text>新增預約</h5>
+            </v-card-title>
+            <v-card-text>
+              <v-container>
+                <label for="">預約號碼</label>
+                <v-text-field placeholder="請輸入預約號碼" outlined required></v-text-field>
+                <v-checkbox label="安排至最後一號"></v-checkbox>
+              </v-container>
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn text @click="dialog = false">
+                取消
+              </v-btn>
+              <v-btn color="primaryDark" dark @click="dialog = false">
+                確認
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </div>
+      <!-- 有header的table start -->
+      <!-- <template>
+        <v-card class="tabletList">
+          <v-card-title>
+            <div class="tableTitle">
+              <v-icon>
+                calendar_today
+              </v-icon>
+              <h5>2022/11/10 <span> (40筆預約)</span></h5>
+            </div>
+            <v-text-field class="tableSearch" v-model="search" append-icon="mdi-magnify" label="請輸入姓名" single-line hide-details></v-text-field>
+          </v-card-title>
+
+          <template>
+            <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1" :footer-props="{ itemsPerPageText: '1頁顯示 :' }">
+              <template v-slot:[`item.type`]="{ item }">
+                <span>{{ item.type }}</span>
+              </template>
+              <template v-slot:[`item.check`]="{ item }">
+                <span>{{ item.check }}</span>
+                <v-btn depressed color="primaryDark" dark>報到</v-btn>
+                <v-btn depressed color="rgba(236, 236, 236, 1)">取消報到</v-btn>
+              </template>
+              <template v-slot:[`item.file`]="{ item }">
+                <v-btn class="viewBtn" depressed color="rgba(0,0,0,0)" @click.stop="openOffcanvas = !openOffcanvas">
+                  <v-icon>
+                    description
+                  </v-icon>
+                </v-btn>
+              </template>
+            </v-data-table>
+          </template>
+        </v-card>
+      </template> -->
+      <!-- 有header的table end -->
+      <!-- 沒有header的table start -->
       <template>
         <v-card class="tabletList">
           <v-card-title>
@@ -30,14 +85,55 @@
             <v-text-field class="tableSearch" v-model="search" append-icon="mdi-magnify" label="請輸入姓名" single-line hide-details></v-text-field>
           </v-card-title>
           <template>
-            <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1" :footer-props="{ itemsPerPageText: '1頁顯示 :' }">
-              <template v-slot:[`item.type`]>
-                <v-select class="tabletSelect" placeholder="視訊" multiple :items="tableSelect"> </v-select>
+            <v-data-table mobile-breakpoint="0" hide-default-header fixed-header :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1 width-scroll" :footer-props="{ itemsPerPageText: '1頁顯示 :' }">
+              <template slot="header" :headers="headers">
+                <thead>
+                  <tr>
+                    <th width="100">預約號碼</th>
+                    <th>姓名</th>
+                    <th width="200">
+                      <div class="selectComponent" transition="slide-x-transition">
+                        <span class="selectBtn" @click="selectExpand = !selectExpand">
+                          類型
+                          <v-icon>
+                            mdi-menu-down
+                          </v-icon>
+                        </span>
+                        <v-expand-transition>
+                          <v-card class="selectContent" v-show="selectExpand">
+                            <v-list>
+                              <v-list-item-group v-model="model" multiple>
+                                <template v-for="(item, i) in SelectItems">
+                                  <v-divider v-if="!item" :key="`divider-${i}`"></v-divider>
+                                  <v-list-item v-else :key="`item-${i}`" :value="item" active-class="primaryActive ">
+                                    <template v-slot:default="{ active }">
+                                      <v-list-item-content>
+                                        <v-list-item-title v-text="item"></v-list-item-title>
+                                      </v-list-item-content>
+                                      <v-list-item-action>
+                                        <v-checkbox :input-value="active" color=""></v-checkbox>
+                                      </v-list-item-action>
+                                    </template>
+                                  </v-list-item>
+                                </template>
+                              </v-list-item-group>
+                            </v-list>
+                          </v-card>
+                        </v-expand-transition>
+                      </div>
+                    </th>
+                    <th width="200">報到</th>
+                    <th width="200">檢視的資料</th>
+                  </tr>
+                </thead>
+              </template>
+              <template v-slot:[`item.type`]="{ item }">
+                <span>{{ item.type }}</span>
               </template>
               <template v-slot:[`item.check`]="{ item }">
                 <span>{{ item.check }}</span>
-                <v-btn depressed color="primaryDark" dark>報到</v-btn>
-                <!-- <v-btn depressed color="rgba(236, 236, 236, 1)">取消報到</v-btn> -->
+                <v-btn class="checkBtn" depressed color="primaryDark" dark>報到</v-btn>
+                <!-- <v-btn class="checkBtn" depressed color="rgba(236, 236, 236, 1)">取消報到</v-btn> -->
               </template>
               <template v-slot:[`item.file`]="{ item }">
                 <v-btn class="viewBtn" depressed color="rgba(0,0,0,0)" @click.stop="openOffcanvas = !openOffcanvas">
@@ -50,6 +146,7 @@
           </template>
         </v-card>
       </template>
+      <!-- 沒有header的table end -->
       <!-- 拖曳區塊 start-->
       <div class="form-group">
         <div class="col-md-10 offset-md-1">
@@ -139,7 +236,33 @@
         </div>
         <div class="offcanvasFooter">
           <v-btn color="primaryDark" dark block>更改預約</v-btn>
-          <v-btn color="primaryDark" dark block>取消預約</v-btn>
+          <v-dialog v-model="dialog2" persistent max-width="600px">
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn color="primaryDark" dark block v-bind="attrs" v-on="on">取消預約</v-btn>
+            </template>
+            <v-card>
+              <v-card-title>
+                <h5 color="primaryDark" text>取消預約</h5>
+                <v-spacer></v-spacer>
+                <button>
+                  <v-icon @click.stop="dialog2 = !dialog2">
+                    close
+                  </v-icon>
+                </button>
+              </v-card-title>
+              <v-card-text>
+                <v-container>
+                  <p>確認取消 2022/11/10 林小凌的預約嗎？</p>
+                </v-container>
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="primaryDark" dark @click="dialog2 = false">
+                  確認取消
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
         </div>
       </div>
     </section>
@@ -175,7 +298,7 @@ export default {
       menu: false,
       modal: false,
       menu2: false,
-      openOffcanvas: true,
+      openOffcanvas: false,
       items1: [{ text: '家醫科' }, { text: '牙科' }, { text: '胸腔科' }, { text: '內科' }],
       item1: '家醫科',
       items2: [{ text: '上午診' }, { text: '下午診' }, { text: '晚上診' }],
@@ -195,11 +318,13 @@ export default {
         addDownloadLinks: true,
       },
       expand: false,
+      selectExpand: false,
       picker: new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10),
 
       //表單的ＪＳ
       search: '',
       dialog: false,
+      dialog2: false,
       dialogDelete: false,
       headers: [
         {
@@ -211,7 +336,7 @@ export default {
           width: '100px',
         },
         { text: '姓名', value: 'name', sortable: false },
-        { text: '類型', value: 'type', sortable: false, width: '200px' },
+        { text: '類型', type: 'select', value: 'type', sortable: true, width: '200px' },
         { text: '報到', value: 'check', sortable: false, width: '200px' },
         { text: '檢視預約資料', value: 'file', sortable: false, width: '60px' },
       ],
@@ -222,6 +347,8 @@ export default {
       styles: ['家醫科', '牙科'],
       doctors: ['林子凱', '王子凱'],
       times: ['上午診', '下午診', '晚上診'],
+      //select
+      SelectItems: ['視訊', '門診'],
     };
   },
 
@@ -292,51 +419,61 @@ export default {
           num: 1,
           name: '杜振熙',
           check: '未報到',
+          type: '門診',
         },
         {
           num: 2,
           name: '周敦頤',
-          check: '已報到',
+          check: '未報到',
+          type: '門診',
         },
         {
           num: 3,
           name: '李清照',
           check: '已報到',
+          type: '視訊',
         },
         {
           num: 4,
           name: '歐陽脩',
           check: '已報到',
+          type: '視訊',
         },
         {
           num: 5,
           name: '畢卡索',
           check: '已報到',
+          type: '門診',
         },
         {
           num: 6,
           name: '張大千',
           check: '已報到',
+          type: '門診',
         },
         {
           num: 7,
           name: '馬蒂斯',
           check: '已報到',
+          type: '視訊',
         },
         {
           num: 8,
           name: '達文西',
           check: '已報到',
+          type: '門診',
         },
         {
           num: 9,
           name: '拉斐爾',
           check: '已報到',
+          type: '門診',
         },
         {
           num: 10,
           name: '克林姆',
           check: '已報到',
+          type: '門診',
         },
       ];
     },
@@ -356,8 +493,10 @@ export default {
   created: function() {
     // 此時物件尚未被init;
     let vm = this;
-    if (vm.idbServerUrl != '/landProxy/') vm.dropzonePicOptions.url = vm.idbServerUrl + 'land/uploadFile';
-    vm.dropzonePicOptions.url = vm.idbServerUrl + 'land/uploadFile';
+    if (vm.idbServerUrl != '/landProxy/') {
+      vm.dropzonePicOptions.url = vm.idbServerUrl + 'land/uploadFile';
+      vm.dropzonePicOptions.url = vm.idbServerUrl + 'land/uploadFile';
+    }
     this.initialize();
   },
   watch: {
