@@ -8,22 +8,26 @@
         <h3>
           <span>預約名單</span>
         </h3>
-        <v-dialog v-model="dialog" persistent max-width="600px">
+        <v-dialog v-model="dialog" persistent max-width="500px">
           <template v-slot:activator="{ on, attrs }">
             <v-btn color="primaryDark" dark v-bind="attrs" v-on="on">
               新增預約
             </v-btn>
           </template>
-          <v-card>
+          <v-card class="modal">
             <v-card-title>
               <h5 color="primaryDark" text>新增預約</h5>
+              <v-spacer></v-spacer>
+              <button>
+                <v-icon @click="dialog = false">
+                  close
+                </v-icon>
+              </button>
             </v-card-title>
             <v-card-text>
-              <v-container>
-                <label for="">預約號碼</label>
-                <v-text-field placeholder="請輸入預約號碼" outlined required></v-text-field>
-                <v-checkbox label="安排至最後一號"></v-checkbox>
-              </v-container>
+              <label for="">預約號碼</label>
+              <v-text-field placeholder="請輸入預約號碼" outlined required></v-text-field>
+              <v-checkbox label="安排至最後一號"></v-checkbox>
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
@@ -123,7 +127,7 @@
                       </div>
                     </th>
                     <th width="200">報到</th>
-                    <th width="200">檢視的資料</th>
+                    <th width="80">檢視的資料</th>
                   </tr>
                 </thead>
               </template>
@@ -133,7 +137,7 @@
               <template v-slot:[`item.check`]="{ item }">
                 <span>{{ item.check }}</span>
                 <v-btn class="checkBtn" depressed color="primaryDark" dark>報到</v-btn>
-                <!-- <v-btn class="checkBtn" depressed color="rgba(236, 236, 236, 1)">取消報到</v-btn> -->
+                <v-btn class="cancelBtn" depressed>取消報到</v-btn>
               </template>
               <template v-slot:[`item.file`]="{ item }">
                 <v-btn class="viewBtn" depressed color="rgba(0,0,0,0)" @click.stop="openOffcanvas = !openOffcanvas">
@@ -148,11 +152,11 @@
       </template>
       <!-- 沒有header的table end -->
       <!-- 拖曳區塊 start-->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <div class="col-md-10 offset-md-1">
           <vueDropzone ref="myVueDropzoneFile" id="dropzoneFile" :options="dropzonePicOptions" @vdropzone-success="successUploadFile" @vdropzone-removed-file="removedFile" @vdropzone-download-file="downloadFile"></vueDropzone>
         </div>
-      </div>
+      </div> -->
       <!-- 拖曳區塊 end-->
     </section>
     <!-- offcanvas start -->
@@ -165,6 +169,14 @@
               close
             </v-icon>
           </button>
+          <!-- 更改預約 header start -->
+          <!-- <button>
+            <v-icon>
+              mdi-chevron-left
+            </v-icon>
+          </button>
+          <h5>更改預約</h5> -->
+          <!-- 更改預約 header end -->
         </div>
         <div class="offcanvasBody">
           <h6>預約資訊</h6>
@@ -235,12 +247,14 @@
           </ul>
         </div>
         <div class="offcanvasFooter">
-          <v-btn color="primaryDark" dark block>更改預約</v-btn>
+          <!-- <v-btn color="primaryDark" dark block>更改預約</v-btn> -->
+          <v-btn class="cancelBtn" depressed block>取消報到</v-btn>
+          <!-- 取消預約 視窗＋按鈕 start -->
           <v-dialog v-model="dialog2" persistent max-width="600px">
             <template v-slot:activator="{ on, attrs }">
               <v-btn color="primaryDark" dark block v-bind="attrs" v-on="on">取消預約</v-btn>
             </template>
-            <v-card>
+            <v-card class="modal">
               <v-card-title>
                 <h5 color="primaryDark" text>取消預約</h5>
                 <v-spacer></v-spacer>
@@ -251,9 +265,7 @@
                 </button>
               </v-card-title>
               <v-card-text>
-                <v-container>
-                  <p>確認取消 2022/11/10 林小凌的預約嗎？</p>
-                </v-container>
+                <p>確認取消 2022/11/10 林小凌的預約嗎？</p>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
@@ -263,6 +275,7 @@
               </v-card-actions>
             </v-card>
           </v-dialog>
+          <!-- 取消預約 視窗＋按鈕 end -->
         </div>
       </div>
     </section>
@@ -272,8 +285,8 @@
 <script>
 //swiper 套件
 import { mapGetters, mapActions } from 'vuex';
-import vue2Dropzone from 'vue2-dropzone';
-import 'vue2-dropzone/dist/vue2Dropzone.min.css';
+// import vue2Dropzone from 'vue2-dropzone';
+// import 'vue2-dropzone/dist/vue2Dropzone.min.css';
 
 export default {
   computed: {
@@ -288,7 +301,7 @@ export default {
     },
   },
   components: {
-    vueDropzone: vue2Dropzone,
+    // vueDropzone: vue2Dropzone,
   },
   data() {
     return {

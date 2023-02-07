@@ -1,0 +1,34 @@
+.alert.v-alert {
+  background: $error;
+  color: #fff;
+  border: 0px;
+  padding: 0.5rem 1rem;
+  .v-icon {
+    color: #fff;
+    margin-right: 0.5rem;
+  }
+  p {
+    margin-bottom: 0;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .v-alert__content {
+    > div {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .v-btn {
+    font-weight: 700;
+    height: 2rem;
+    box-shadow: none;
+  }
+  @include screen('tablet') {
+    .v-icon {
+      margin-right: 0rem;
+    }
+    p {
+      margin: 0 0.5rem;
+    }
+  }
+}

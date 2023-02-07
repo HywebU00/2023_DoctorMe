@@ -75,7 +75,7 @@
                     <span>新增預約</span>
                   </v-btn>
                 </template>
-                <v-list class="reserveSelect text-center">
+                <v-list class="reserveSelect text-center ">
                   <v-list-item @click="onClick">
                     <v-list-item-title>一般門診</v-list-item-title>
                   </v-list-item>
@@ -93,7 +93,8 @@
                 <span>林小華</span>
               </v-btn>
             </div>
-            <!-- pc版本user按鈕 end mobile版本user按鈕 start -->
+            <!-- pc版本user按鈕 end  -->
+            <!-- mobile版本user按鈕 start -->
             <v-btn class="userBtnMobile" @click="expand = !expand">
               <v-icon class="material-icons-round">
                 menu
@@ -112,33 +113,34 @@
                       <span>新增預約</span>
                     </v-btn>
                   </template>
-                  <v-card>
-                    <v-btn icon @click="dialogMobile = false">
-                      <v-icon>mdi-close</v-icon>
-                    </v-btn>
-                    <div class="">
-                      <div class="">
-                        <img src="" alt="" />
-                        <h5>新增預約</h5>
-                      </div>
+                  <v-card class="dialogMobileCard">
+                    <v-card-title>
+                      <v-spacer></v-spacer>
+                      <v-btn icon @click="dialogMobile = false">
+                        <v-icon>mdi-close</v-icon>
+                      </v-btn>
+                    </v-card-title>
+                    <v-card-text>
+                      <v-img :aspect-ratio="1 / 1" width="100" lazy-src="~@/assets/Logo.svg" src="~@/assets/Logo.svg"></v-img>
+                      <h5 color="primaryDark" text>新增預約</h5>
                       <ul>
                         <li>
-                          <v-btn color=" accent">
+                          <v-btn color="accent" block>
                             <span>一般門診</span>
                           </v-btn>
                         </li>
                         <li>
-                          <v-btn color=" accent">
+                          <v-btn color="accent" block>
                             <span>新冠診療</span>
                           </v-btn>
                         </li>
                         <li>
-                          <v-btn color=" accent">
+                          <v-btn color="accent" block>
                             <span>疫苗注射</span>
                           </v-btn>
                         </li>
                       </ul>
-                    </div>
+                    </v-card-text>
                   </v-card>
                 </v-dialog>
                 <v-btn class="userBtn" plain>
@@ -151,7 +153,7 @@
           </div>
           <!-- user按鈕列表 -->
         </div>
-        <v-content>
+        <v-content :class="{ closeMenu: mini }">
           <router-view></router-view>
         </v-content>
       </main>

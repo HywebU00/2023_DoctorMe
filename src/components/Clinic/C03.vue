@@ -1,27 +1,27 @@
-<template>
+mini<template>
   <v-form v-model="valid" class="">
     <div class="titleInfo">
       <div class="clinicInfo"><h2>新增預約 - 一般門診</h2></div>
     </div>
-    <section class="dataSection">
+    <section class="dataSection hasBtnSection">
       <div class="title">
         <h3>
           <span>請輸入基本資料</span>
         </h3>
       </div>
-      <v-form>
+      <v-form class="infoForm">
         <label for="idNum">
-          <span>*</span>
+          <abbr class="necessary" title="為必填(選)欄位,不能為空白。">*</abbr>
           身分證/居留證號碼</label
         >
         <v-text-field placeholder="請輸入身分證/居留證號碼" id="idNum" dense v-model="first" background-color="#fff" outlined></v-text-field>
         <label for="user">
-          <span>*</span>
+          <abbr class="necessary" title="為必填(選)欄位,不能為空白。">*</abbr>
           姓名</label
         >
         <v-text-field placeholder="請輸入預約號碼" id="user" dense v-model="first" background-color="#fff" outlined></v-text-field>
         <label for="phoneNum">
-          <span>*</span>
+          <abbr class="necessary" title="為必填(選)欄位,不能為空白。">*</abbr>
           手機號碼</label
         >
         <v-text-field id="phoneNum" placeholder="請輸入手機號" dense v-model="first" background-color="#fff" outlined></v-text-field>
@@ -56,18 +56,20 @@
         <!-- 區域日期選擇器 end -->
 
         <!-- 日期選擇器區塊 start -->
-        <label for="birthday">請選擇日期</label>
-        <v-sheet elevations="0">
-          <div class="d-flex justify-center align-center">
-            <v-date-picker no-title v-model="picker"></v-date-picker>
-          </div>
-        </v-sheet>
+        <div class="datepickerBlock">
+          <label for="birthday">請選擇日期</label>
+          <v-sheet elevations="0">
+            <div>
+              <v-date-picker no-title v-model="picker"></v-date-picker>
+            </div>
+          </v-sheet>
+        </div>
         <!-- 日期選擇器區塊 end -->
         <!-- 選擇醫生列表 radio start -->
         <v-radio-group class="listRadio" v-model="radios" v-for="item in doctorItems" :key="item">
           <div class="title">
             <v-icon>mdi-clock</v-icon>
-            <span>{{ item.title }}</span>
+            <label>{{ item.title }}</label>
           </div>
           <v-radio :value="item.num">
             <template v-slot:label>
@@ -93,33 +95,36 @@
           </v-list-item-group>
         </v-list> -->
         <!-- 選擇醫生列表 end -->
-        <!-- 預約摘要 start -->
-        <ul class="">
-          <li>
-            <span>預約摘要</span>
-            <ul>
-              <li>2022/11/20</li>
-              <li>晚上診</li>
-              <li>診間一：林子凱醫生</li>
-            </ul>
-          </li>
-        </ul>
-        <!-- 預約摘要 end -->
       </v-form>
+      <!-- 預約摘要 start -->
+      <div class="infoData">
+        <div class="title">
+          <h3>
+            <span>請預約摘要</span>
+          </h3>
+        </div>
+        <ul class="">
+          <li>2022/11/20</li>
+          <li>晚上診</li>
+          <li>診間一：林子凱醫生</li>
+        </ul>
+      </div>
+      <!-- 預約摘要 end -->
+
       <!-- 確認日期區塊 start -->
       <div class="title">
         <h3>
           <span>您已預約完成</span>
         </h3>
       </div>
-      <v-sheet>
-        <div class="d-flex justify-center align-center">
+      <div class="reserveBlock">
+        <v-sheet>
           <ul>
-            <li>您預約號碼</li>
-            <li>21號</li>
+            <li class="title">您預約號碼</li>
+            <li class="info">21號</li>
           </ul>
-        </div>
-      </v-sheet>
+        </v-sheet>
+      </div>
       <!-- 確認日期區塊 end -->
       <!-- 確認預約資訊 start -->
       <div class="title">
@@ -127,16 +132,22 @@
           <span>確認預約資訊</span>
         </h3>
       </div>
-      <ul class="reserveList">
-        <li v-for="item in reserveList" :key="item">
-          <span v-text="item.title"></span>
-          <p v-text="item.content"></p>
-        </li>
-      </ul>
+      <div class="infoData">
+        <ul class="">
+          <li v-for="item in reserveList" :key="item">
+            <div class="title">
+              <h3>
+                <span v-text="item.title">確認預約資訊</span>
+              </h3>
+            </div>
+            <p v-text="item.content"></p>
+          </li>
+        </ul>
+      </div>
       <!-- 確認預約資訊 end -->
     </section>
-    <div class="d-flex justify-center align-center">
-      <v-btn color="primaryDark" dark>上一步</v-btn>
+    <div class="btnSection" :class="{ closeMenu: mini }">
+      <v-btn outlined color="primaryDark" style="background:#fff;" dark>上一步</v-btn>
       <v-btn color="primaryDark" dark>下一步</v-btn>
     </div>
   </v-form>
@@ -174,7 +185,7 @@ export default {
       items2: [{ text: '上午診' }, { text: '下午診' }, { text: '晚上診' }],
       items3: [{ text: '杜振熙' }, { text: '周敦頤' }, { text: '李清照' }],
       item2: ['上午診'],
-
+      mini: false,
       requiredRules: [(v) => !!v || '此欄位是必填'],
       dropzonePicOptions: {
         url: 'https://idb.m20cloud.tk:8443/idb/uploadFile',

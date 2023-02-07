@@ -23,10 +23,6 @@
   }
 }
 .titleInfo {
-  // position: sticky;
-  // top: 64px;
-  // z-index: 2;
-
   .datePicker {
     display: flex;
     align-items: center;
@@ -35,6 +31,7 @@
     .v-btn {
       height: 2.5rem;
       width: 2.5rem;
+      background: $primaryLight;
       box-shadow: none;
     }
     p {
@@ -85,7 +82,7 @@
     display: flex;
     margin-left: 2.5rem;
     @include screen('tablet') {
-      margin-left: 2.5rem;
+      margin-left: 2rem;
     }
     .v-input {
       margin-right: 0.75rem;
@@ -132,6 +129,7 @@
   // margin-left: 2rem;
   display: flex;
   margin: 1rem 0;
+  margin-bottom: 0.5rem;
   h3 {
     font-size: 1.25rem;
     font-weight: 600;
@@ -140,6 +138,37 @@
     span {
       line-height: 2.5rem;
     }
+  }
+}
+.hasBtnSection {
+  margin-bottom: 73px;
+}
+.btnSection {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  background: #e9ecef;
+  padding: 1rem;
+  right: 0;
+  left: 256px;
+  width: calc(100% - 256px);
+  transition: all 0.2s;
+  button {
+    margin: 0 0.5rem;
+    width: 8rem;
+  }
+  @include screen('tablet') {
+    width: 100%;
+    left: 0;
+  }
+}
+.closeMenu .btnSection {
+  width: 100%;
+  left: 76px;
+  transition: all 0.2s;
+  @include screen('tablet') {
+    left: 0;
   }
 }
 .emptyImg {
@@ -192,9 +221,14 @@
   }
   button.viewBtn {
     width: 1.5rem;
+    margin: 0;
   }
   button.checkBtn {
     width: 6.25rem;
+  }
+  button.cancelBtn {
+    color: $gray3;
+    background: darken($grayLight, 3) !important;
   }
 }
 .tableTitle {
@@ -207,11 +241,17 @@
       margin-left: 0.5rem;
     }
   }
+  @include screen('tablet') {
+    margin-bottom: 0.5rem;
+  }
 }
 .tableSearch {
   padding-top: 0;
   max-width: 30%;
   margin-left: auto;
+  @include screen('tablet') {
+    max-width: 100%;
+  }
 }
 .selectComponent {
   position: relative;
@@ -327,17 +367,38 @@
   align-items: center;
   h5 {
     margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 700;
   }
 }
 .offcanvasBody {
   padding: 0.5rem 0;
-  // background: #ccc;
   width: calc(300px - 2rem);
   height: calc(100vh - (115px + 64px + 32px + 1rem));
   overflow-y: scroll;
   ul {
     list-style-type: none;
     padding-left: 0;
+    li {
+      span {
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+        display: inline-block;
+      }
+      p {
+        color: $dark;
+      }
+      .v-input__control {
+        margin: 0 0.05rem;
+      }
+    }
+  }
+  h6 {
+    text-align: center;
+    color: $primaryDark;
+    line-height: 3rem;
+    border-bottom: 2px solid $primaryDark;
+    margin-bottom: 1rem;
   }
 }
 .offcanvasFooter {
@@ -348,5 +409,127 @@
   bottom: 1rem;
   button {
     margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+  button.cancelBtn {
+    color: $gray3;
+    background: darken($grayLight, 3) !important;
+  }
+}
+.modal.v-card {
+  border-radius: 0.2rem;
+  .v-text-field__details {
+    min-height: unset;
+    margin-bottom: 0;
+  }
+  .v-card__actions {
+    padding-bottom: 1rem;
+    .v-btn.v-btn {
+      padding: 0 1rem;
+    }
+  }
+
+  .v-input__slot {
+    border-radius: 0.2rem;
+  }
+  .v-card__text {
+    padding-bottom: 0;
+    label {
+      color: $dark;
+    }
+    p {
+      color: $dark;
+    }
+  }
+  .v-input__control {
+    .v-messages {
+      min-height: unset;
+    }
+    label {
+      margin-bottom: 0;
+    }
+  }
+  .v-input--selection-controls {
+    margin-top: 0;
+  }
+}
+.infoForm {
+  abbr[title] {
+    text-decoration: none;
+  }
+  abbr.necessary {
+    color: $error;
+  }
+  label {
+    font-weight: 700;
+    color: $dark;
+    font-size: 1rem;
+  }
+  .title {
+    label {
+      margin: 0;
+    }
+  }
+  .datepickerBlock {
+    .v-sheet {
+      padding: 1rem;
+      border-radius: 0.25rem;
+    }
+    .v-sheet > div {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+    }
+    .v-date-picker-table .v-btn.v-btn--active {
+      background: $primaryDate !important;
+      border: 1px solid $primaryDate !important;
+      color: #fff;
+    }
+    .v-btn__content {
+      font-weight: 500;
+    }
+    .v-application .accent--text {
+      color: $primaryDate;
+    }
+    .theme--light.v-btn {
+      color: $primaryDate;
+    }
+  }
+}
+.reserveBlock {
+  .v-sheet {
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    box-shadow: $boxShadow;
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        font-weight: 700;
+      }
+      li.title {
+        font-size: 1.25rem !important;
+      }
+      li.info {
+        font-size: 2rem;
+        color: $primaryDark;
+        background: #fff !important;
+        text-align: center;
+      }
+    }
+  }
+}
+.infoData {
+  .title {
+    margin: 0;
+    span {
+      font-size: 1rem;
+    }
+  }
+  ul {
+    list-style: none;
+    padding: 0;
   }
 }

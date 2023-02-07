@@ -1,0 +1,53 @@
+.loginPage {
+  background: radial-gradient(1374.59% 235.61% at 0% 0%, #5ad6f3 20.92%, #17214c 79.33%);
+  .container {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    .v-card {
+      width: 46%;
+      padding: 3rem;
+      @include screen('notebook') {
+        width: 85%;
+        padding: 2rem;
+      }
+      @include screen('tablet') {
+        padding: 1rem;
+      }
+    }
+    .v-card__title {
+      justify-content: center;
+      padding-bottom: 0;
+      padding-top: 0;
+      .v-image {
+        max-width: 100px;
+      }
+      h5 {
+        width: 100%;
+        font-size: 1.5rem;
+        text-align: center;
+        margin: 1rem 0 0.5rem 0;
+        font-weight: 700;
+        color: $primaryDark;
+      }
+    }
+    .btnList {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 1rem;
+      .v-input--selection-controls {
+        margin-top: 0;
+      }
+      .v-label {
+        margin-bottom: 0;
+      }
+      a {
+        margin-top: 0.25rem;
+        color: $primaryDark;
+        font-weight: 700;
+      }
+    }
+  }
+}

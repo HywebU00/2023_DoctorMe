@@ -2,13 +2,12 @@
   <v-form v-model="valid" class="">
     <div class="titleInfo">
       <div class="clinicInfo"><h2>凌網診所台北總院</h2></div>
-
       <div class="selectNav">
         <div class="datePicker">
           <v-menu v-model="menu2" :close-on-content-click="false" :nudge-right="40" transition="scale-transition" offset-y min-width="auto">
             <template v-slot:activator="{ on, attrs }">
-              <v-btn v-model="date" v-bind="attrs" v-on="on" fab color="primary" @click="expand = !expand">
-                <v-icon>
+              <v-btn v-model="date" v-bind="attrs" v-on="on" fab @click="expand = !expand">
+                <v-icon color="#fff">
                   calendar_today
                 </v-icon>
               </v-btn>
@@ -31,11 +30,12 @@
     </div>
     <section class="dataSection">
       <!-- alert-start -->
-      <v-alert>
+      <v-alert class="alert">
         <div class="d-flex ">
           <v-icon>mdi-alert-octagon-outline</v-icon>
           <p>提醒您，您目前所選擇的日期非當日。</p>
-          <v-btn>Take action</v-btn>
+          <v-spacer></v-spacer>
+          <v-btn color="primaryDark" dark>切換至當日（2022/11/10）</v-btn>
         </div>
       </v-alert>
       <!-- alert-end -->

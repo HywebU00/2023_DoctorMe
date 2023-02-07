@@ -2,9 +2,10 @@
 
 import Router from 'vue-router';
 import goTo from 'vuetify/es5/services/goto';
-import Login from './components/System/Login';
+import Login from './components/System/Login_';
 //wep1
-import DashboardWep1 from './components/System/DashboardWep_';
+import DashboardWep from './components/System/DashboardWep_';
+import index from './components/System/index';
 //import DashboardWep1 from './components/System/Login';
 
 //Clinic
@@ -29,7 +30,7 @@ export default new Router({
     {
       path: '/',
       name: 'DashboardWep1',
-      component: DashboardWep1,
+      component: DashboardWep,
       children: [
         {
           path: '',
@@ -53,11 +54,15 @@ export default new Router({
         },
       ],
     },
-
     {
       path: '/Login',
       name: 'Login',
       component: Login,
+    },
+    {
+      path: '/index',
+      name: 'index',
+      component: index,
     },
   ],
 });
