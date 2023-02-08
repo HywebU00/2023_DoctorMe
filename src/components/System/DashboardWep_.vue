@@ -220,15 +220,14 @@ export default {
         },
         {
           'icon-alt': 'keyboard_arrow_up',
-          // icon: "keyboard_arrow_down",
+
           icon: 'analytics',
           text: '統計圖表',
-          // model: true,
         },
 
         { icon: 'account_tree', text: '權限角色維護' },
         { icon: 'view_quilt', text: '叫號螢幕設定' },
-        // { icon: "help", text: "通譯人才匯入" },
+
         { icon: 'storage', text: 'Line串接設定' },
         { icon: 'star_rate', text: '帳戶設定' },
       ],

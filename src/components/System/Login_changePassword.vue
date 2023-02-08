@@ -3,31 +3,8 @@
     <v-content class="loginPage">
       <v-container>
         <v-card class="">
-          <!-- 智慧醫療互動登入 start -->
-          <v-card-title>
-            <v-img :aspect-ratio="1 / 1" lazy-src="~@/assets/Logo.svg" src="~@/assets/Logo.svg"></v-img>
-            <h5 color="primaryDark" text>智慧醫療互動</h5>
-          </v-card-title>
-          <v-card-text>
-            <v-form class="infoForm" ref="form" v-model="valid" lazy-validation>
-              <label for="id">診所</label>
-              <v-text-field id="id" dense outlined v-model="name" placeholder="請輸入診所ID" :rules="nameRules" required></v-text-field>
-              <label for="id2">帳號</label>
-              <v-text-field id="id2" dense outlined placeholder="請輸入帳號" v-model="email" :rules="emailRules" required></v-text-field>
-              <label for="password">密碼</label>
-              <v-text-field id="password" dense outlined v-model="password" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]" placeholder="請輸入密碼" :type="show1 ? 'text' : 'password'" hint="At least 8 characters" @click:append="show1 = !show1"></v-text-field>
-              <div class="btnList">
-                <v-checkbox v-model="checkbox" :rules="[(v) => !!v || 'You must agree to continue!']" label="記住我" required></v-checkbox>
-                <a href="javascript:;">忘記密碼</a>
-              </div>
-              <v-btn color="primaryDark" dark block class="mr-4">
-                登入
-              </v-btn>
-            </v-form>
-          </v-card-text>
-          <!-- 智慧醫療互動登入 end -->
           <!-- 智慧醫療重設密碼 start -->
-          <!-- <v-card-text>
+          <v-card-text>
             <div class="title">
               <h3>
                 <span>確認預約資訊</span>
@@ -55,10 +32,10 @@
                 登入
               </v-btn>
             </v-form>
-          </v-card-text> -->
+          </v-card-text>
           <!-- 智慧醫療重設密碼 end -->
           <!-- 智慧醫療重設密碼成功 start -->
-          <!-- <v-card-text>
+          <v-card-text>
             <div class="title">
               <h3>
                 <span>密碼變更成功</span>
@@ -77,7 +54,7 @@
             <v-btn color="primaryDark" dark block class="mr-4">
               返回登入頁
             </v-btn>
-          </v-card-text> -->
+          </v-card-text>
           <!-- 智慧醫療重設密碼成功 end -->
         </v-card>
       </v-container>

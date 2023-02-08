@@ -1,14 +1,14 @@
-mini<template>
+<template>
   <v-form v-model="valid" class="">
     <div class="titleInfo">
       <div class="clinicInfo"><h2>新增預約 - 一般門診</h2></div>
-    </div>
-    <section class="dataSection hasBtnSection">
       <div class="title">
         <h3>
           <span>請輸入基本資料</span>
         </h3>
       </div>
+    </div>
+    <section class="dataSection hasBtnSection">
       <v-form class="infoForm">
         <label for="idNum">
           <abbr class="necessary" title="為必填(選)欄位,不能為空白。">*</abbr>
@@ -36,24 +36,6 @@ mini<template>
           </template>
           <v-date-picker width="250px" class="datePicker" v-model="date" no-title @input="menu2 = false"></v-date-picker>
         </v-menu>
-
-        <!-- 區域日期選擇器 start -->
-        <!-- <label for="date">請選擇日期</label>
-        <v-menu v-model="menu" :close-on-content-click="false" :nudge-right="40" transition="scale-transition" offset-y min-width="auto">
-          <template v-slot:activator="{ on, attrs }">
-            <v-text-field background-color="#fff" dense outlined v-model="dateRangeText" readonly v-bind="attrs" v-on="on"></v-text-field>
-          </template>
-          <v-date-picker v-model="dates" range no-title>
-            <v-spacer></v-spacer>
-            <v-btn text color="primary" @click="menu = false">
-              Cancel
-            </v-btn>
-            <v-btn text color="primary" @click="$refs.menu.save(date)">
-              OK
-            </v-btn>
-          </v-date-picker>
-        </v-menu> -->
-        <!-- 區域日期選擇器 end -->
 
         <!-- 日期選擇器區塊 start -->
         <div class="datepickerBlock">
@@ -167,9 +149,6 @@ export default {
     computedDateFormatted() {
       return this.formatDate(this.date);
     },
-    dateRangeText() {
-      return this.dates.join(' ~ ');
-    },
   },
   components: {},
   data() {
@@ -238,7 +217,7 @@ export default {
       times: ['上午診', '下午診', '晚上診'],
       //select
       SelectItems: ['視訊', '門診'],
-      dates: ['2019-09-10', '2019-09-20'],
+
       //
 
       reserveList: [

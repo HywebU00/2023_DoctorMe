@@ -31,7 +31,7 @@ export default new Vuetify({
         light: '#fff',
         secondary: '#46B9E7',
         accent: '#17214C',
-        error: '#b71c1c',
+        error: '#FF5252',
       },
     },
   },

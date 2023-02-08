@@ -45,11 +45,11 @@ export default {
     return {
       desserts: [
         {
-          name: '預約管理',
+          name: '2-1.預約管理',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/C01',
         },
         {
-          name: '預約名單',
+          name: '2-1.預約名單',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/C02',
         },
         {
@@ -57,8 +57,12 @@ export default {
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/C03',
         },
         {
-          name: '登入頁',
+          name: '1.登入頁',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/login',
+        },
+        {
+          name: '1.登入頁＿確認預約資訊',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/Login_changePassword',
         },
       ],
     };

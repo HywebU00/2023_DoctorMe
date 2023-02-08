@@ -3,6 +3,8 @@
 import Router from 'vue-router';
 import goTo from 'vuetify/es5/services/goto';
 import Login from './components/System/Login_';
+import Login_changePassword from './components/System/Login_changePassword';
+
 //wep1
 import DashboardWep from './components/System/DashboardWep_';
 import index from './components/System/index';
@@ -13,6 +15,7 @@ import C01 from './components/Clinic/C01';
 import C02 from './components/Clinic/C02';
 // import C02 from './components/Clinic/test';
 import C03 from './components/Clinic/C03';
+import C04 from './components/Clinic/C04';
 
 export default new Router({
   scrollBehavior: (to, from, savedPosition) => {
@@ -52,12 +55,22 @@ export default new Router({
           name: '診所後台',
           component: C03,
         },
+        {
+          path: '/C04',
+          name: '診所後台',
+          component: C04,
+        },
       ],
     },
     {
       path: '/Login',
       name: 'Login',
       component: Login,
+    },
+    {
+      path: '/Login_changePassword',
+      name: 'Login_changePassword',
+      component: Login_changePassword,
     },
     {
       path: '/index',
