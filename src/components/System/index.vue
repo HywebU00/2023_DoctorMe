@@ -45,6 +45,18 @@ export default {
     return {
       desserts: [
         {
+          name: '1.登入頁',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/login',
+        },
+        {
+          name: '1.登入頁＿確認預約資訊',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/Login_changePassword',
+        },
+        {
+          name: '1.登入頁＿驗證信',
+          link: '',
+        },
+        {
           name: '2-1.預約管理',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/C01',
         },
@@ -53,16 +65,20 @@ export default {
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/C02',
         },
         {
-          name: '新增預約與確認資訊',
+          name: '2-1.新增預約與確認資訊',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/C03',
         },
         {
-          name: '1.登入頁',
-          link: 'https://hywebu00.github.io/2023_DoctorMe/#/login',
+          name: '2-4.新增預約與確認資訊',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/C04',
         },
         {
-          name: '1.登入頁＿確認預約資訊',
-          link: 'https://hywebu00.github.io/2023_DoctorMe/#/Login_changePassword',
+          name: '3-1.門診時間維護',
+          link: '',
+        },
+        {
+          name: '8.LINE串接設定',
+          link: '',
         },
       ],
     };
