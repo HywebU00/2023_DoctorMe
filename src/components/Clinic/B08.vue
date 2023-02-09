@@ -8,7 +8,7 @@
         </h3>
       </div>
       <ul class="lineInfo">
-        <li><span class="infoTitle">Callback URL</span>請複製下方Callback URL連結，並貼上至 <a class="infoLink" href="javascript:;">LINE 管理者後台</a> 的 Webhool URL 欄位</li>
+        <li><span class="infoTitle">Callback URL</span> <v-icon>mdi-alert-octagon-outline</v-icon>請複製下方Callback URL連結，並貼上至 <a class="infoLink" href="javascript:;">LINE 管理者後台</a> 的 Webhool URL 欄位</li>
         <li class="darkText">
           https://catclinic.hyclinic/v2/bot/linebot/ <v-btn outlined color="primaryDark" class="copyBtn" dark small @click="snackbar = true">複製</v-btn>
           <v-snackbar right top v-model="snackbar" color="success">

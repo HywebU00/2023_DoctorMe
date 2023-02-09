@@ -178,6 +178,14 @@
     li {
       color: $gray3;
       line-height: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      .v-icon {
+        font-size: 1.2rem;
+        color: $gray3;
+        margin-right: 0.25rem;
+      }
     }
     .infoTitle {
       font-size: 1rem;
