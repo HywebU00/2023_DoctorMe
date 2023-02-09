@@ -16,6 +16,7 @@ import C02 from './components/Clinic/C02';
 // import C02 from './components/Clinic/test';
 import C03 from './components/Clinic/C03';
 import C04 from './components/Clinic/C04';
+import B08 from './components/Clinic/B08';
 
 export default new Router({
   scrollBehavior: (to, from, savedPosition) => {
@@ -59,6 +60,11 @@ export default new Router({
           path: '/C04',
           name: '診所後台',
           component: C04,
+        },
+        {
+          path: '/B08',
+          name: 'Line串接設定',
+          component: B08,
         },
       ],
     },

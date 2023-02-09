@@ -220,15 +220,13 @@ export default {
         },
         {
           'icon-alt': 'keyboard_arrow_up',
-
           icon: 'analytics',
           text: '統計圖表',
         },
 
         { icon: 'account_tree', text: '權限角色維護' },
         { icon: 'view_quilt', text: '叫號螢幕設定' },
-
-        { icon: 'storage', text: 'Line串接設定' },
+        { icon: 'storage', text: 'Line串接設定', link: '/B08' },
         { icon: 'star_rate', text: '帳戶設定' },
       ],
       // items: [],

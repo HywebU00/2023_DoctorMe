@@ -78,7 +78,7 @@ export default {
         },
         {
           name: '8.LINE串接設定',
-          link: '',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/B08',
         },
       ],
     };

@@ -1,5 +1,5 @@
 <template>
-  <v-form v-model="valid" class="">
+  <div>
     <div class="titleInfo">
       <div class="clinicInfo"><h2>凌網診所台北總院</h2></div>
       <div class="title">
@@ -24,7 +24,7 @@
             </v-card-title>
             <v-card-text>
               <label for="">預約號碼</label>
-              <v-text-field placeholder="請輸入預約號碼" outlined required></v-text-field>
+              <v-text-field dense placeholder="請輸入預約號碼" outlined required></v-text-field>
               <v-checkbox label="安排至最後一號"></v-checkbox>
             </v-card-text>
             <v-card-actions>
@@ -280,7 +280,7 @@
       </div>
     </section>
     <!-- offcanvas end -->
-  </v-form>
+  </div>
 </template>
 <script>
 //swiper 套件

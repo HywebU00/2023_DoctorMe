@@ -1,5 +1,5 @@
 <template>
-  <v-form v-model="valid" class="">
+  <div>
     <div class="titleInfo">
       <div class="clinicInfo"><h2>凌網診所台北總院</h2></div>
       <div class="selectNav">
@@ -82,7 +82,7 @@
       </div>
       <!-- 診間卡片 slider end-->
     </section>
-  </v-form>
+  </div>
 </template>
 <script>
 //swiper 套件

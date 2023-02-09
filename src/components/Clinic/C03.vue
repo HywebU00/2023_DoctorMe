@@ -1,5 +1,5 @@
 <template>
-  <v-form v-model="valid" class="">
+  <div>
     <div class="titleInfo">
       <div class="clinicInfo"><h2>新增預約 - 一般門診</h2></div>
       <div class="title">
@@ -132,7 +132,7 @@
       <v-btn outlined color="primaryDark" style="background:#fff;" dark>上一步</v-btn>
       <v-btn color="primaryDark" dark>下一步</v-btn>
     </div>
-  </v-form>
+  </div>
 </template>
 <script>
 //swiper 套件
