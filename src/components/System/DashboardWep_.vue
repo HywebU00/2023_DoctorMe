@@ -205,14 +205,23 @@ export default {
           icon: 'assignment',
           text: '預約管理',
           children: [
-            // { icon: "add", text: "Create 名單" }
-            { icon: 'mdi-circle', text: '門診預約', link: '/C01' },
+            { icon: 'mdi-circle-small', text: '門診預約', link: '/C01' },
             { icon: 'mdi-circle-small', text: '新冠診療預約', link: '/C02' },
             { icon: 'mdi-circle-small', text: '疫苗注射預約', link: '/C03' },
             { icon: 'mdi-circle-small', text: '疫苗紀錄查詢', link: '/C04' },
           ],
         },
-        { icon: 'medical_services', text: '診所資料設定', link: '/T00' },
+        {
+          icon: 'medical_services',
+          text: '診所資料設定',
+          children: [
+            { icon: 'mdi-circle-small', text: '門診時間維護', link: '/B0301' },
+            { icon: 'mdi-circle-small', text: '醫生資訊維護', link: '/' },
+            { icon: 'mdi-circle-small', text: '診所資訊維護', link: '/' },
+            { icon: 'mdi-circle-small', text: '門診表', link: '/' },
+            { icon: 'mdi-circle-small', text: '預約維護', link: '/' },
+          ],
+        },
         {
           icon: 'account_box',
           text: '會員管理',

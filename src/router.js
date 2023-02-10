@@ -16,6 +16,7 @@ import C02 from './components/Clinic/C02';
 // import C02 from './components/Clinic/test';
 import C03 from './components/Clinic/C03';
 import C04 from './components/Clinic/C04';
+import B0301 from './components/Clinic/B0301';
 import B08 from './components/Clinic/B08';
 
 export default new Router({
@@ -65,6 +66,11 @@ export default new Router({
           path: '/B08',
           name: 'Line串接設定',
           component: B08,
+        },
+        {
+          path: '/B0301',
+          name: '門診時間維護',
+          component: B0301,
         },
       ],
     },

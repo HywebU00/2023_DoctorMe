@@ -32,7 +32,7 @@
         <label for="birthday">請選擇生日</label>
         <v-menu v-model="menu2" id="birthday" :close-on-content-click="false" transition="scale-transition" max-width="250px" min-width="auto">
           <template v-slot:activator="{ on, attrs }">
-            <v-text-field v-model="computedDateFormatted" persistent-hint dense outlined readonly background-color="#fff" v-bind="attrs" v-on="on"></v-text-field>
+            <v-text-field class="datePickerSelect" v-model="computedDateFormatted" persistent-hint dense outlined readonly background-color="#fff" v-bind="attrs" v-on="on"></v-text-field>
           </template>
           <v-date-picker width="250px" class="datePicker" v-model="date" no-title @input="menu2 = false"></v-date-picker>
         </v-menu>

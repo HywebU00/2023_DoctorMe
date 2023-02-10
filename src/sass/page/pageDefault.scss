@@ -304,7 +304,11 @@
       }
     }
   }
-
+  .ml-auto {
+    button.v-btn {
+      margin-left: 0.5rem;
+    }
+  }
   .tabletSelect {
     .v-input__control {
       .v-input__slot {
@@ -346,6 +350,10 @@
       margin-left: 0.5rem;
     }
   }
+  .v-input__control {
+    height: 2rem;
+  }
+
   @include screen('tablet') {
     margin-bottom: 0.5rem;
   }
@@ -442,7 +450,31 @@
     min-height: 0px;
   }
 }
-
+.switchList {
+  list-style: none;
+  padding-left: 0 !important;
+  display: flex;
+  flex-wrap: wrap;
+  .v-input {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  .v-input__control {
+    margin-right: 2rem;
+  }
+  label {
+    margin-bottom: 0;
+  }
+}
+.radioList {
+  margin-top: 0;
+  label {
+    margin-bottom: 0;
+  }
+  .v-radio {
+    margin-bottom: 1rem;
+  }
+}
 .offcanvas {
   box-shadow: $boxShadow;
   width: 0px;
@@ -605,6 +637,46 @@
     }
   }
 }
+.timeRangePickList {
+  display: flex;
+
+  li {
+    .switch {
+      margin-right: 1rem;
+    }
+    width: 100%;
+    .v-input__control {
+      margin-right: 0.5rem;
+      max-width: 100px;
+    }
+    > div {
+      align-items: center;
+      > div {
+        flex-wrap: nowrap;
+      }
+    }
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      .v-input {
+        margin-bottom: 0;
+      }
+      label {
+        white-space: nowrap;
+      }
+      .v-text-field__slot {
+        input[type='text'] {
+          background: url('~@/assets/time.svg') no-repeat;
+          padding-left: 1.75rem;
+          background-position-y: center;
+        }
+      }
+    }
+    // span {
+    //   margin-right: 0.5rem;
+    // }
+  }
+}
 .reserveBlock {
   .v-sheet {
     border-radius: 0.25rem;
@@ -657,5 +729,13 @@
     li > p {
       color: $gray3;
     }
+  }
+}
+.datePickerSelect {
+  margin-bottom: 0.5rem !important;
+  input[type='text'] {
+    background: url('~@/assets/time.svg') no-repeat;
+    padding-left: 1.75rem !important;
+    background-position-y: center;
   }
 }

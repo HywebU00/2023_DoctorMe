@@ -235,7 +235,7 @@
               <span>請選擇日期</span>
               <v-menu v-model="menu2" :close-on-content-click="false" transition="scale-transition" max-width="250px" min-width="auto">
                 <template v-slot:activator="{ on, attrs }">
-                  <v-text-field v-model="computedDateFormatted" persistent-hint dense readonly solo v-bind="attrs" v-on="on"></v-text-field>
+                  <v-text-field class="datePickerSelect" v-model="computedDateFormatted" persistent-hint dense readonly solo v-bind="attrs" v-on="on"></v-text-field>
                 </template>
                 <v-date-picker width="250px" class="datePicker" v-model="date" no-title @input="menu2 = false"></v-date-picker>
               </v-menu>
