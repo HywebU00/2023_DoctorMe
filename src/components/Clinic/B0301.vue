@@ -97,7 +97,7 @@
       <div class="infoData">
         <div class="title">
           <h3>
-            <span>請預約摘要</span>
+            <span>特殊日設定</span>
           </h3>
         </div>
         <template>
@@ -108,7 +108,6 @@
               </div>
               <div class="ml-auto">
                 <v-btn class="cancelBtn" depressed>刪除</v-btn>
-
                 <v-dialog v-model="dialog" persistent max-width="500px">
                   <template v-slot:activator="{ on, attrs }">
                     <v-btn color="primaryDark" dark v-bind="attrs" v-on="on">
@@ -241,46 +240,22 @@ export default {
       item2: ['上午診'],
       mini: false,
       requiredRules: [(v) => !!v || '此欄位是必填'],
-      dropzonePicOptions: {
-        url: 'https://idb.m20cloud.tk:8443/idb/uploadFile',
-        headers: { Authorization: this.$localStorage.get('land_login_token') },
-        maxFilesize: 9999, // MB
-        maxFiles: 10,
-        filesizeBase: 1024,
-        thumbnailWidth: 300,
-
-        autoProcessQueue: true,
-        init: function() {},
-        addRemoveLinks: true,
-        addDownloadLinks: true,
-      },
       expand: false,
       selectExpand: false,
       picker: new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10),
       selectedItem: 1,
-      doctorItems: [
-        { text: '診間一：林子凱醫生', title: '上午診 （8:30-12:00）', num: 1 },
-        { text: '診間一：林子凱醫生', title: '下午診 （15:00-18:00）', num: 2 },
-        { text: '診間一：林子凱醫生', title: '晚上診 （19:00-21:30）', num: 3 },
-      ],
+
       radios: null,
       //表單的ＪＳ
       search: '',
       dialog: false,
       dialog2: false,
       dialogDelete: false,
-      headers: [
-        { text: '日期', value: 'date', sortable: false, width: '300px' },
-        { text: '說明', value: 'content', sortable: false },
-        { text: '類型', value: 'type', sortable: false, width: '100px' },
-      ],
-      desserts: [],
+
       editedIndex: -1,
       tableSelect: ['視訊', '門診'],
       //右側選單資料
-      styles: ['家醫科', '牙科'],
-      doctors: ['林子凱', '王子凱'],
-      times: ['上午診', '下午診', '晚上診'],
+
       //select
       SelectItems: ['視訊', '門診'],
       snackbar: false,
@@ -298,105 +273,63 @@ export default {
       end2: '12:30',
       start3: '8:30',
       end3: '12:30',
-      reserveList: [
-        { title: '預約科別', content: '家醫科' },
-        { title: '預約日期', content: '2022 / 11 / 10 （一）' },
-        { title: '預約時段', content: '上午診（08:30 ~ 12:00）' },
-        { title: '看診醫生', content: '診間一：林子凱醫生' },
-        { title: '預約者類型', content: '初診' },
-        { title: '預約者姓名', content: '林小凌' },
-        { title: '身分證/居留證號碼', content: 'H879476902' },
-        { title: '生日', content: '1990/10/28' },
-        { title: '手機號碼', content: '0987502895' },
+
+      singleSelect: false,
+      selected: [],
+      headers: [
+        { text: '日期', value: 'name', sortable: false, width: '300px' },
+        { text: '說明', value: 'content' },
+        { text: '類型', value: 'type', width: '100px' },
+      ],
+      // headers: [
+      //   {
+      //     text: 'Dessert (100g serving)',
+      //     align: 'start',
+      //     sortable: false,
+      //     value: 'date',
+      //   },
+      //   { text: ' content', value: 'content' },
+      //   { text: 'Fat (g)', value: 'fat' },
+      // ],
+      // desserts: [
+      //   {
+      //     name: 'Frozen Yogurt',
+      //     content: 159,
+      //     fat: 6.0,
+      //   },
+      //   {
+      //     name: 'Ice cream sandwich',
+      //     content: 237,
+      //     fat: 9.0,
+      //   },
+      // ],
+      desserts: [
+        {
+          name: '2022/01/01 ',
+          content: '國定假日-元旦',
+          type: '休診',
+        },
+        {
+          name: '2022/02/10 ',
+          content: '國定假日-農曆春節（彈性放假）',
+          type: '休診',
+        },
+        {
+          name: '2022/02/20 ',
+          content: '農曆春節-彈性放假補班',
+          type: '休診',
+        },
+        {
+          name: '2022/09/11',
+          content: '中秋節-彈性放假補班',
+          type: '休診',
+        },
       ],
     };
   },
 
   methods: {
-    successUploadFile(file, response) {
-      var attachFile = {};
-      response.type = 'ATT'; //ATT, IMG, DWN
-      attachFile.uuid = file.upload.uuid;
-      attachFile.attachName = response.fileName;
-      attachFile.attachFile = response.fileDownloadUri;
-      attachFile.description = response.fileName;
-      attachFile.attachNameNew = response.newFileName.toLowerCase();
-      attachFile.fileDownloadUri = response.fileDownloadUri;
-      attachFile.attachSize = file.upload.total; // record pic size
-      attachFile.attachPath = response.filePath;
-      var newDate = new Date();
-      attachFile.createDate = newDate.getTime();
-      // attachFile.title = response.fileName;
-      attachFile.type = 'REC';
-      attachFile.status = 'T';
-      this.attachDataDocument.push(attachFile);
-    },
-    removedFile(file, error, xhr) {
-      this.attachDataDocument.forEach((element, index) => {
-        if (file.upload) {
-          if (file.upload.uuid == element.uuid) {
-            this.deleteFile(element.attachNameNew);
-            this.attachDataDocument.splice(index, 1);
-          }
-        } else {
-          if (file.attachNameNew == element.attachNameNew) {
-            this.attachDataDocument.splice(index, 1);
-          }
-        }
-      });
-    },
-    downloadFile(file, error, xhr) {
-      var vm = this;
-      this.attachDataDocument.forEach((element, index) => {
-        if ((file.upload && file.upload.uuid == element.uuid) || (!file.upload && file.attachNameNew == element.attachNameNew)) {
-          var path = '';
-          if (element.status == 'T') path = 'downloadTmpFile/' + element.attachNameNew;
-          else path = 'downloadFile/' + element.attachNameNew + '/REC';
-          window.open(element.attachFile, '_blank');
-        }
-      });
-    },
-    deleteFile(filename) {
-      var vm = this;
-      vm.axios
-        .delete(vm.landServerUrl + 'land/deleteFile/' + filename, {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: vm.$localStorage.get('land_login_token'),
-          },
-        })
-        .then(function(response) {
-          console.log('delete tmp file ---->\n' + JSON.stringify(response));
-        })
-        .catch(function(error) {
-          vm.handErrorUtil(error);
-          console.log(error);
-        });
-    },
-    initialize() {
-      this.desserts = [
-        {
-          date: '2022/01/01 ',
-          content: '國定假日-元旦',
-          type: '休診',
-        },
-        {
-          date: '2022/02/10 ',
-          content: '國定假日-農曆春節（彈性放假）',
-          type: '休診',
-        },
-        {
-          date: '2022/02/20 ',
-          content: '農曆春節-彈性放假補班',
-          type: '休診',
-        },
-        {
-          date: '2022/09/11',
-          content: '中秋節-彈性放假補班',
-          type: '休診',
-        },
-      ];
-    },
+    initialize() {},
     formatDate(date) {
       if (!date) return null;
 
@@ -433,9 +366,6 @@ export default {
     date(val) {
       this.dateFormatted = this.formatDate(this.date);
     },
-  },
-  mounted() {
-    // this.init();
   },
 };
 </script>
