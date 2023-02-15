@@ -4,80 +4,53 @@
       <div class="clinicInfo"><h2>凌網診所台北總院</h2></div>
       <div class="title">
         <h3>
-          <span>預約名單</span>
+          <span>新增看診科別</span>
         </h3>
-        <v-dialog v-model="dialog" persistent max-width="500px">
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn color="primaryDark" dark v-bind="attrs" v-on="on">
-              新增預約
-            </v-btn>
-          </template>
-          <v-card class="modal">
-            <v-card-title>
-              <h5 color="primaryDark" text>新增預約</h5>
-              <v-spacer></v-spacer>
-              <button>
-                <v-icon @click="dialog = false">
-                  close
-                </v-icon>
-              </button>
-            </v-card-title>
-            <v-card-text>
-              <label for="">預約號碼</label>
-              <v-text-field dense placeholder="請輸入預約號碼" outlined required></v-text-field>
-              <v-checkbox label="安排至最後一號"></v-checkbox>
-            </v-card-text>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn text @click="dialog = false">
-                取消
-              </v-btn>
-              <v-btn color="primaryDark" dark @click="dialog = false">
-                確認
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
+        <v-btn color="primaryDark" dark>
+          新增科別
+        </v-btn>
+      </div>
+      <div class="selectNav">
+        <div class="selectGroup">
+          <v-autocomplete v-model="item1" :items="items1" dense label="科別" solo item-text="text" class="ml-0"> </v-autocomplete>
+          <v-text-field placeholder="請輸入醫生名稱" prepend-inner-icon="mdi-magnify" dense solo></v-text-field>
+          <v-btn class="submitBtn" depressed color="primaryDark" dark>
+            查詢
+          </v-btn>
+          <v-btn class="submitBtn" depressed color="primaryDark" dark>
+            重設
+          </v-btn>
+        </div>
       </div>
     </div>
-    <section class="dataSection">
-      <!-- 有header的table start -->
+    <section class="dataSection  hasBtnSection">
+      <v-form class="infoForm">
+        <!-- 拖曳區塊 start-->
+        <label for="">醫生形象圖片</label>
+        <div class="dropInput">
+          <vueDropzone ref="myVueDropzoneFile" id="dropzoneFile" :options="dropzonePicOptions" @vdropzone-success="successUploadFile" @vdropzone-removed-file="removedFile" @vdropzone-download-file="downloadFile"></vueDropzone>
+          <small>只能上傳jpg/png文件，且不超過500kb</small>
+        </div>
+        <!-- 拖曳區塊 end-->
+        <label for="idNum">科別名稱</label>
+        <v-text-field placeholder="請輸入科別" id="idNum" dense v-model="first" background-color="#fff" outlined></v-text-field>
+        <div class="d-flex">
+          <v-spacer></v-spacer>
+          <v-btn class="v-btn mr-2" depressed>
+            取消
+          </v-btn>
+          <v-btn class="submitBtn" depressed color="primaryDark" dark>
+            新增
+          </v-btn>
+        </div>
+        <label for="doctorName">醫生名稱</label>
+        <v-text-field placeholder="請輸入醫生名稱" id="doctorName" dense v-model="first" background-color="#fff" outlined></v-text-field>
+        <label for="">學經歷</label>
+        <v-textarea counter="300" outlined :rules="rules" placeholder="請輸入內容" background-color="#fff" :value="textareaValue"></v-textarea>
+        <label for="">專長</label>
+        <v-textarea counter="100" outlined :rules="rules2" placeholder="請輸入內容" background-color="#fff" :value="textareaValue2"></v-textarea>
+      </v-form>
       <!-- <template>
-        <v-card class="tabletList">
-          <v-card-title>
-            <div class="tableTitle">
-              <v-icon>
-                calendar_today
-              </v-icon>
-              <h5>2022/11/10 <span> (40筆預約)</span></h5>
-            </div>
-            <v-text-field class="tableSearch" v-model="search" append-icon="mdi-magnify" label="請輸入姓名" single-line hide-details></v-text-field>
-          </v-card-title>
-
-          <template>
-            <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1" :footer-props="{ itemsPerPageText: '1頁顯示 :' }">
-              <template v-slot:[`item.type`]="{ item }">
-                <span>{{ item.type }}</span>
-              </template>
-              <template v-slot:[`item.check`]="{ item }">
-                <span>{{ item.check }}</span>
-                <v-btn depressed color="primaryDark" dark>報到</v-btn>
-                <v-btn depressed color="rgba(236, 236, 236, 1)">取消報到</v-btn>
-              </template>
-              <template v-slot:[`item.file`]="{ item }">
-                <v-btn class="viewBtn" depressed color="rgba(0,0,0,0)" @click.stop="openOffcanvas = !openOffcanvas">
-                  <v-icon>
-                    description
-                  </v-icon>
-                </v-btn>
-              </template>
-            </v-data-table>
-          </template>
-        </v-card>
-      </template> -->
-      <!-- 有header的table end -->
-      <!-- 沒有header的table start -->
-      <template>
         <v-card class="tabletList">
           <v-card-title>
             <div class="tableTitle">
@@ -149,7 +122,7 @@
             </v-data-table>
           </template>
         </v-card>
-      </template>
+      </template> -->
       <!-- 沒有header的table end -->
       <!-- 拖曳區塊 start-->
       <!-- <div class="form-group">
@@ -159,6 +132,10 @@
       </div> -->
       <!-- 拖曳區塊 end-->
     </section>
+    <div class="btnSection" :class="{ closeMenu: mini }">
+      <v-btn outlined color="primaryDark" style="background:#fff;" dark>返回</v-btn>
+      <v-btn color="primaryDark" dark>新增</v-btn>
+    </div>
     <!-- offcanvas start -->
     <section class="offcanvas" :class="{ open: openOffcanvas }">
       <div class="">
@@ -235,7 +212,7 @@
               <span>請選擇日期</span>
               <v-menu v-model="menu2" :close-on-content-click="false" transition="scale-transition" max-width="250px" min-width="auto">
                 <template v-slot:activator="{ on, attrs }">
-                  <v-text-field prepend-inner-icon="mdi-clock-outline" v-model="computedDateFormatted" persistent-hint dense readonly solo v-bind="attrs" v-on="on"></v-text-field>
+                  <v-text-field class="datePickerSelect" v-model="computedDateFormatted" persistent-hint dense readonly solo v-bind="attrs" v-on="on"></v-text-field>
                 </template>
                 <v-date-picker width="250px" class="datePicker" v-model="date" no-title @input="menu2 = false"></v-date-picker>
               </v-menu>
@@ -285,8 +262,8 @@
 <script>
 //swiper 套件
 import { mapGetters, mapActions } from 'vuex';
-// import vue2Dropzone from 'vue2-dropzone';
-// import 'vue2-dropzone/dist/vue2Dropzone.min.css';
+import vue2Dropzone from 'vue2-dropzone';
+import 'vue2-dropzone/dist/vue2Dropzone.min.css';
 
 export default {
   computed: {
@@ -301,7 +278,7 @@ export default {
     },
   },
   components: {
-    // vueDropzone: vue2Dropzone,
+    vueDropzone: vue2Dropzone,
   },
   data() {
     return {
@@ -322,9 +299,9 @@ export default {
         headers: { Authorization: this.$localStorage.get('land_login_token') },
         maxFilesize: 9999, // MB
         maxFiles: 10,
+        dictDefaultMessage: '將圖片拖曳到此處，或點擊上傳',
         filesizeBase: 1024,
         thumbnailWidth: 300,
-
         autoProcessQueue: true,
         init: function() {},
         addRemoveLinks: true,
@@ -362,6 +339,12 @@ export default {
       times: ['上午診', '下午診', '晚上診'],
       //select
       SelectItems: ['視訊', '門診'],
+
+      //textareaValue
+      rules: [(v) => v.length <= 300 || '輸入內容不超過300字'],
+      rules2: [(v) => v.length <= 100 || '輸入內容不超過100字'],
+      textareaValue: '',
+      textareaValue2: '',
     };
   },
 

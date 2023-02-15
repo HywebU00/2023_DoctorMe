@@ -265,7 +265,7 @@ export default {
       checkType: null,
       switch1: true,
       switch2: true,
-      switch3: true,
+      switch3: false,
       // 時間選取器
       start: '8:30',
       end: '12:30',

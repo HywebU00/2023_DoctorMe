@@ -11,7 +11,7 @@
         <div class="selectGroup">
           <v-menu v-model="menu" :close-on-content-click="false" :nudge-right="40" transition="scale-transition" offset-y min-width="auto">
             <template v-slot:activator="{ on, attrs }">
-              <v-text-field class="dateRangeInput" background-color="#fff" dense solo v-model="dateRangeText" readonly v-bind="attrs" v-on="on"></v-text-field>
+              <v-text-field prepend-inner-icon="mdi-calendar-blank" class="dateRangeInput" background-color="#fff" dense solo v-model="dateRangeText" readonly v-bind="attrs" v-on="on"></v-text-field>
             </template>
             <v-date-picker v-model="dates" range no-title>
               <v-spacer></v-spacer>
@@ -149,7 +149,7 @@
               <span>請選擇日期</span>
               <v-menu v-model="menu2" :close-on-content-click="false" transition="scale-transition" max-width="250px" min-width="auto">
                 <template v-slot:activator="{ on, attrs }">
-                  <v-text-field v-model="computedDateFormatted" persistent-hint dense readonly solo v-bind="attrs" v-on="on"></v-text-field>
+                  <v-text-field prepend-inner-icon="mdi-clock-outline" v-model="computedDateFormatted" persistent-hint dense readonly solo v-bind="attrs" v-on="on"></v-text-field>
                 </template>
                 <v-date-picker width="250px" class="datePicker" v-model="date" no-title @input="menu2 = false"></v-date-picker>
               </v-menu>

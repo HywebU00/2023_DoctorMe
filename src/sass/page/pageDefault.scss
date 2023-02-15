@@ -220,7 +220,12 @@
   > div {
     width: 100%;
   }
-
+  .v-text-field__details {
+    min-height: 0px;
+    .v-messages {
+      min-height: 0px;
+    }
+  }
   // @include screen('mobile') {
   //   padding: 0rem 1rem 0 1rem;
   // }
@@ -461,6 +466,12 @@
   }
   .v-input__control {
     margin-right: 2rem;
+    .v-input__slot {
+      margin-bottom: 0;
+    }
+    label {
+      margin-top: 0rem;
+    }
   }
   label {
     margin-bottom: 0;
@@ -470,6 +481,9 @@
   margin-top: 0;
   label {
     margin-bottom: 0;
+  }
+  .v-label {
+    margin-top: 0;
   }
   .v-radio {
     margin-bottom: 1rem;
@@ -605,6 +619,10 @@
     font-weight: 700;
     color: $dark;
     font-size: 1rem;
+    margin-top: 1rem;
+    &:first-child {
+      margin-top: 0;
+    }
   }
   .title {
     label {
@@ -641,6 +659,7 @@
   display: flex;
 
   li {
+    margin-bottom: 1rem;
     .switch {
       margin-right: 1rem;
     }
@@ -737,5 +756,19 @@
     background: url('~@/assets/time.svg') no-repeat;
     padding-left: 1.75rem !important;
     background-position-y: center;
+  }
+}
+.dropInput {
+  margin-bottom: 1.5rem;
+  .vue-dropzone {
+    border: 1px solid rgba(0, 0, 0, 0.42);
+    border-radius: 0.5rem;
+  }
+  small {
+    display: block;
+    text-align: end;
+    margin-top: 0.25rem;
+    margin-right: 1rem;
+    color: rgba(0, 0, 0, 0.6);
   }
 }
