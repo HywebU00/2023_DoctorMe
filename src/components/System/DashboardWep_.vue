@@ -50,7 +50,7 @@
         </v-navigation-drawer>
       </div>
       <!-- 測試nav -->
-      <main class="main">
+      <main ref="main" class="main">
         <div class="navTitle" :class="{ closeMenu: mini }">
           <!-- user按鈕列表 -->
           <div class="navUser">
@@ -153,9 +153,9 @@
           </div>
           <!-- user按鈕列表 -->
         </div>
-        <v-content :class="{ closeMenu: mini }">
+        <v-main :class="{ closeMenu: mini }">
           <router-view></router-view>
-        </v-content>
+        </v-main>
       </main>
     </div>
   </v-app>
@@ -283,6 +283,13 @@ export default {
     fetchData() {
       let vm = this;
     },
+    scrollToTop() {
+      const main = this.$refs.main;
+      main.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    },
   },
   watch: {
     $route: 'fetchData',
@@ -293,11 +300,13 @@ export default {
   },
   created() {
     var vm = this;
-
     vm.fetchData();
   },
   destroyed() {
     clearInterval(this.refreshId);
+  },
+  updated() {
+    // this.scrollToTop();
   },
 };
 </script>

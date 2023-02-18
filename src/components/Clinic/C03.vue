@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div ref="main">
     <div class="titleInfo">
       <div class="clinicInfo"><h2>新增預約 - 一般門診</h2></div>
       <div class="title">
@@ -131,6 +131,7 @@
     <div class="btnSection" :class="{ closeMenu: mini }">
       <v-btn outlined color="primaryDark" style="background:#fff;" dark>上一步</v-btn>
       <v-btn color="primaryDark" dark>下一步</v-btn>
+      <!-- <router-link to="/C01"> <v-btn color="primaryDark" dark>測試</v-btn></router-link> -->
     </div>
   </div>
 </template>
@@ -392,9 +393,7 @@ export default {
       this.dateFormatted = this.formatDate(this.date);
     },
   },
-  mounted() {
-    this.init();
-  },
+  mounted() {},
 };
 </script>
 <style></style>

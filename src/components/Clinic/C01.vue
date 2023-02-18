@@ -51,14 +51,14 @@
       </div>
       <!-- 選取的科別 -->
       <h4 class="dataTitle">{{ item1 }}</h4>
-      <div v-for="(menu, i) in item2" :key="i">
+      <div v-for="(menu, i) in item2" :key="i.text">
         <!-- 選取的時間 -->
         <h4 class="dataTitle">{{ menu }}</h4>
         <!-- 卡片 slide-groups -->
         <div class="swiper-container cardSlider ">
           <div class="swiper-wrapper">
-            <div class="swiper-slide " v-for="item in items" :key="item.url">
-              <v-card class="cardItem" :elevation="active ? 10 : 0">
+            <div class="swiper-slide " v-for="item in items" :key="item.text">
+              <v-card class="cardItem">
                 <v-card-title class="room">
                   {{ item.room }}
                 </v-card-title>
@@ -87,17 +87,17 @@
 <script>
 //swiper 套件
 import Swiper, { Navigation, Pagination } from 'swiper';
-import { mapGetters, mapActions } from 'vuex';
+// import { mapGetters, mapActions } from 'vuex';
 
 export default {
-  computed: {
-    ...mapGetters({
-      idbServerUrl: ['getIdbServerUrl'],
-    }),
-    formTitle() {
-      return this.editedIndex === -1 ? 'New Item' : 'Edit Item';
-    },
-  },
+  // computed: {
+  //   ...mapGetters({
+  //     idbServerUrl: ['getIdbServerUrl'],
+  //   }),
+  //   formTitle() {
+  //     return this.editedIndex === -1 ? 'New Item' : 'Edit Item';
+  //   },
+  // },
   data() {
     return {
       model: null,
@@ -162,10 +162,10 @@ export default {
   },
   created: function() {
     // 此時物件尚未被init;
-    let vm = this;
-    if (vm.idbServerUrl != '/landProxy/') vm.dropzonePicOptions.url = vm.idbServerUrl + 'land/uploadFile';
-    vm.dropzonePicOptions.url = vm.idbServerUrl + 'land/uploadFile';
-    this.initialize();
+    // let vm = this;
+    // if (vm.idbServerUrl != '/landProxy/') vm.dropzonePicOptions.url = vm.idbServerUrl + 'land/uploadFile';
+    // vm.dropzonePicOptions.url = vm.idbServerUrl + 'land/uploadFile';
+    // this.initialize();
   },
   watch: {
     dialog(val) {

@@ -10,6 +10,14 @@
           新增科別
         </v-btn>
       </div>
+      <div class="title">
+        <h3>
+          <span>林小凌<small>（啟用）</small></span>
+        </h3>
+        <v-btn color="primaryDark" dark>
+          刪除醫生
+        </v-btn>
+      </div>
       <div class="selectNav">
         <div class="selectGroup">
           <v-autocomplete v-model="item1" :items="items1" dense label="科別" solo item-text="text" class="ml-0"> </v-autocomplete>
@@ -27,12 +35,44 @@
       <v-form class="infoForm">
         <!-- 拖曳區塊 start-->
         <label for="">醫生形象圖片</label>
+        <v-card class="uploadImgCard">
+          <div class="header ">
+            <v-img cover lazy-src="https://picsum.photos/id/11/10/6" height="70" width="70" src="https://picsum.photos/id/11/500/300"></v-img>
+            <span class="name">林小凌.jpeg</span>
+          </div>
+          <v-spacer></v-spacer>
+          <v-btn class="v-btn mr-2" depressed>
+            刪除
+          </v-btn>
+          <v-btn class="submitBtn" depressed color="primaryDark" dark>
+            更換
+          </v-btn>
+        </v-card>
+        <label for=""> <v-icon class="errorIcon">mdi-alert-octagon-outline</v-icon>科別</label>
+        <v-autocomplete class="inlineInput" v-model="item1" :items="items1" dense label="科別" solo item-text="text"> </v-autocomplete>
+
+        <v-btn class="v-btn mr-2" depressed>
+          取消
+        </v-btn>
+        <v-btn class="submitBtn" depressed color="primaryDark" dark>
+          新增
+        </v-btn>
+        <label for="">科別名稱</label>
+        <v-text-field class="inlineInput" placeholder="請輸入科別" id="idNum" dense v-model="first" background-color="#fff" outlined></v-text-field>
+        <v-btn class="v-btn mr-2" depressed>
+          取消
+        </v-btn>
+        <v-btn class="submitBtn" depressed color="primaryDark" dark>
+          新增
+        </v-btn>
+        <label for="">醫生形象圖片</label>
         <div class="dropInput">
           <vueDropzone ref="myVueDropzoneFile" id="dropzoneFile" :options="dropzonePicOptions" @vdropzone-success="successUploadFile" @vdropzone-removed-file="removedFile" @vdropzone-download-file="downloadFile"></vueDropzone>
           <small>只能上傳jpg/png文件，且不超過500kb</small>
         </div>
         <!-- 拖曳區塊 end-->
         <label for="idNum">科別名稱</label>
+        <p class="emptyText">尚未新增任何看診科別，點擊上方「新增科別」按鈕，開始新增看診科別與醫生資訊</p>
         <v-text-field placeholder="請輸入科別" id="idNum" dense v-model="first" background-color="#fff" outlined></v-text-field>
         <div class="d-flex">
           <v-spacer></v-spacer>
@@ -43,12 +83,109 @@
             新增
           </v-btn>
         </div>
-        <label for="doctorName">醫生名稱</label>
+        <label for="doctorName"
+          >醫生名稱
+          <v-btn class="editBtn" @click.stop="" elevation="0">
+            <v-icon>mdi-pencil</v-icon>
+          </v-btn></label
+        >
+
         <v-text-field placeholder="請輸入醫生名稱" id="doctorName" dense v-model="first" background-color="#fff" outlined></v-text-field>
         <label for="">學經歷</label>
         <v-textarea counter="300" outlined :rules="rules" placeholder="請輸入內容" background-color="#fff" :value="textareaValue"></v-textarea>
         <label for="">專長</label>
         <v-textarea counter="100" outlined :rules="rules2" placeholder="請輸入內容" background-color="#fff" :value="textareaValue2"></v-textarea>
+
+        <label for="">未分科醫生（1）</label>
+        <!-- 新增科別手風琴 start -->
+        <label for="">科別</label>
+        <div class="cardContent">
+          <v-card class="doctorInfoCard">
+            <v-avatar>
+              <img src="~@/assets/icon_face.svg" />
+            </v-avatar>
+            <div class="">
+              <div class="name">醫生名稱</div>
+              <span class="status">停用</span>
+            </div>
+          </v-card>
+          <v-card class="doctorInfoCard" v-for="(item, i) in 6" :key="i">
+            <v-avatar>
+              <img alt="Avatar" src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460" />
+            </v-avatar>
+            <div class="">
+              <p>醫生名稱</p>
+            </div>
+          </v-card>
+        </div>
+        <v-expansion-panels multiple>
+          <v-expansion-panel class="accordionCard" v-for="(item, i) in 3" :key="i">
+            <v-expansion-panel-header>
+              <h6>
+                小兒科 (0)
+                <v-btn @click.stop="" elevation="0" color="primaryDark" outlined>
+                  新增醫生
+                </v-btn>
+              </h6>
+              <v-spacer></v-spacer>
+              <v-btn @click.stop="" elevation="0">
+                <v-icon color="primaryDark" dark>mdi-delete</v-icon>
+              </v-btn>
+              <v-btn @click.stop="" elevation="0">
+                <v-icon>mdi-pencil</v-icon>
+              </v-btn>
+            </v-expansion-panel-header>
+            <v-expansion-panel-content>
+              <div class="content">
+                <v-card class="doctorInfoCard">
+                  <v-avatar>
+                    <img src="~@/assets/icon_face.svg" />
+                  </v-avatar>
+                  <div class="">
+                    <div class="name">醫生名稱</div>
+                    <span class="status">停用</span>
+                  </div>
+                </v-card>
+                <v-card class="doctorInfoCard" v-for="(item, i) in 20" :key="i">
+                  <v-avatar>
+                    <img alt="Avatar" src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460" />
+                  </v-avatar>
+                  <div class="">
+                    <p>醫生名稱</p>
+                  </div>
+                </v-card>
+              </div>
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
+        <!-- 無法展開的樣式為 v-expansion-panel-header 增加 disabled標籤 -->
+        <v-expansion-panels multiple>
+          <v-expansion-panel class="accordionCard" v-for="(item, i) in 1" :key="i">
+            <v-expansion-panel-header disabled>
+              <h6>婦產科</h6>
+              <v-spacer></v-spacer>
+              <v-btn @click.stop="" elevation="0">
+                <v-icon color="primaryDark" dark>mdi-delete</v-icon>
+              </v-btn>
+              <v-btn @click.stop="" elevation="0">
+                <v-icon>mdi-pencil</v-icon>
+              </v-btn>
+            </v-expansion-panel-header>
+            <v-expansion-panel-content>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
+        <!-- 新增科別手風琴 end -->
+
+        <!-- alert start -->
+        <v-alert class="alert infoAlert">
+          <div class="d-flex ">
+            <v-icon>mdi-alert-octagon-outline</v-icon>
+            <p>尚未新增任何看診科別，點擊上方「新增科別」按鈕，開始新增看診科別，始能進行預約服務。</p>
+          </div>
+        </v-alert>
+        <!-- alert end -->
       </v-form>
       <!-- <template>
         <v-card class="tabletList">
@@ -484,6 +621,10 @@ export default {
 
       const [month, day, year] = date.split('/');
       return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+    },
+    updateItme(model, vuex) {
+      // do Something
+      console.log('test');
     },
   },
   created: function() {

@@ -35,47 +35,47 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'DashboardWep1',
+      // name: 'DashboardWep1',
       component: DashboardWep,
       children: [
         {
           path: '',
-          name: '診所後台',
+          // name: '診所後台',
           component: C01,
         },
         {
           path: '/C01',
-          name: '診所後台',
+          // name: '診所後台',
           component: C01,
         },
         {
           path: '/C02',
-          name: '診所後台',
+          // name: '診所後台',
           component: C02,
         },
         {
           path: '/C03',
-          name: '診所後台',
+          // name: '診所後台',
           component: C03,
         },
         {
           path: '/C04',
-          name: '診所後台',
+          // name: '診所後台',
           component: C04,
         },
         {
           path: '/B08',
-          name: 'Line串接設定',
+          // name: 'Line串接設定',
           component: B08,
         },
         {
           path: '/B0301',
-          name: '門診時間維護',
+          // name: '門診時間維護',
           component: B0301,
         },
         {
           path: '/B0302',
-          name: '醫生資訊維護',
+          // name: '醫生資訊維護',
           component: B0302,
         },
       ],

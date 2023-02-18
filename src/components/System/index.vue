@@ -77,6 +77,10 @@ export default {
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/B0301',
         },
         {
+          name: '3-2,3-3 門診時間維護',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/B0302',
+        },
+        {
           name: '8.LINE串接設定',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/B08',
         },
