@@ -1,0 +1,100 @@
+.reserveTable {
+  margin-bottom: 1rem;
+  .theadFilter {
+    background: $primaryDark;
+    padding: 0.75rem;
+    display: flex;
+    justify-content: right;
+    .v-input {
+      max-width: 150px !important;
+      border-radius: 0.2rem;
+      .v-input__control {
+        min-height: 36px !important;
+      }
+      .v-input__slot {
+        min-height: 36px !important;
+        margin-bottom: 0;
+      }
+      .v-text-field__details {
+        margin: 0;
+      }
+    }
+    .v-btn-toggle {
+      border-radius: 0.2rem;
+    }
+    .v-item-group .v-btn {
+      height: 36px !important;
+      background-color: $primaryDark;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .v-item-group .v-btn.v-btn--is-elevated {
+      border-color: #fff !important;
+    }
+    .v-item-group .v-btn.v-btn--is-elevated.v-item--active {
+      background-color: #fff;
+      color: $primaryDark;
+      &::before {
+        opacity: 0;
+      }
+    }
+  }
+  .v-data-table {
+    td {
+      height: 7.5rem !important;
+      border-right: 1px solid $gray;
+    }
+    tbody {
+      tr td {
+        &:first-child {
+          color: $primaryDark;
+          font-weight: 700;
+        }
+      }
+    }
+    .v-data-table__wrapper {
+      thead th {
+        font-size: 1rem;
+        font-weight: 700;
+        color: $primaryDark !important;
+      }
+
+      tbody {
+        td {
+          padding: 1rem;
+          .v-btn {
+            margin-left: 0.5rem;
+            height: 2rem;
+          }
+          .v-btn.hide {
+            display: none;
+          }
+        }
+        .item {
+          margin-bottom: 0.5rem;
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+          white-space: nowrap;
+          button.v-btn.functionBtn {
+            padding: 0;
+            max-width: 36px !important;
+            min-width: 36px !important;
+            background-color: unset;
+          }
+          span.name {
+            margin-left: 0.5rem;
+          }
+        }
+      }
+      table tbody {
+        .closed {
+          background: lighten($gray, 5);
+          td {
+            color: $gray3;
+          }
+        }
+      }
+    }
+  }
+}

@@ -81,6 +81,18 @@ export default {
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/B0302',
         },
         {
+          name: '3-4 門診表',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/B0304',
+        },
+        {
+          name: '3-4 門診表 表格',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/B030402',
+        },
+        {
+          name: '3-5 預約規則維護',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/B0305',
+        },
+        {
           name: '8.LINE串接設定',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/B08',
         },

@@ -176,6 +176,11 @@
   .title {
     margin-left: 2rem;
   }
+  .infoText {
+    color: $gray3;
+    margin-top: -0.5rem;
+    margin-left: 2rem;
+  }
   .title + ul {
     list-style: none;
     margin-left: 0;
@@ -504,6 +509,52 @@
   .v-radio {
     margin-bottom: 1rem;
   }
+  ul {
+    list-style: none;
+    li {
+      display: flex;
+      align-items: center;
+      label {
+        margin-bottom: 0.75rem;
+        margin-left: 0.5rem;
+        color: $gray2;
+      }
+      .v-input {
+        margin-left: 0.5rem;
+      }
+      .v-text-field__details {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+.radioTableTypeList {
+  margin-top: 0;
+  label {
+    margin-bottom: 0;
+  }
+  .v-label {
+    margin-top: 0;
+  }
+  .v-radio {
+    margin-bottom: 1rem;
+    label {
+      color: $gray2;
+    }
+  }
+  .v-card {
+    padding: 1.5rem;
+    margin-right: 1rem;
+    p {
+      margin-left: 2rem;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  .v-image {
+    margin: 0 auto;
+  }
 }
 .offcanvas {
   box-shadow: $boxShadow;
@@ -801,6 +852,7 @@ button.editBtn.v-btn {
 .cardContent {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 0.5rem;
 }
 .errorIcon.v-icon {
   color: $error;

@@ -13,25 +13,28 @@ import index from './components/System/index';
 //Clinic
 import C01 from './components/Clinic/C01';
 import C02 from './components/Clinic/C02';
-// import C02 from './components/Clinic/test';
+
 import C03 from './components/Clinic/C03';
 import C04 from './components/Clinic/C04';
 import B0301 from './components/Clinic/B0301';
 import B0302 from './components/Clinic/B0302';
+import B0304 from './components/Clinic/B0304';
+import B030402 from './components/Clinic/B030402';
+import B0305 from './components/Clinic/B0305';
 import B08 from './components/Clinic/B08';
 
 export default new Router({
-  scrollBehavior: (to, from, savedPosition) => {
-    let scrollTo = 0;
+  // scrollBehavior: (to, from, savedPosition) => {
+  //   let scrollTo = 0;
 
-    if (to.hash) {
-      scrollTo = to.hash;
-    } else if (savedPosition) {
-      scrollTo = savedPosition.y;
-    }
+  //   if (to.hash) {
+  //     scrollTo = to.hash;
+  //   } else if (savedPosition) {
+  //     scrollTo = savedPosition.y;
+  //   }
 
-    return goTo(scrollTo);
-  },
+  //   return goTo(scrollTo);
+  // },
   routes: [
     {
       path: '/',
@@ -77,6 +80,21 @@ export default new Router({
           path: '/B0302',
           // name: '醫生資訊維護',
           component: B0302,
+        },
+        {
+          path: '/B0304',
+          // name: '醫生資訊維護',
+          component: B0304,
+        },
+        {
+          path: '/B030402',
+          // name: '醫生資訊維護',
+          component: B030402,
+        },
+        {
+          path: '/B0305',
+          // name: '醫生資訊維護',
+          component: B0305,
         },
       ],
     },

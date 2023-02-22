@@ -51,3 +51,134 @@
     width: calc(100% - 36px);
   }
 }
+.cardClinic {
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    .v-chip {
+      margin-left: 0.5rem;
+    }
+  }
+  .time {
+    color: $gray3;
+    font-size: 0.85rem;
+  }
+  .v-input__slot {
+    margin-bottom: 0;
+    flex-direction: row-reverse;
+  }
+  .switch {
+    margin-top: 0rem;
+    label {
+      font-size: 0.9rem;
+      margin: 0;
+      margin-right: 1rem;
+    }
+    .v-messages {
+      min-height: 0px;
+    }
+  }
+  .v-btn {
+    margin-left: 0.5rem;
+    min-width: 36px !important;
+    padding: 0 !important;
+    background-color: unset !important;
+  }
+}
+.card {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  label {
+    color: $dark;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    i {
+      font-size: 1.5rem;
+    }
+  }
+  .infoText {
+    margin-left: 1rem;
+    font-size: 0.8rem;
+    color: $gray3;
+  }
+  .cardContent {
+    padding: 0 1.5rem;
+    margin-bottom: 0;
+  }
+  .v-textarea {
+    + .switch {
+      display: flex;
+      align-items: center;
+      label {
+        font-size: 1rem;
+        margin: 0;
+        margin-right: 1rem;
+        font-weight: 400;
+      }
+      .v-input {
+        margin: 0;
+      }
+      .v-messages {
+        min-height: 0;
+      }
+    }
+  }
+  .radioList {
+    label {
+      font-size: 1rem;
+      margin: 0;
+      margin-right: 1rem;
+      font-weight: 400;
+    }
+    .v-input__slot {
+      margin: 0;
+    }
+    .v-messages {
+      min-height: 0;
+    }
+  }
+}
+.rangeSliderCard {
+  label {
+    margin-bottom: 2rem;
+    line-height: 1.5rem;
+  }
+
+  .v-slider {
+    margin-top: 2.6rem;
+    .v-slider__thumb-label {
+      span {
+        font-size: 1rem;
+        font-weight: 700;
+      }
+    }
+  }
+  .rangeSlider {
+    width: 100%;
+    // margin: 0 auto;
+    position: relative;
+    .sliderText {
+      position: absolute;
+      color: $gray3;
+      right: 1rem;
+    }
+    .v-messages {
+      min-height: 0;
+    }
+  }
+  .v-slider--horizontal {
+    .v-slider__track-container {
+      height: 4px !important;
+      .v-slider__track-background {
+        background-color: #ccc !important;
+      }
+    }
+  }
+}
