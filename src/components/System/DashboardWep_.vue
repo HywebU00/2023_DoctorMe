@@ -88,8 +88,36 @@
                 </v-list>
               </v-menu>
               <!-- 新增預約按鈕end -->
+              <v-menu bottom left offset-y>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn class="notificationsBtn" plain v-bind="attrs" v-on="on">
+                    <v-badge bordered bottom color="error" dot offset-x="8" offset-y="20">
+                      <v-icon class=" material-icons-round" left>notifications</v-icon>
+                    </v-badge>
+                  </v-btn>
+                </template>
+                <v-card class="notificationsCardList">
+                  <v-card-text>
+                    <ul>
+                      <li>
+                        <div class="">
+                          <p>未有啟用的門診表，無法提供預約服務。點擊以啟用或新增門診表。</p>
+                          <span class="">1小時前</span>
+                        </div>
+                        <v-icon color="secondary">mdi-circle-medium</v-icon>
+                      </li>
+                      <li>
+                        <div class="">
+                          <p>未有啟用的門診表，無法提供預約服務。點擊以啟用或新增門診表。</p>
+                          <span class="">1小時前</span>
+                        </div>
+                        <v-icon color="secondary">mdi-circle-medium</v-icon>
+                      </li>
+                    </ul>
+                  </v-card-text>
+                </v-card>
+              </v-menu>
               <v-btn class="userBtn" plain>
-                <v-icon class="material-icons-round" left>notifications</v-icon>
                 <span>林小華</span>
               </v-btn>
             </div>
@@ -143,8 +171,41 @@
                     </v-card-text>
                   </v-card>
                 </v-dialog>
+                <!-- <v-btn class="notificationsBtn" plain>
+                  <v-badge bordered bottom color="error" dot offset-x="8" offset-y="20">
+                    <v-icon class=" material-icons-round" left>notifications</v-icon>
+                  </v-badge>
+                </v-btn> -->
+                <v-menu bottom left offset-y>
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn class="notificationsBtn" plain v-bind="attrs" v-on="on">
+                      <v-badge bordered bottom color="error" dot offset-x="8" offset-y="20">
+                        <v-icon class=" material-icons-round" left>notifications</v-icon>
+                      </v-badge>
+                    </v-btn>
+                  </template>
+                  <v-card class="notificationsCardList">
+                    <v-card-text>
+                      <ul>
+                        <li>
+                          <div class="">
+                            <p>未有啟用的門診表，無法提供預約服務。點擊以啟用或新增門診表。</p>
+                            <span class="">1小時前</span>
+                          </div>
+                          <v-icon color="secondary">mdi-circle-medium</v-icon>
+                        </li>
+                        <li>
+                          <div class="">
+                            <p>未有啟用的門診表，無法提供預約服務。點擊以啟用或新增門診表。</p>
+                            <span class="">1小時前</span>
+                          </div>
+                          <v-icon color="secondary">mdi-circle-medium</v-icon>
+                        </li>
+                      </ul>
+                    </v-card-text>
+                  </v-card>
+                </v-menu>
                 <v-btn class="userBtn" plain>
-                  <v-icon class="material-icons-round" left>notifications</v-icon>
                   <span>林小華</span>
                 </v-btn>
               </div>
@@ -205,21 +266,21 @@ export default {
           icon: 'assignment',
           text: '預約管理',
           children: [
-            { icon: 'mdi-circle-small', text: '門診預約', link: '/C01' },
-            { icon: 'mdi-circle-small', text: '新冠診療預約', link: '/C02' },
-            { icon: 'mdi-circle-small', text: '疫苗注射預約', link: '/C03' },
-            { icon: 'mdi-circle-small', text: '疫苗紀錄查詢', link: '/C04' },
+            { icon: 'mdi-circle-medium', text: '門診預約', link: '/C01' },
+            { icon: 'mdi-circle-medium', text: '新冠診療預約', link: '/C02' },
+            { icon: 'mdi-circle-medium', text: '疫苗注射預約', link: '/C03' },
+            { icon: 'mdi-circle-medium', text: '疫苗紀錄查詢', link: '/C04' },
           ],
         },
         {
           icon: 'medical_services',
           text: '診所資料設定',
           children: [
-            { icon: 'mdi-circle-small', text: '門診時間維護', link: '/B0301' },
-            { icon: 'mdi-circle-small', text: '醫生資訊維護', link: '/' },
-            { icon: 'mdi-circle-small', text: '診所資訊維護', link: '/' },
-            { icon: 'mdi-circle-small', text: '門診表', link: '/' },
-            { icon: 'mdi-circle-small', text: '預約維護', link: '/' },
+            { icon: 'mdi-circle-medium', text: '門診時間維護', link: '/B0301' },
+            { icon: 'mdi-circle-medium', text: '醫生資訊維護', link: '/' },
+            { icon: 'mdi-circle-medium', text: '診所資訊維護', link: '/' },
+            { icon: 'mdi-circle-medium', text: '門診表', link: '/' },
+            { icon: 'mdi-circle-medium', text: '預約維護', link: '/' },
           ],
         },
         {

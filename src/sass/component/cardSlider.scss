@@ -111,6 +111,9 @@
   .cardContent {
     padding: 0 1.5rem;
     margin-bottom: 0;
+    .v-textarea {
+      width: 100%;
+    }
   }
   .v-textarea {
     + .switch {

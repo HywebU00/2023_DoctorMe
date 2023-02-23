@@ -24,6 +24,27 @@
   .userBtnMobile {
     display: none;
   }
+  .userBtn {
+    min-width: auto !important;
+    padding: 0 0.5rem !important;
+    font-weight: 700;
+    .v-btn__content {
+      opacity: 1 !important;
+    }
+    color: $primaryDark !important;
+  }
+  .notificationsBtn {
+    .v-btn__content {
+      opacity: 1 !important;
+    }
+    color: $primaryDark !important;
+    min-width: 1rem !important;
+    padding: 0 0.5rem !important;
+    i {
+      margin: 0 !important;
+      font-size: 1.4rem !important;
+    }
+  }
   .userContent {
     position: fixed;
     right: 0.5rem;
@@ -305,6 +326,31 @@
       margin-bottom: 1rem;
       button {
         font-weight: 700;
+      }
+    }
+  }
+}
+.notificationsCardList {
+  max-width: 20rem;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+    li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      p {
+        margin-bottom: 0;
+        color: $dark;
+        line-height: 1.5rem;
+      }
+      span {
+        color: $gray3;
+        font-size: 0.8rem;
       }
     }
   }

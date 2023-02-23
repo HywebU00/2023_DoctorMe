@@ -270,7 +270,6 @@ export default {
       } else {
         this.switchText = '關閉';
       }
-      console.log(text);
     },
     formatDate(date) {
       if (!date) return null;

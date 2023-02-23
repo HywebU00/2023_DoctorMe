@@ -10,6 +10,82 @@
       <!-- <p class="infoText">生效日：2022/01/01</p> -->
     </div>
     <section class="dataSection hasBtnSection">
+      <v-card class="reserveTypeTable mb-4">
+        <v-simple-table class="">
+          <template v-slot:default>
+            <thead>
+              <tr>
+                <th class="text-left">
+                  預約類型
+                </th>
+                <th width="150">
+                  啟用狀態
+                </th>
+                <th width="100">
+                  排序
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(item, index) in desserts" :key="item.name">
+                <td>{{ item.name }}</td>
+                <td>
+                  <div class="switchGroup">
+                    <label v-if="item.switch">已啟用</label>
+                    <label v-else>關閉</label>
+                    <v-switch class="switch" v-model="item.switch" color="secondary"></v-switch>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex btnGroup">
+                    <!-- 按鈕排列第一個不能點擊網上 最後一個不能點擊往下 -->
+                    <v-btn v-if="index === 0" elevation="0" disabled>
+                      <v-icon color="primaryDark" dark>mdi-chevron-down</v-icon>
+                    </v-btn>
+                    <v-btn v-else @click.stop="" elevation="0">
+                      <v-icon color="primaryDark" dark>mdi-chevron-down</v-icon>
+                    </v-btn>
+                    <v-btn disabled elevation="0" v-if="index === desserts.length - 1">
+                      <v-icon>mdi-chevron-up</v-icon>
+                    </v-btn>
+                    <v-btn v-else @click.stop="" elevation="0">
+                      <v-icon>mdi-chevron-up</v-icon>
+                    </v-btn>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
+      </v-card>
+      <v-card class="reserveTypeTable mb-4">
+        <v-simple-table class="">
+          <template v-slot:default>
+            <thead>
+              <tr>
+                <th class="text-left">
+                  預約類型
+                </th>
+                <th width="150">
+                  啟用狀態
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in desserts2" :key="item.name">
+                <td>{{ item.name }}</td>
+                <td>
+                  <div class="switchGroup">
+                    <label v-if="item.switch">已啟用</label>
+                    <label v-else>關閉</label>
+                    <v-switch class="switch" v-model="item.switch" color="secondary"></v-switch>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
+      </v-card>
       <v-card class="card" elevation="0">
         <label> <v-icon color="secondary">mdi-numeric-1-circle</v-icon> 預約號碼設定</label><span class="infoText">設定預約給號規則</span>
         <div class="cardContent">
@@ -33,7 +109,6 @@
             <div class="d-flex">
               <span v-if="this.sliderValue[1] < 170" class="ml-auto sliderText">
                 180
-                <!-- {{ this.sliderValue[1] }} -->
               </span>
             </div>
             <v-range-slider v-model="sliderValue" color="secondary" thumb-color="secondary" min="0" max="180" thumb-size="50" thumb-label="always"> </v-range-slider>
@@ -42,10 +117,12 @@
       </v-card>
       <v-card class="card" elevation="0">
         <label> <v-icon color="secondary">mdi-numeric-3-circle</v-icon> 預約完成訊息</label><span class="infoText">設定預約成功訊息</span>
-        <v-textarea counter="500" outlined :rules="rules2" placeholder="請輸入內容" background-color="#fff" :value="textareaValue2"></v-textarea>
-        <div class="switch">
-          <label>預約完成時，自動傳送預約成功line訊息給會員</label>
-          <v-switch v-model="openDate" color="secondary" value="週日"></v-switch>
+        <div class="cardContent">
+          <v-textarea counter="500" outlined :rules="rules2" placeholder="請輸入內容" background-color="#fff" :value="textareaValue2"></v-textarea>
+          <div class="switch">
+            <label>預約完成時，自動傳送預約成功line訊息給會員</label>
+            <v-switch v-model="openDate" color="secondary" value="週日"></v-switch>
+          </div>
         </div>
       </v-card>
     </section>
@@ -61,7 +138,6 @@
         <v-card class="modal">
           <v-card-title>
             <h5 color="primaryDark" text>確認變更</h5>
-
             <v-spacer></v-spacer>
             <button>
               <v-icon @click.stop="dialog2 = !dialog2">
@@ -161,7 +237,7 @@ export default {
       end2: '12:30',
       start3: '8:30',
       end3: '12:30',
-
+      toggle_exclusive: [],
       singleSelect: false,
       selected: [],
       headers: [
@@ -169,20 +245,40 @@ export default {
         { text: '說明', value: 'content' },
         { text: '類型', value: 'type', width: '100px' },
       ],
-      toggle_exclusive: undefined,
+      // toggle_exclusive: undefined,
+      desserts: [
+        {
+          name: '一般門診',
+          switch: false,
+        },
+        {
+          name: '新冠診療',
+          switch: true,
+        },
+        {
+          name: '疫苗注射',
+          switch: false,
+        },
+      ],
+      desserts2: [
+        {
+          name: '一般門診',
+          switch: false,
+        },
+        {
+          name: '新冠診療',
+          switch: true,
+        },
+        {
+          name: '疫苗注射',
+          switch: false,
+        },
+      ],
     };
   },
 
   methods: {
     initialize() {},
-    changeText(text) {
-      if (text === true) {
-        this.switchText = '已啟用';
-      } else {
-        this.switchText = '關閉';
-      }
-      console.log(text);
-    },
     formatDate(date) {
       if (!date) return null;
 
