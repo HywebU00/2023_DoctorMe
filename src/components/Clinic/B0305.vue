@@ -31,8 +31,7 @@
                 <td>{{ item.name }}</td>
                 <td>
                   <div class="switchGroup">
-                    <label v-if="item.switch">已啟用</label>
-                    <label v-else>關閉</label>
+                    <label for=""> {{ item.switch ? '已啟用' : '關閉' }}</label>
                     <v-switch class="switch" v-model="item.switch" color="secondary"></v-switch>
                   </div>
                 </td>
@@ -76,8 +75,7 @@
                 <td>{{ item.name }}</td>
                 <td>
                   <div class="switchGroup">
-                    <label v-if="item.switch">已啟用</label>
-                    <label v-else>關閉</label>
+                    <label for=""> {{ item.switch ? '已啟用' : '關閉' }}</label>
                     <v-switch class="switch" v-model="item.switch" color="secondary"></v-switch>
                   </div>
                 </td>

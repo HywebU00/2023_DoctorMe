@@ -21,7 +21,7 @@
           <div class="time">生效日：2023/02/01</div>
         </div>
         <div class="d-flex align-items-center">
-          <v-switch class="switch" v-model="switch5" color="secondary" :label="switchText" :change="changeText(switch5)"></v-switch>
+          <v-switch class="switch" v-model="switch5" color="secondary" :label="switch5" true-value="已開啟" false-value="關閉"></v-switch>
           <v-btn elevation="0">
             <v-icon color="primaryDark" dark>mdi-delete</v-icon>
           </v-btn>
@@ -189,8 +189,8 @@ export default {
       checkType: null,
       switch1: true,
       switch2: true,
-      switch5: false,
-      switchText: '關閉',
+      switch5: '關閉',
+
       // 時間選取器
       start: '8:30',
       end: '12:30',
