@@ -106,15 +106,18 @@
       width: calc(20% - 0.75rem);
       margin-left: 0.75rem;
       margin-bottom: 0.25rem;
-      max-width: 220px;
+      max-width: 200px;
       @include screen('notebook') {
-        width: calc(30% - 0.75rem);
+        // width: calc(30% - 0.75rem);
+        width: calc(25% - 0.75rem);
         &:nth-child(3n - 1) {
           margin-left: 0;
           max-width: unset;
         }
       }
-
+      @include screen('mobile') {
+        width: calc(50% - 0.75rem);
+      }
       .v-select__selections {
         flex-wrap: nowrap;
         overflow: hidden;
@@ -503,6 +506,7 @@
   label {
     margin-bottom: 0;
   }
+
   .v-label {
     margin-top: 0;
   }
@@ -530,6 +534,7 @@
 }
 .radioTableTypeList {
   margin-top: 0;
+
   label {
     margin-bottom: 0;
   }
@@ -542,6 +547,12 @@
       color: $gray2;
     }
   }
+  .cardContent {
+    flex-wrap: nowrap;
+    @include screen('notebook') {
+      flex-wrap: wrap;
+    }
+  }
   .v-card {
     padding: 1.5rem;
     margin-right: 1rem;
@@ -550,6 +561,17 @@
     }
     &:last-child {
       margin-right: 0;
+    }
+    @include screen('notebook') {
+      width: calc(50% - 0.5rem);
+    }
+    @include screen('tablet') {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 1rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
   .v-image {
@@ -815,6 +837,9 @@
   .lineList {
     li > p {
       color: $gray3;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 }
@@ -864,6 +889,13 @@ button.editBtn.v-btn {
   margin-right: 1rem !important;
   width: 30%;
   @include screen('mobile') {
-    width: 50%;
+    width: 100%;
+  }
+}
+.inlineBtn_group {
+  display: inline-block;
+  @include screen('mobile') {
+    display: flex;
+    justify-content: flex-end;
   }
 }

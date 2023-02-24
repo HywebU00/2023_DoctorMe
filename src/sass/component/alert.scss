@@ -5,10 +5,14 @@
   padding: 0.5rem 1rem;
   .v-icon {
     color: #fff;
-    margin-right: 0.5rem;
+    margin: 0.25rem 0.5rem 0.25rem 0rem;
+  }
+  .text {
+    display: flex;
+    align-items: center;
   }
   p {
-    margin-bottom: 0;
+    margin: 0.25rem 0;
     font-weight: 700;
     font-size: 1rem;
   }
@@ -16,6 +20,7 @@
     > div {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
     }
   }
   .v-btn {

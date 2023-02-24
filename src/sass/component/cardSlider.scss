@@ -102,11 +102,20 @@
     i {
       font-size: 1.5rem;
     }
+    @include screen('mobile') {
+      display: block;
+      margin-bottom: 0;
+    }
   }
   .infoText {
     margin-left: 1rem;
     font-size: 0.8rem;
     color: $gray3;
+    @include screen('mobile') {
+      margin-bottom: 1rem;
+      display: block;
+      margin-left: 2rem;
+    }
   }
   .cardContent {
     padding: 0 1.5rem;
@@ -152,8 +161,17 @@
   label {
     margin-bottom: 2rem;
     line-height: 1.5rem;
+    @include screen('mobile') {
+      display: block;
+      margin-bottom: 0;
+    }
   }
 
+  .infoText {
+    @include screen('mobile') {
+      margin-bottom: 2rem;
+    }
+  }
   .v-slider {
     margin-top: 2.6rem;
     .v-slider__thumb-label {
@@ -181,6 +199,203 @@
       height: 4px !important;
       .v-slider__track-background {
         background-color: #ccc !important;
+      }
+    }
+  }
+}
+.accordionCard {
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  .v-expansion-panel-header {
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    h6 {
+      margin-bottom: 0;
+      button {
+        padding: 0 0.5rem !important;
+        min-width: 76px !important;
+        margin-left: 0.5rem;
+        height: 30px !important;
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+    }
+    button {
+      padding: 0 !important;
+      background-color: #fff !important;
+      margin-right: 0.25rem;
+      height: 36px !important;
+      min-width: 36px !important;
+      max-width: 36px !important;
+    }
+    &:disabled {
+      .v-expansion-panel-header__icon {
+        display: none;
+      }
+    }
+  }
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.doctorInfoCard {
+  padding: 0.5rem;
+  width: calc(25% - (3rem / 4));
+  min-height: 3.75rem;
+  border-top: 5px solid $primaryLight !important;
+  display: flex;
+  margin: 0 1rem 1rem 0;
+  align-items: start;
+  font-weight: 700;
+  cursor: pointer;
+  &:hover {
+    box-shadow: $primaryLight 0px 1px 2px, $primaryLight 0px 0px 0px 2px !important;
+  }
+  &:nth-child(4n) {
+    margin-right: 0;
+  }
+
+  .v-avatar {
+    width: 36px !important;
+    height: 36px !important;
+
+    + div {
+      margin-top: 0.25rem;
+
+      @include screen('mobile') {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+  .name {
+    font-size: 1rem;
+    color: $primaryDark;
+    margin: 0 0 0 0.5rem;
+    line-height: 1rem;
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .status {
+    margin-left: 0.5rem;
+    color: $error;
+    display: block;
+    font-size: 0.8rem;
+  }
+  @include screen('desktop') {
+    width: calc(16.66% - (6rem / 7));
+    &:nth-child(4n) {
+      margin-right: 1rem;
+    }
+    &:nth-child(6n) {
+      margin-right: 0;
+    }
+  }
+  @include screen('notebook') {
+    width: calc(33.3% - (2rem / 3));
+
+    &:nth-child(4n) {
+      margin-right: 1rem;
+    }
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+  @include screen('mobile') {
+    width: calc(50% - 0.5rem);
+
+    &:nth-child(even) {
+      margin-right: 0em;
+    }
+    &:nth-child(odd) {
+      margin-right: 1em;
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+}
+.typeInfoCard {
+  padding: 1rem;
+  width: calc(20% - (4rem / 5));
+  margin: 0 1rem 1rem 0;
+  cursor: pointer;
+  span {
+    color: $primaryDark;
+    font-weight: 700;
+  }
+  &:nth-child(5n) {
+    margin-right: 0;
+  }
+  &:hover {
+    box-shadow: $primaryLight 0px 1px 2px, $primaryLight 0px 0px 0px 2px !important;
+  }
+  @include screen('notebook') {
+    width: calc(25% - (3rem / 4));
+    &:nth-child(5n) {
+      margin-right: 1rem;
+    }
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+  }
+  @include screen('tablet') {
+    width: calc(33.3% - (2rem / 3));
+
+    &:nth-child(4n) {
+      margin-right: 1rem;
+    }
+    &:nth-child(3n) {
+      margin-right: 0rem;
+    }
+  }
+  @include screen('mobile') {
+    width: calc(50% - (1rem / 2));
+    &:nth-child(3n) {
+      margin-right: 1rem;
+    }
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+  }
+}
+.uploadImgCard.v-card {
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  box-shadow: none !important;
+  border: 1px solid $gray3;
+  img {
+    max-width: 70px;
+  }
+  .v-image {
+    border-radius: 0.25rem;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+  }
+  .name {
+    margin-left: 1rem;
+    color: $gray3;
+  }
+  @include screen('mobile') {
+    flex-wrap: wrap;
+    .header {
+      width: 100%;
+      margin-bottom: 0.5rem;
+      .v-image {
+        max-width: 80px;
+      }
+    }
+    .spacer {
+      + .v-btn {
+        margin-left: auto;
       }
     }
   }

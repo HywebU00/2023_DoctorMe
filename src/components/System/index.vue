@@ -6,7 +6,7 @@
         <v-btn><a href="https://github.com/HywebU00/2023_DoctorMe">檔案下載</a></v-btn>
       </div>
       <div class="d-flex justify-content-center ">
-        <v-card width="66%">
+        <v-card width="75%">
           <v-simple-table class="index_table">
             <template v-slot:default>
               <thead>
@@ -105,13 +105,13 @@ export default {
 <style lang="scss" scope>
 .index_bg {
   background: #e9ecef;
-  height: 100vh;
 }
 .index_container {
   padding-top: 5rem;
+  padding-bottom: 10rem;
 }
 .index_title {
-  width: 66%;
+  width: 75%;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -143,6 +143,14 @@ export default {
     tr > th {
       font-size: 1rem !important;
       color: #fff !important;
+      white-space: nowrap;
+    }
+  }
+  tbody {
+    tr > td {
+      &:nth-child(2) {
+        min-width: 250px;
+      }
     }
   }
 }

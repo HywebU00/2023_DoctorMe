@@ -34,7 +34,8 @@
     z-index: 1;
     position: relative;
     .v-card {
-      width: 45%;
+      width: 60%;
+      max-width: 36rem;
       min-height: 36rem;
       padding: 3rem;
       @include screen('notebook') {
@@ -42,7 +43,7 @@
         padding: 2rem;
       }
       @include screen('tablet') {
-        width: 80%;
+        width: 90%;
         padding: 1rem;
       }
     }
@@ -62,7 +63,6 @@
         color: $primaryDark;
       }
     }
-
     .btnList {
       display: flex;
       justify-content: space-between;
@@ -73,6 +73,10 @@
       }
       .v-label {
         margin-bottom: 0;
+        margin-top: 0;
+      }
+      .v-input {
+        padding-top: 0;
       }
       a {
         margin-top: 0.25rem;
@@ -109,6 +113,11 @@
     }
     label {
       color: $gray2;
+    }
+    .infoForm {
+      label {
+        margin-top: 0;
+      }
     }
   }
   .remark {

@@ -51,20 +51,25 @@
         <label for=""> <v-icon class="errorIcon">mdi-alert-octagon-outline</v-icon>科別</label>
         <v-autocomplete class="inlineInput" v-model="item1" :items="items1" dense label="科別" solo item-text="text"> </v-autocomplete>
 
-        <v-btn class="v-btn mr-2" depressed>
-          取消
-        </v-btn>
-        <v-btn class="submitBtn" depressed color="primaryDark" dark>
-          新增
-        </v-btn>
+        <div class="inlineBtn_group">
+          <v-btn class="v-btn mr-2" depressed>
+            取消
+          </v-btn>
+          <v-btn class="submitBtn" depressed color="primaryDark" dark>
+            新增
+          </v-btn>
+        </div>
         <label for="">科別名稱</label>
         <v-text-field class="inlineInput" placeholder="請輸入科別" id="idNum" dense v-model="first" background-color="#fff" outlined></v-text-field>
-        <v-btn class="v-btn mr-2" depressed>
-          取消
-        </v-btn>
-        <v-btn class="submitBtn" depressed color="primaryDark" dark>
-          新增
-        </v-btn>
+        <div class="inlineBtn_group">
+          <v-btn class="v-btn mr-2" depressed>
+            取消
+          </v-btn>
+          <v-btn class="submitBtn" depressed color="primaryDark" dark>
+            新增
+          </v-btn>
+        </div>
+
         <label for="">醫生形象圖片</label>
         <div class="dropInput">
           <vueDropzone ref="myVueDropzoneFile" id="dropzoneFile" :options="dropzonePicOptions" @vdropzone-success="successUploadFile" @vdropzone-removed-file="removedFile" @vdropzone-download-file="downloadFile"></vueDropzone>
@@ -114,7 +119,7 @@
               <img alt="Avatar" src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460" />
             </v-avatar>
             <div class="">
-              <p>醫生名稱</p>
+              <div class="name">醫生名稱</div>
             </div>
           </v-card>
         </div>
@@ -151,7 +156,7 @@
                     <img alt="Avatar" src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460" />
                   </v-avatar>
                   <div class="">
-                    <p>醫生名稱</p>
+                    <div class="name">醫生名稱</div>
                   </div>
                 </v-card>
               </div>
@@ -179,8 +184,10 @@
         <!-- alert start -->
         <v-alert class="alert infoAlert">
           <div class="d-flex ">
-            <v-icon>mdi-alert-octagon-outline</v-icon>
-            <p>尚未新增任何看診科別，點擊上方「新增科別」按鈕，開始新增看診科別，始能進行預約服務。</p>
+            <div class="text">
+              <v-icon>mdi-alert-octagon-outline</v-icon>
+              <p>尚未新增任何看診科別，點擊上方「新增科別」按鈕，開始新增看診科別，始能進行預約服務。</p>
+            </div>
           </div>
         </v-alert>
         <!-- alert end -->

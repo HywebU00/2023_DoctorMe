@@ -11,7 +11,7 @@
     </div>
     <section class="dataSection hasBtnSection">
       <v-card class="reserveTypeTable mb-4">
-        <v-simple-table class="">
+        <v-simple-table class="" mobile-breakpoint="0">
           <template v-slot:default>
             <thead>
               <tr>
@@ -58,7 +58,7 @@
         </v-simple-table>
       </v-card>
       <v-card class="reserveTypeTable mb-4">
-        <v-simple-table class="">
+        <v-simple-table class="" mobile-breakpoint="0">
           <template v-slot:default>
             <thead>
               <tr>

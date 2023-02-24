@@ -32,8 +32,10 @@
       <!-- alert-start -->
       <v-alert class="alert">
         <div class="d-flex ">
-          <v-icon>mdi-alert-octagon-outline</v-icon>
-          <p>提醒您，您目前所選擇的日期非當日。</p>
+          <div class="text">
+            <v-icon>mdi-alert-octagon-outline</v-icon>
+            <p>提醒您，您目前所選擇的日期非當日。</p>
+          </div>
           <v-spacer></v-spacer>
           <v-btn color="primaryDark" dark>切換至當日（2022/11/10）</v-btn>
         </div>

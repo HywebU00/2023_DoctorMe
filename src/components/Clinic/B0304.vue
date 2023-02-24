@@ -23,12 +23,12 @@
             <v-card>
               <v-radio color="secondary" label="星期制" value="01"></v-radio>
               <p>適用於班表固定，不需每月變動班表的診所。</p>
-              <v-img lazy-src="https://picsum.photos/id/11/10/6" max-height="150" max-width="250" contain src="https://picsum.photos/id/11/500/300"></v-img>
+              <v-img lazy-src="https://picsum.photos/id/11/10/6" max-height="150" max-width="250" contain src="https://picsum.photos/id/11/400/300"></v-img>
             </v-card>
             <v-card>
               <v-radio color="secondary" label="月排制" value="02"></v-radio>
               <p>適用於班表固定，不需每月變動班表的診所。</p>
-              <v-img lazy-src="https://picsum.photos/id/11/10/6" max-height="150" max-width="250" contain src="https://picsum.photos/id/11/500/300"></v-img>
+              <v-img lazy-src="https://picsum.photos/id/11/10/6" max-height="150" max-width="250" contain src="https://picsum.photos/id/11/400/300"></v-img>
             </v-card>
           </div>
         </v-radio-group>
