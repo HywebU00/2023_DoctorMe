@@ -1,5 +1,5 @@
 <template>
-  <div class="index_bg " width="100%">
+  <div class="index_bg" width="100%">
     <div class="index_container">
       <div class="index_title">
         <h3 class="text-center"><img src="~@/assets/Logo.svg" alt="" /><span>DoctorMe</span></h3>

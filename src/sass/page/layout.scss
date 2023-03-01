@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   padding: 0 1rem;
-  position: absolute;
+  position: fixed;
   .navUser {
     margin: 0 0 0 auto;
     button {
@@ -80,7 +80,7 @@
       background: #fff;
       width: 100%;
       display: flex;
-      justify-content: end;
+      justify-content: flex-end;
     }
   }
   @include screen('tablet') {
@@ -288,11 +288,13 @@
   }
 }
 .main {
-  overflow-y: scroll;
+  overflow-y: hidden;
   width: 100%;
   background-color: $backgroundColor;
   .v-main {
     margin-top: 64px;
+    overflow-y: scroll;
+    height: calc(100% - 64px);
   }
 }
 .dialogMobileCard.v-card {

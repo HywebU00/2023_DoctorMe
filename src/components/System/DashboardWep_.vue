@@ -214,7 +214,8 @@
           </div>
           <!-- user按鈕列表 -->
         </div>
-        <v-main :class="{ closeMenu: mini }">
+
+        <v-main :class="{ closeMenu: mini }" ref="scrollBar">
           <router-view></router-view>
         </v-main>
       </main>
@@ -228,6 +229,10 @@ import 'sweetalert2/src/sweetalert2.scss';
 
 // import Lottie from "../Common/lottie.vue";
 import * as animationData from '../../assets/lf20_HgDft2.json';
+
+//scrollbar
+import 'overlayscrollbars/styles/overlayscrollbars.css';
+import { OverlayScrollbars } from 'overlayscrollbars';
 
 export default {
   // components: { lottie: Lottie },
@@ -351,6 +356,16 @@ export default {
         behavior: 'smooth',
       });
     },
+    scrollBar() {
+      const scrollBar = this.$refs.scrollBar.$el;
+      OverlayScrollbars(scrollBar, {
+        scrollbars: {
+          visibility: 'auto',
+          autoHide: 'leave',
+          autoHideDelay: 500,
+        },
+      });
+    },
   },
   watch: {
     $route: 'fetchData',
@@ -358,6 +373,7 @@ export default {
   },
   mounted() {
     var vm = this;
+    this.scrollBar();
   },
   created() {
     var vm = this;
