@@ -176,6 +176,9 @@
       margin: 0 2rem;
     }
   }
+  .selectWidth {
+    width: 100%;
+  }
   .title {
     margin-left: 2rem;
   }
@@ -743,6 +746,11 @@
     .theme--light.v-btn {
       color: $primaryDate;
     }
+    .v-picker__body {
+      @include screen('mobile') {
+        width: auto !important;
+      }
+    }
   }
 }
 .timeRangePickList {
@@ -897,5 +905,11 @@ button.editBtn.v-btn {
   @include screen('mobile') {
     display: flex;
     justify-content: flex-end;
+  }
+}
+.tabList {
+  .v-tabs-items {
+    margin: 1.5rem 0;
+    background: rgba(0, 0, 0, 0) !important;
   }
 }

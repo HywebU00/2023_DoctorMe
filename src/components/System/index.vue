@@ -93,6 +93,10 @@ export default {
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/B0305',
         },
         {
+          name: '4-1 會員管理-會員名單',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/B0401',
+        },
+        {
           name: '8.LINE串接設定',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/B08',
         },

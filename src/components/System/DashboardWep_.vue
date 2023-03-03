@@ -21,7 +21,7 @@
             </v-icon>
           </v-btn>
           <!-- <v-divider></v-divider> -->
-          <div class="scrollContent">
+          <div class="scrollContent" ref="scrollContent">
             <v-list>
               <template v-for="item in items">
                 <v-list-group v-if="item.children" :key="item.text" v-model="item.model" active-class="primaryDark white--text">
@@ -365,6 +365,14 @@ export default {
           autoHideDelay: 500,
         },
       });
+      const scrollContent = this.$refs.scrollContent;
+      OverlayScrollbars(scrollContent, {
+        scrollbars: {
+          visibility: 'auto',
+          autoHide: 'leave',
+          autoHideDelay: 500,
+        },
+      });
     },
   },
   watch: {
@@ -382,9 +390,7 @@ export default {
   destroyed() {
     clearInterval(this.refreshId);
   },
-  updated() {
-    // this.scrollToTop();
-  },
+  updated() {},
 };
 </script>
 <style>

@@ -238,6 +238,118 @@
     display: flex;
     flex-wrap: wrap;
   }
+  .limitContent {
+    max-height: 120px;
+    overflow: hidden;
+    width: 100%;
+  }
+  .footer {
+    display: flex;
+    margin-top: 0.5rem;
+    justify-content: flex-end;
+    .linkBtn {
+      color: $primaryDark;
+      font-weight: 700;
+      &:hover {
+        color: $primary;
+        text-decoration: none;
+      }
+    }
+  }
+}
+.memberCard.v-chip {
+  margin-bottom: 0.5rem;
+  // margin-right: 1rem;
+
+  width: calc(10% - (9rem / 10));
+  margin-right: 1rem;
+  &:nth-child(10n) {
+    margin-right: 0rem;
+  }
+
+  @media screen and (max-width: 1800px) {
+    width: calc(12.5% - (7rem / 8));
+
+    &:nth-child(4n) {
+      margin-right: 1rem;
+    }
+    &:nth-child(6n) {
+      margin-right: 1rem;
+    }
+    &:nth-child(10n) {
+      margin-right: 1rem;
+    }
+    &:nth-child(8n) {
+      margin-right: 0rem;
+    }
+  }
+  @media screen and (max-width: 1440px) {
+    width: calc(16.66% - (6rem / 7));
+
+    &:nth-child(4n) {
+      margin-right: 1rem;
+    }
+    &:nth-child(6n) {
+      margin-right: 0;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    width: calc(20% - (4rem / 5));
+
+    &:nth-child(4n) {
+      margin-right: 1rem;
+    }
+    &:nth-child(5n) {
+      margin-right: 0rem;
+    }
+    &:nth-child(6n) {
+      margin-right: 1rem;
+    }
+  }
+
+  @include screen('notebook') {
+    width: calc(33.3% - (2rem / 3));
+
+    &:nth-child(4n) {
+      margin-right: 1rem;
+    }
+    &:nth-child(5n) {
+      margin-right: 1rem;
+    }
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+  @include screen('mobile') {
+    width: calc(50% - 0.5rem);
+
+    &:nth-child(even) {
+      margin-right: 0em;
+    }
+    &:nth-child(odd) {
+      margin-right: 1em;
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+
+  position: relative;
+  .v-chip__content {
+    display: flex;
+    margin-right: 1.5rem;
+  }
+  button {
+    position: absolute;
+    right: 0.75rem;
+  }
+
+  &:hover {
+    background-color: lighten($primaryDark, 5) !important;
+  }
 }
 .doctorInfoCard {
   padding: 0.5rem;

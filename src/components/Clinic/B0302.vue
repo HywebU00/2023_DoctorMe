@@ -181,6 +181,36 @@
         </v-expansion-panels>
         <!-- 新增科別手風琴 end -->
 
+        <v-expansion-panels multiple>
+          <v-expansion-panel class="accordionCard ">
+            <v-expansion-panel-header>
+              <h6>
+                發送名單（7）
+              </h6>
+            </v-expansion-panel-header>
+            <v-expansion-panel-content>
+              <div class="content limitContent">
+                <v-chip v-for="i in 20" :key="i" class="memberCard" close color="primaryDark" label text-color="white" @click:close="chip1 = false">
+                  <v-icon left>
+                    mdi-account
+                  </v-icon>
+                  姓名名
+                </v-chip>
+                <v-chip v-for="i in 15" :key="i" class="memberCard" close color="primaryDark" label text-color="white" @click:close="chip1 = false">
+                  <v-icon left>
+                    mdi-account
+                  </v-icon>
+                  姓名名
+                </v-chip>
+              </div>
+              <div class="footer">
+                <router-link class="linkBtn" to="">
+                  展開全部
+                </router-link>
+              </div>
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
         <!-- alert start -->
         <v-alert class="alert infoAlert">
           <div class="d-flex ">

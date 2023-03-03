@@ -90,7 +90,7 @@
           </v-card-title>
           <template>
             <v-data-table mobile-breakpoint="0" hide-default-header fixed-header :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1 width-scroll" :footer-props="{ itemsPerPageText: '1頁顯示 :' }">
-              <template slot="header" :headers="headers">
+              <template slot="header">
                 <thead>
                   <tr>
                     <th width="100">預約號碼</th>
@@ -139,7 +139,7 @@
                 <v-btn class="checkBtn" depressed color="primaryDark" dark>報到</v-btn>
                 <v-btn class="cancelBtn" depressed>取消報到</v-btn>
               </template>
-              <template v-slot:[`item.file`]="{ item }">
+              <template v-slot:[`item.file`]="item">
                 <v-btn class="viewBtn" depressed color="rgba(0,0,0,0)" @click.stop="openOffcanvas = !openOffcanvas">
                   <v-icon>
                     description
@@ -178,7 +178,7 @@
           <h5>更改預約</h5> -->
           <!-- 更改預約 header end -->
         </div>
-        <div class="offcanvasBody">
+        <div class="offcanvasBody" ref="scrollBar">
           <h6>預約資訊</h6>
           <ul>
             <li>
@@ -287,6 +287,10 @@
 import { mapGetters, mapActions } from 'vuex';
 // import vue2Dropzone from 'vue2-dropzone';
 // import 'vue2-dropzone/dist/vue2Dropzone.min.css';
+
+//scrollbar
+import 'overlayscrollbars/styles/overlayscrollbars.css';
+import { OverlayScrollbars } from 'overlayscrollbars';
 
 export default {
   computed: {
@@ -502,6 +506,17 @@ export default {
       const [month, day, year] = date.split('/');
       return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
     },
+    scrollBar() {
+      const scrollBar = this.$refs.scrollBar;
+
+      OverlayScrollbars(scrollBar, {
+        scrollbars: {
+          visibility: 'auto',
+          autoHide: 'leave',
+          autoHideDelay: 500,
+        },
+      });
+    },
   },
   created: function() {
     // 此時物件尚未被init;
@@ -524,7 +539,7 @@ export default {
     },
   },
   mounted() {
-    this.init();
+    this.scrollBar();
   },
 };
 </script>

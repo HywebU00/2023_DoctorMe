@@ -21,6 +21,7 @@ import B0302 from './components/Clinic/B0302';
 import B0304 from './components/Clinic/B0304';
 import B030402 from './components/Clinic/B030402';
 import B0305 from './components/Clinic/B0305';
+import B0401 from './components/Clinic/B0401';
 import B08 from './components/Clinic/B08';
 
 export default new Router({
@@ -95,6 +96,11 @@ export default new Router({
           path: '/B0305',
           // name: '醫生資訊維護',
           component: B0305,
+        },
+        {
+          path: '/B0401',
+          // name: '醫生資訊維護',
+          component: B0401,
         },
       ],
     },
