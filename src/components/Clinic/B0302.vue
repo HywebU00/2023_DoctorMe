@@ -94,7 +94,6 @@
             <v-icon>mdi-pencil</v-icon>
           </v-btn></label
         >
-
         <v-text-field placeholder="請輸入醫生名稱" id="doctorName" dense v-model="first" background-color="#fff" outlined></v-text-field>
         <label for="">學經歷</label>
         <v-textarea counter="300" outlined :rules="rules" placeholder="請輸入內容" background-color="#fff" :value="textareaValue"></v-textarea>

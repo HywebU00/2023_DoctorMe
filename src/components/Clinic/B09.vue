@@ -81,7 +81,85 @@
         </div>
       </v-card>
     </section>
-    <section class="dataSection "></section>
+    <section class="dataSection ">
+      <div class="title">
+        <h3>
+          <span>訂閱方案</span>
+        </h3>
+      </div>
+      <div class="d-flex">
+        <v-card class="card payCard">
+          <div class="title" color="secondary" dark>
+            <h6>免費基本版</h6>
+            <p>NT$ <span>4,000</span> /月</p>
+          </div>
+          <ul>
+            <li>
+              <v-icon color="success">mdi-check</v-icon>
+              <span> 專屬診所LINE官方帳號</span>
+            </li>
+            <li>
+              <v-icon color="success">mdi-check</v-icon>
+              <span> 專屬診所LINE官方帳號</span>
+            </li>
+            <li>
+              <v-icon color="error">mdi-close</v-icon>
+              <span>方案內容待討論</span>
+            </li>
+            <li>
+              <v-icon color="error">mdi-close</v-icon>
+              <span>方案內容待討論</span>
+            </li>
+            <li>
+              <v-icon color="error">mdi-close</v-icon>
+              <span>方案內容待討論</span>
+            </li>
+            <li>
+              <v-icon color="error">mdi-close</v-icon>
+              <span>方案內容待討論</span>
+            </li>
+          </ul>
+          <div class="footer">
+            <v-btn block depressed color="secondary">選擇此方案</v-btn>
+          </div>
+        </v-card>
+        <v-card class="card payCard">
+          <div class="title" color="secondary" dark>
+            <h6>免費基本版</h6>
+            <p>NT$ <span>4,000</span> /月</p>
+          </div>
+          <ul>
+            <li>
+              <v-icon color="success">mdi-check</v-icon>
+              <span> 專屬診所LINE官方帳號</span>
+            </li>
+            <li>
+              <v-icon color="success">mdi-check</v-icon>
+              <span> 專屬診所LINE官方帳號</span>
+            </li>
+            <li>
+              <v-icon color="success">mdi-check</v-icon>
+              <span>方案內容待討論</span>
+            </li>
+            <li>
+              <v-icon color="success">mdi-check</v-icon>
+              <span>方案內容待討論</span>
+            </li>
+            <li>
+              <v-icon color="success">mdi-check</v-icon>
+              <span>方案內容待討論</span>
+            </li>
+            <li>
+              <v-icon color="success">mdi-check</v-icon>
+              <span>方案內容待討論</span>
+            </li>
+          </ul>
+          <div class="footer">
+            <v-btn block depressed disabled>目前方案</v-btn>
+          </div>
+        </v-card>
+      </div>
+    </section>
   </div>
 </template>
 <script>
