@@ -81,7 +81,7 @@
         </div>
       </v-card>
     </section>
-    <section class="dataSection ">
+    <section class="dataSection  hasBtnSection">
       <div class="title">
         <h3>
           <span>訂閱方案</span>
@@ -160,6 +160,9 @@
         </v-card>
       </div>
     </section>
+    <div class="btnSection" :class="{ closeMenu: mini }">
+      <v-btn color="primaryDark" dark>返回</v-btn>
+    </div>
   </div>
 </template>
 <script>
