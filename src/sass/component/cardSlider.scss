@@ -157,6 +157,98 @@
     }
   }
 }
+
+.subscriptionCard {
+  h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  li {
+    font-size: 1rem;
+    color: $gray2;
+    font-weight: 500;
+  }
+  .footer {
+    display: flex;
+    justify-content: center;
+    .v-btn {
+      background-color: #fff;
+      color: $primaryDark;
+      font-size: 0.9rem;
+    }
+    .submitBtn {
+      color: #ffff;
+    }
+    button {
+      margin: 0 0.25rem;
+      font-weight: 700;
+    }
+  }
+}
+.settingCard {
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: nowrap;
+  .item {
+    width: 85%;
+    &:first-child {
+      h4 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      width: 15%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: flex-start;
+    }
+    @include screen('notebook') {
+      width: 70%;
+      &:first-child {
+        width: 30%;
+      }
+    }
+    @include screen('tablet') {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+    }
+  }
+  @include screen('tablet') {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+ul.clinicList {
+  list-style: none;
+  padding-left: 1rem;
+  margin-bottom: 0;
+  li {
+    display: flex;
+    padding: 0.5rem;
+    align-items: center;
+    border-radius: 0.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ccc;
+    justify-content: space-between;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    button {
+      font-weight: 700;
+    }
+  }
+  @include screen('tablet') {
+    padding-left: 0;
+    width: 100%;
+  }
+}
 .rangeSliderCard {
   label {
     margin-bottom: 2rem;

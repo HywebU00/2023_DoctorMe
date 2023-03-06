@@ -235,8 +235,15 @@
 
 .dataSection {
   padding: 0rem 2rem 0 2rem;
+  flex-wrap: wrap;
   > div {
     width: 100%;
+  }
+  .item {
+    width: 50%;
+    @include screen('notebook') {
+      width: 100%;
+    }
   }
   .v-text-field__details {
     min-height: 0px;
@@ -848,6 +855,18 @@
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+    }
+  }
+  ul.idList {
+    margin-right: 1rem;
+    .title {
+      color: $dark;
+      font-weight: 700;
+    }
+    p {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
     }
   }
 }

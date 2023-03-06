@@ -100,6 +100,10 @@ export default {
           name: '8.LINE串接設定',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/B08',
         },
+        {
+          name: '9.帳戶設定＋引導流程（系統管理員）',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/B09',
+        },
       ],
     };
   },

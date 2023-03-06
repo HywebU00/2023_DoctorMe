@@ -23,6 +23,7 @@ import B030402 from './components/Clinic/B030402';
 import B0305 from './components/Clinic/B0305';
 import B0401 from './components/Clinic/B0401';
 import B08 from './components/Clinic/B08';
+import B09 from './components/Clinic/B09';
 
 export default new Router({
   // scrollBehavior: (to, from, savedPosition) => {
@@ -71,6 +72,11 @@ export default new Router({
           path: '/B08',
           // name: 'Line串接設定',
           component: B08,
+        },
+        {
+          path: '/B09',
+          // name: 'Line串接設定',
+          component: B09,
         },
         {
           path: '/B0301',
