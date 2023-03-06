@@ -4,6 +4,7 @@ import Router from 'vue-router';
 import goTo from 'vuetify/es5/services/goto';
 import Login from './components/System/Login_';
 import Login_changePassword from './components/System/Login_changePassword';
+import Login_letter from './components/System/Login_letter';
 
 //wep1
 import DashboardWep from './components/System/DashboardWep_';
@@ -119,6 +120,11 @@ export default new Router({
       path: '/Login_changePassword',
       name: 'Login_changePassword',
       component: Login_changePassword,
+    },
+    {
+      path: '/Login_letter',
+      name: 'Login_letter',
+      component: Login_letter,
     },
     {
       path: '/index',
