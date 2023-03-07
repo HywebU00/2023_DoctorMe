@@ -1,33 +1,16 @@
-<template>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:13px">
-    <!-- 電子報 header start -->
-    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:13px">
-      <tr>
-        <td valign="top " align="center">
-          <table width="800" border="0" cellspacing="0" cellpadding="0">
-            <tr>
-              <td width="800" height="1" valign="bottom" bgcolor="#fff"></td>
-            </tr>
-            <tr>
-              <!-- 電子報header 開始 -->
-              <td>
-                <!--logo區 start-->
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                  <tr>
-                    <td width="1" bgcolor="#ccc">&nbsp;</td>
-                    <td></td>
-                    <td width="1" bgcolor="#ccc">&nbsp;</td>
-                  </tr>
-                </table>
+<!DOCTYPE html>
+<html lang="zh-TW">
 
-                <!--logo區  end-->
-              </td>
-              <!-- 電子報header 結束 -->
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoctorMe 重設密碼</title>
+</head>
+
+<body>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <!-- 電子報 header start -->
 
     <!-- 電子報 header end -->
     <!-- 電子報 內容 start -->
@@ -44,9 +27,9 @@
                     <td bgcolor="#fff" width="1" height="40">&nbsp;</td>
                   </tr>
                   <tr>
-                    <td bgcolor="#ccc" width="1" height="40">&nbsp;</td>
+                    <td bgcolor="#fff" width="1" height="40" style="border-left:1px solid #ccc;border-top:1px solid #ccc">&nbsp;</td>
                     <td bgcolor="#ffffff" style="border-top:1px solid #ccc;">&nbsp;</td>
-                    <td bgcolor="#ccc" width="1" height="40">&nbsp;</td>
+                    <td bgcolor="#fff" width="1" height="40" style="border-top:1px solid #ccc;border-right:1px solid #ccc; ">&nbsp;</td>
                   </tr>
                 </table>
               </td>
@@ -55,7 +38,7 @@
               <td>
                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                   <tr>
-                    <td bgcolor="#ccc" width="1" valign="top">&nbsp;</td>
+                    <td bgcolor="#fff" width="1" style=" border-left:1px solid #ccc; " valign="top">&nbsp;</td>
                     <td valign="top">
                       <!--細框內 start-->
                       <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#dfdfdf">
@@ -65,7 +48,7 @@
                               <tr>
                                 <td width="774" align="center">
                                   <!--photo start-->
-                                  <img src="~@/assets/Logo.svg" width="60" />
+                                  <img src="../../assets/Logo.svg" width="60" />
                                 </td>
                               </tr>
                               <tr>
@@ -73,20 +56,7 @@
                                   <h1 style="text-align: center; font-size:1.5rem; color:#17214c; margin-top:0.75rem; margin-bottom:0;">智慧醫療互動</h1>
                                 </td>
                               </tr>
-                              <tr>
-                                <td>
-                                  <!--最新消息 start-->
-                                  <table width="100%" border="0" cellspacing="0" cellpadding="15">
-                                    <tr>
-                                      <td>
-                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;"></table>
-                                        <br />
-                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse;font-size:15px;"></table>
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </td>
-                              </tr>
+
                             </table>
                           </td>
                         </tr>
@@ -94,7 +64,7 @@
 
                       <!--細框內 end-->
                     </td>
-                    <td bgcolor="#ccc" width="1" valign="top">&nbsp;</td>
+                    <td bgcolor="#fff" style=" border-right:1px solid #ccc;" width="1" valign="top">&nbsp;</td>
                   </tr>
                 </table>
               </td>
@@ -114,12 +84,12 @@
               <td height="20" bgcolor="#FFFFFF">
                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                   <tr>
-                    <td bgcolor="#ccc" width="1" height="20">&nbsp;</td>
+                    <td bgcolor="#fff" width="1" height="20" style=" border-left:1px solid #ccc; ">&nbsp;</td>
                     <td bgcolor="#ffffff">
                       <!--黑底 start-->
                       <table width="100%" border="0" cellspacing="0" cellpadding="8">
                         <tr>
-                          <h5 style="text-align: center; margin-bottom:2.5rem;font-size:1rem;">重設密碼通知信件</h5>
+                          <h5 style="text-align: center; margin-top:1rem; margin-bottom:2.5rem;font-size:1rem;">重設密碼通知信件</h5>
                         </tr>
                         <tr>
                           <p style="margin: 0 auto; margin-bottom: 1.5rem;width: 300px;">
@@ -130,19 +100,16 @@
                         </tr>
                         <tr>
                           <td align="center">
-                            <a
-                              href="#"
-                              style="color:#fff;padding: 15px 30px; background:#17214c; width:160px;display: block;
-                            font-weight:700;
-                              border-radius: 0.5rem;
-                          "
-                              >重設密碼</a
-                            >
+                            <a class="button" href="#" style="color:#fff;padding: 15px 30px; background:#17214c; width:160px;display: block;
+                              font-weight:700;
+                                border-radius: 0.5rem;
+                                
+                            ">重設密碼</a>
                           </td>
                         </tr>
                         <tr>
                           <td bgcolor="#fff">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:2rem; background-color:#fff;">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:1rem; background-color:#fff;">
                               <tr>
                                 <td>
                                   <p style="color:rgba(144, 144, 144, 1); text-align: center;margin-bottom:2rem; ">此信件為系統自動發出信件，請勿直接回覆，謝謝。</p>
@@ -151,7 +118,7 @@
                               <tr>
                                 <td width="774" align="center">
                                   <!--photo start-->
-                                  <img src="~@/assets/letter_img.svg" style="margin-top:5rem;" width="500" />
+                                  <img src="../../assets/letter_img.svg" style="margin-top:5rem;" width="500" />
 
                                   <!--photo end-->
                                 </td>
@@ -178,12 +145,12 @@
                       <!--黑底 end-->
                     </td>
 
-                    <td bgcolor="#ccc" width="1" height="20">&nbsp;</td>
+                    <td bgcolor="#fff" width="1" height="20" style=" border-right:1px solid #ccc; ">&nbsp;</td>
                   </tr>
                   <tr>
-                    <td bgcolor="#ccc" width="1" height="20">&nbsp;</td>
+                    <td bgcolor="#fff" width="1" height="20" style=" border-left:1px solid #ccc;">&nbsp;</td>
                     <td>&nbsp;</td>
-                    <td bgcolor="#ccc" width="1" height="20">&nbsp;</td>
+                    <td bgcolor="#fff" width="1" height="20" style=" border-right:1px solid #ccc; ">&nbsp;</td>
                   </tr>
                 </table>
               </td>
@@ -203,5 +170,6 @@
 
     <!-- 電子報 footer end -->
   </table>
-</template>
-<script></script>
+</body>
+
+</html>

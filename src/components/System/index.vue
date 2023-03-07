@@ -20,6 +20,9 @@
                   <th class="text-left">
                     連結
                   </th>
+                  <th class="text-left">
+                    備註
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -29,6 +32,7 @@
                   <td>
                     <a :href="item.link">{{ item.link }}</a>
                   </td>
+                  <td>{{ item.note }}</td>
                 </tr>
               </tbody>
             </template>
@@ -47,62 +51,77 @@ export default {
         {
           name: '1.登入頁',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/login',
+          note: '',
         },
         {
           name: '1.登入頁＿確認預約資訊',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/Login_changePassword',
+          note: '',
         },
         {
           name: '1.登入頁＿驗證信',
-          link: '',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/Login_epaper',
+          note: '預覽用 實際為檔案中 html檔為主',
         },
         {
           name: '2-1.預約管理',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/C01',
+          note: '',
         },
         {
           name: '2-1.預約名單',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/C02',
+          note: '',
         },
         {
           name: '2-1.新增預約與確認資訊',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/C03',
+          note: '',
         },
         {
           name: '2-4.新增預約與確認資訊',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/C04',
+          note: '',
         },
         {
           name: '3-1.門診時間維護',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/B0301',
+          note: '',
         },
         {
           name: '3-2,3-3 門診時間維護',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/B0302',
+          note: '',
         },
         {
           name: '3-4 門診表',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/B0304',
+          note: '',
         },
         {
           name: '3-4 門診表 表格',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/B030402',
+          note: '',
         },
         {
           name: '3-5 預約規則維護',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/B0305',
+          note: '',
         },
         {
           name: '4-1 會員管理-會員名單',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/B0401',
+          note: '',
         },
         {
           name: '8.LINE串接設定',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/B08',
+          note: '',
         },
         {
           name: '9.帳戶設定＋引導流程（系統管理員）',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/B09',
+          note: '',
         },
       ],
     };
