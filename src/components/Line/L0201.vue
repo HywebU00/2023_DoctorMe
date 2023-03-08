@@ -136,7 +136,7 @@
           </p>
         </div>
         <div class="d-flex">
-          <v-btn class="ml-auto mb-3 plusBtn" style="background:#fff;box-shadow: none;">
+          <v-btn class="ml-auto mb-3 plusBtn" style="background:unset;box-shadow: none;">
             <v-icon class="mr-2">
               mdi-plus
             </v-icon>
