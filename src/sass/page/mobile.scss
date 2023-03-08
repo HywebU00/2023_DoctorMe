@@ -139,6 +139,10 @@
       border: #cfeefa 2px solid;
     }
   }
+  .plusBtn {
+    color: $primaryDark;
+    font-weight: 700;
+  }
 }
 .reserve_warp {
   &::before {
@@ -167,8 +171,11 @@
     margin: 0 0 1rem 0;
     padding: 0 1rem;
     margin-top: 90px;
+    // height: calc(100vh - (180 - 90) px);
+    height: calc(100vh - 243px);
     @include screen('mobile') {
       margin-top: 48px;
+      height: calc(100vh - 195px);
     }
   }
   .footerSection {
@@ -180,7 +187,25 @@
     margin: 0;
   }
 }
+.familyCard {
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  justify-content: space-between;
+  box-shadow: none !important;
+  border: 1px solid rgba(180, 224, 237, 1) !important;
+  button {
+    min-width: 30px !important;
 
+    padding: 0 0.5rem !important;
+    background-color: #fff !important;
+  }
+  h4 {
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+}
 .mobile_warp .listRadio {
   margin-top: 0;
   .v-input--selection-controls__input {

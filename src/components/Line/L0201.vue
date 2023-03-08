@@ -135,6 +135,54 @@
             請於最晚報到時間前至診所櫃檯完成掛號報到，當日若臨時欲取消預約，請洽診所櫃檯
           </p>
         </div>
+        <div class="d-flex">
+          <v-btn class="ml-auto mb-3 plusBtn" style="background:#fff;box-shadow: none;">
+            <v-icon class="mr-2">
+              mdi-plus
+            </v-icon>
+            <span>新增親友</span>
+          </v-btn>
+        </div>
+        <v-card class="familyCard">
+          <h4>
+            林花橘（母親）
+          </h4>
+          <div class="d-flex align-items-center">
+            <v-btn elevation="0">
+              <v-icon color="primaryDark" dark>mdi-pencil</v-icon>
+            </v-btn>
+            <v-dialog v-model="dialog" persistent max-width="500px">
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn v-bind="attrs" v-on="on" elevation="0">
+                  <v-icon color="primaryDark" dark>mdi-delete</v-icon>
+                </v-btn>
+              </template>
+              <v-card class="modal">
+                <v-card-title>
+                  <h5 color="primaryDark" text>刪除親友資料</h5>
+                  <v-spacer></v-spacer>
+                  <button>
+                    <v-icon @click="dialog = false">
+                      close
+                    </v-icon>
+                  </button>
+                </v-card-title>
+                <v-card-text>
+                  <p>確認刪除 林花橘（母親）的資料嗎？</p>
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn text @click="dialog = false">
+                    取消
+                  </v-btn>
+                  <v-btn color="primaryDark" dark @click="dialog = false">
+                    確認
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </div>
+        </v-card>
       </div>
       <div class="footerSection">
         <v-checkbox v-model="checkbox" color="success" label="我已閱讀並同意上述說明。" required></v-checkbox>
@@ -183,6 +231,7 @@ export default {
       checkbox: false,
       first: '',
       checkType: '',
+      dialog: false,
       items1: [{ text: '家醫科' }, { text: '牙科' }, { text: '胸腔科' }, { text: '內科' }],
       items2: [{ text: '上午診' }, { text: '下午診' }, { text: '晚上診' }],
       items3: [{ text: '杜振熙' }, { text: '周敦頤' }, { text: '李清照' }],
