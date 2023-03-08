@@ -5,39 +5,79 @@
         <h3 class="text-center"><img src="~@/assets/Logo.svg" alt="" /><span>DoctorMe</span></h3>
         <v-btn><a href="https://github.com/HywebU00/2023_DoctorMe">檔案下載</a></v-btn>
       </div>
-      <div class="d-flex justify-content-center ">
-        <v-card width="75%">
-          <v-simple-table class="index_table">
-            <template v-slot:default>
-              <thead>
-                <tr>
-                  <th class="text-left">
-                    編號
-                  </th>
-                  <th class="text-left">
-                    頁面名稱
-                  </th>
-                  <th class="text-left">
-                    連結
-                  </th>
-                  <th class="text-left">
-                    備註
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="(item, i) in desserts" :key="item.name">
-                  <td>{{ i + 1 }}</td>
-                  <td>{{ item.name }}</td>
-                  <td>
-                    <a :href="item.link">{{ item.link }}</a>
-                  </td>
-                  <td>{{ item.note }}</td>
-                </tr>
-              </tbody>
-            </template>
-          </v-simple-table>
-        </v-card>
+      <div class="d-flex justify-content-center mb-5">
+        <div style="width:75%;" class="mt-3">
+          <h4 class="text-center" color="primary">DoctorMe 後台頁面</h4>
+          <v-card>
+            <v-simple-table class="index_table">
+              <template v-slot:default>
+                <thead>
+                  <tr>
+                    <th class="text-left">
+                      編號
+                    </th>
+                    <th class="text-left">
+                      頁面名稱
+                    </th>
+                    <th class="text-left">
+                      連結
+                    </th>
+                    <th class="text-left">
+                      備註
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(item, i) in desserts" :key="item.name">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>
+                      <a :href="item.link">{{ item.link }}</a>
+                    </td>
+                    <td>{{ item.note }}</td>
+                  </tr>
+                </tbody>
+              </template>
+            </v-simple-table>
+          </v-card>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center mb-5">
+        <div style="width:75%;" class="mt-3">
+          <h4 class="text-center" color="primary">DoctorMe Mobile頁面</h4>
+          <v-card>
+            <v-simple-table class="index_table">
+              <template v-slot:default>
+                <thead>
+                  <tr>
+                    <th class="text-left">
+                      編號
+                    </th>
+                    <th class="text-left">
+                      頁面名稱
+                    </th>
+                    <th class="text-left">
+                      連結
+                    </th>
+                    <th class="text-left width">
+                      備註
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(item, i) in mobilePages" :key="item.name">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>
+                      <a :href="item.link">{{ item.link }}</a>
+                    </td>
+                    <td>{{ item.note }}</td>
+                  </tr>
+                </tbody>
+              </template>
+            </v-simple-table>
+          </v-card>
+        </div>
       </div>
     </div>
   </div>
@@ -60,7 +100,7 @@ export default {
         },
         {
           name: '1.登入頁＿驗證信',
-          link: 'https://hywebu00.github.io/2023_DoctorMe/#/Login_epaper',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/epaper',
           note: '預覽用 實際為檔案中 html檔為主',
         },
         {
@@ -124,6 +164,38 @@ export default {
           note: '',
         },
       ],
+      mobilePages: [
+        {
+          name: '1.帳戶綁定',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/line/l01',
+          note: '',
+        },
+        {
+          name: '2-1.一般門診預約',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/line/l0201',
+          note: '',
+        },
+        {
+          name: '4.預約查詢',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/line/l04',
+          note: '',
+        },
+        {
+          name: '5.門診時間',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/line/l05',
+          note: '',
+        },
+        {
+          name: '6.診所資訊',
+          link: '',
+          note: '同L4',
+        },
+        {
+          name: '7.基本設定',
+          link: '',
+          note: '同L2-1',
+        },
+      ],
     };
   },
 };
@@ -171,6 +243,9 @@ export default {
       font-size: 1rem !important;
       color: #fff !important;
       white-space: nowrap;
+    }
+    .width {
+      width: 100px;
     }
   }
   tbody {

@@ -4,13 +4,12 @@ import Router from 'vue-router';
 import goTo from 'vuetify/es5/services/goto';
 import Login from './components/System/Login_';
 import Login_changePassword from './components/System/Login_changePassword';
-// import Login_epaper from './components/System/Login_epaper';
 import Login_epaper from './components/System/Login_epaper';
+import AppMobile from './components/System/AppMobile.vue';
 
 //wep1
 import DashboardWep from './components/System/DashboardWep_';
 import index from './components/System/index';
-//import DashboardWep1 from './components/System/Login';
 
 //Clinic
 import C01 from './components/Clinic/C01';
@@ -26,6 +25,12 @@ import B0305 from './components/Clinic/B0305';
 import B0401 from './components/Clinic/B0401';
 import B08 from './components/Clinic/B08';
 import B09 from './components/Clinic/B09';
+
+//Line
+import L01 from './components/Line/L01';
+import L04 from './components/Line/L04';
+import L05 from './components/Line/L05';
+import L0201 from './components/Line/L0201';
 
 export default new Router({
   // scrollBehavior: (to, from, savedPosition) => {
@@ -131,6 +136,29 @@ export default new Router({
       path: '/index',
       name: 'index',
       component: index,
+    },
+    {
+      path: '/line',
+      name: 'mobile',
+      component: AppMobile,
+      children: [
+        {
+          path: 'L01',
+          component: L01,
+        },
+        {
+          path: 'L0201',
+          component: L0201,
+        },
+        {
+          path: 'L04',
+          component: L04,
+        },
+        {
+          path: 'L05',
+          component: L05,
+        },
+      ],
     },
   ],
 });

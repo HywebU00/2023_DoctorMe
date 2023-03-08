@@ -119,7 +119,7 @@
           <li v-for="item in reserveList" :key="item">
             <div class="title">
               <h3>
-                <span v-text="item.title">確認預約資訊</span>
+                <span v-text="item.title"></span>
               </h3>
             </div>
             <p v-text="item.content"></p>
