@@ -189,7 +189,7 @@
     height: calc(100vh - 243px);
     @include screen('mobile') {
       margin-top: 48px;
-      height: calc(100vh - 195px);
+      height: calc(100vh - 201px);
     }
   }
   .footerSection {
@@ -227,7 +227,66 @@
     }
   }
 }
+.memberReserveCard {
+  margin: 1rem auto;
 
+  max-width: 460px;
+  @include screen('mobile') {
+    margin: 1rem 0.5rem;
+    max-width: 100%;
+  }
+  h4 {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .cardContent {
+    margin: 0;
+    padding: 1rem 1rem 0 1rem;
+    flex-wrap: nowrap;
+  }
+  .d-flex {
+    align-items: space-around;
+    justify-content: space-between;
+  }
+
+  .title {
+    font-size: 1.25rem !important;
+    display: flex;
+    flex-basis: 100%;
+    justify-content: center;
+    margin-top: 0;
+    text-align: center;
+  }
+  .num {
+    display: flex;
+    justify-content: center;
+    flex-basis: 100%;
+    color: $secondary;
+    font-size: 3.125rem;
+    font-weight: 700;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+    white-space: nowrap;
+    li {
+      color: $gray2;
+      font-weight: 500;
+    }
+    .typeText {
+      color: $success;
+    }
+  }
+  button {
+    background: $primaryDark;
+    height: 2.75rem !important;
+
+    width: 100%;
+    color: #fff !important;
+    font-weight: 700;
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+}
 .familyCard {
   padding: 0.5rem 1rem;
   display: flex;
@@ -327,5 +386,67 @@ div.reserveTitle {
 
     font-weight: 700;
     color: $primaryDark;
+  }
+}
+.timeTablet {
+  margin-bottom: 1rem;
+  thead {
+    background: $primaryDark;
+    height: 63px !important;
+    th {
+      &:first-child {
+        border-right: 3px solid #fff;
+        width: 5.4rem;
+      }
+    }
+
+    tr th {
+      color: #fff !important;
+      font-size: 1rem !important;
+    }
+    .thBtn {
+      padding: 0 !important;
+      button {
+        height: 63px;
+        width: 100%;
+      }
+    }
+  }
+  tbody {
+    td {
+      p {
+        margin-bottom: 0;
+      }
+      &:first-child {
+        border-right: 3px solid #fff;
+        padding: 0 0.5rem !important;
+      }
+    }
+    tr {
+      height: 63px !important;
+      border-bottom: none !important;
+      background-color: rgba(246, 246, 246, 1);
+      &:nth-child(even) {
+        background-color: rgba(236, 236, 236, 1);
+      }
+      td {
+        border-bottom: none !important;
+        padding: 0.5rem 1.5rem !important;
+        font-weight: 500;
+        .typeText {
+          color: $success;
+        }
+        &:first-child {
+          max-width: 85px;
+          color: rgba(75, 75, 75, 1);
+        }
+        &:last-child {
+          color: rgba(75, 75, 75, 1);
+        }
+      }
+    }
+    .hasBorder {
+      border-bottom: rgba(161, 164, 179, 1) 4px solid !important;
+    }
   }
 }

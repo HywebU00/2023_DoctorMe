@@ -20,7 +20,7 @@
               keyboard_backspace
             </v-icon>
           </v-btn>
-          <!-- <v-divider></v-divider> -->
+
           <div class="scrollContent" ref="scrollContent">
             <v-list>
               <template v-for="item in items">

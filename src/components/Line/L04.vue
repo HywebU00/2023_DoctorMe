@@ -58,7 +58,55 @@
                 </div>
               </v-tab-item>
               <v-tab-item>
-                <h6 class="mb-4">預約次數：1</h6>
+                <!-- 預約卡片 start -->
+                <v-card v-for="i in 3" :key="i" class="memberReserveCard" elevation="2">
+                  <div class="d-flex cardContent">
+                    <div class="">
+                      <h4>林小凌（本人）</h4>
+                      <ul>
+                        <li>2022 / 11 / 21（二）</li>
+                        <li>
+                          晚上診（19:00-21:30）
+                        </li>
+                        <li>診間一：林子凱醫生</li>
+                        <li><p class="typeText">(視訊)</p></li>
+                      </ul>
+                    </div>
+                    <div class="d-flex flex-wrap">
+                      <div class="title">
+                        您的預約號碼
+                      </div>
+                      <p class="num mt-auto">12</p>
+                    </div>
+                  </div>
+                  <v-btn text>
+                    取消預約
+                  </v-btn>
+                </v-card>
+                <!-- 預約卡片 end -->
+                <!-- 預約卡片(無按鈕狀態) start -->
+                <v-card v-for="i in 3" :key="i" class="memberReserveCard" elevation="2">
+                  <div class="d-flex cardContent">
+                    <div class="">
+                      <h4>林小凌（本人）</h4>
+                      <ul>
+                        <li>2022 / 11 / 21（二）</li>
+                        <li>
+                          晚上診（19:00-21:30）
+                        </li>
+                        <li>診間一：林子凱醫生</li>
+                        <!-- <li><p class="typeText">(視訊)</p></li> -->
+                      </ul>
+                    </div>
+                    <div class="d-flex flex-wrap">
+                      <div class="title">
+                        您的預約號碼
+                      </div>
+                      <p class="num mt-auto">12</p>
+                    </div>
+                  </div>
+                </v-card>
+                <!-- 預約卡片(無按鈕狀態) end -->
               </v-tab-item>
             </v-tabs-items>
           </div>
