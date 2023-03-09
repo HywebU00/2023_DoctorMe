@@ -221,6 +221,9 @@ export default {
           autoHide: 'leave',
           autoHideDelay: 500,
         },
+        overflowBehavior: {
+          x: 'hidden',
+        },
       });
     },
   },

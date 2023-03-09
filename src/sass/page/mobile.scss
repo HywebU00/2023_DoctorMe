@@ -77,8 +77,21 @@
   .footerSection {
     position: fixed;
     bottom: 0;
-    width: calc(100% - 2rem);
-    max-width: calc(992px - 2rem);
+    // width: calc(100% - 2rem);
+    // max-width: calc(992px - 2rem);
+    display: flex;
+    align-content: end;
+    height: 105px;
+
+    background-image: url('~@/assets/mobile_bg.svg');
+    background-size: 30px 30px;
+    background-repeat: repeat;
+
+    margin: 0;
+    width: 100%;
+    padding: 0 1rem 1rem 1rem;
+    max-width: 992px;
+
     .v-input {
       margin-top: 0;
       margin-bottom: 0.25rem;

@@ -75,6 +75,9 @@ export default {
           autoHide: 'leave',
           autoHideDelay: 500,
         },
+        overflowBehavior: {
+          x: 'hidden',
+        },
       });
       const scrollCard = this.$refs.scrollCard.$el;
       OverlayScrollbars(scrollCard, {
@@ -82,6 +85,9 @@ export default {
           visibility: 'auto',
           autoHide: 'leave',
           autoHideDelay: 500,
+        },
+        overflowBehavior: {
+          x: 'hidden',
         },
       });
     },
