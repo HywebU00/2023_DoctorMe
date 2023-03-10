@@ -46,6 +46,8 @@
     }
     tbody {
       tr td {
+        word-break: break-all;
+        width: 200px;
         &:first-child {
           color: $primaryDark;
           font-weight: 700;
@@ -61,8 +63,26 @@
       }
 
       tbody {
+        tr {
+          .itemContent {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            height: 100%;
+          }
+
+          &:hover {
+            background: unset !important;
+          }
+        }
         td {
-          padding: 1rem;
+          cursor: pointer;
+          &:first-child {
+            width: 109px;
+
+            white-space: nowrap;
+          }
+          padding: 0.25rem 0.5rem 1rem 0.25rem;
           .v-btn {
             margin-left: 0.5rem;
             height: 2rem;
@@ -72,11 +92,42 @@
           }
         }
         .item {
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.25rem;
           display: flex;
           flex-wrap: nowrap;
           align-items: center;
           white-space: nowrap;
+          width: 100%;
+          justify-content: space-between;
+          background: $grayLight;
+          border-radius: 5px;
+          padding: 0.25rem 0.5rem;
+          > div {
+            display: flex;
+            align-items: center;
+          }
+          .oddText {
+            color: rgba(76, 175, 80, 1);
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-left: 0.25rem;
+          }
+          .evenText {
+            color: rgba(33, 150, 243, 1);
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-left: 0.25rem;
+          }
+          &:hover {
+            background: darken($grayLight, 5);
+          }
+
+          &:nth-child(even) {
+            background: rgba(204, 204, 204, 1);
+            &:hover {
+              background: darken(rgba(204, 204, 204, 1), 5);
+            }
+          }
           button.v-btn.functionBtn {
             padding: 0;
             max-width: 36px !important;
@@ -85,12 +136,25 @@
           }
           span.name {
             margin-left: 0.5rem;
+            display: inline-block;
+            max-width: 120px;
           }
         }
       }
       table tbody {
         .closed {
+          .itemContent {
+            align-content: center;
+            min-width: 200px;
+
+            .item {
+              background: unset;
+            }
+          }
           background: lighten($gray, 5);
+          &:hover {
+            background: lighten($gray, 5) !important;
+          }
           td {
             color: $gray3;
           }

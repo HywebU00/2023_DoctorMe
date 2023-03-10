@@ -2,7 +2,7 @@
   <div class="index_bg" width="100%">
     <div class="index_container">
       <div class="index_title">
-        <h3 class="text-center"><img src="~@/assets/Logo.svg" alt="" /><span>DoctorMe</span></h3>
+        <h3 class="text-center"><img style="width:50px;" src="~@/assets/Logo.svg" alt="" /><img style="margin-left:1rem; height:35px;" src="~@/assets/logo_text.svg" alt="" /></h3>
         <v-btn><a href="https://github.com/HywebU00/2023_DoctorMe">檔案下載</a></v-btn>
       </div>
       <div class="d-flex justify-content-center mb-5">

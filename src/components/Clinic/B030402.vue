@@ -78,43 +78,42 @@
               <tr v-for="item in tableList" :key="item.time" :class="{ closed: item.status }">
                 <td class="text-center">{{ item.time }}</td>
                 <td>
-                  <div class="item" v-for="i in item.morning" :key="i.time">
-                    {{ i.place }}
-                    <v-btn :class="{ hide: item.status }" elevation="0" outlined dark color="primaryDark">
-                      <v-icon class="mr-1">
-                        mdi-face-man
-                      </v-icon>
-                      新增醫生</v-btn
-                    >
+                  <div class="itemContent">
+                    <div class="item" v-for="i in item.morning" :key="i.time">
+                      <div class="">
+                        <span> {{ i.place }}</span>
+                        <span v-if="item.status === false" class="name text-truncate">新增醫生<span class="oddText">單</span></span>
+                      </div>
+                      <v-btn :class="{ hide: item.status }" class="functionBtn" @click.stop="" elevation="0">
+                        <v-icon color="primaryDark" dark>mdi-delete</v-icon>
+                      </v-btn>
+                    </div>
                   </div>
                 </td>
                 <td>
-                  <div class="item" v-for="i in item.afternoon" :key="i.time">
-                    {{ i.place }}
-                    <span class="name">張士豪</span>
-                    <v-btn :class="{ hide: item.status }" elevation="0" outlined dark color="primaryDark">
-                      <v-icon class="mr-1">
-                        mdi-face-man
-                      </v-icon>
-                      新增醫生</v-btn
-                    >
-                    <v-btn :class="{ hide: item.status }" class="functionBtn" @click.stop="" elevation="0">
-                      <v-icon color="primaryDark" dark>mdi-delete</v-icon>
-                    </v-btn>
-                    <v-btn :class="{ hide: item.status }" class="functionBtn" @click.stop="" elevation="0">
-                      <v-icon>mdi-pencil</v-icon>
-                    </v-btn>
+                  <div class="itemContent">
+                    <div class="item" v-for="i in item.morning" :key="i.time">
+                      <div class="">
+                        <span> {{ i.place }}</span>
+                        <span v-if="item.status === false" class="name text-truncate">新增醫生<span class="evenText">雙</span></span>
+                      </div>
+                      <v-btn :class="{ hide: item.status }" class="functionBtn" @click.stop="" elevation="0">
+                        <v-icon color="primaryDark" dark>mdi-delete</v-icon>
+                      </v-btn>
+                    </div>
                   </div>
                 </td>
                 <td>
-                  <div class="item" v-for="i in item.night" :key="i.item">
-                    {{ i.place }}
-                    <v-btn :class="{ hide: item.status }" elevation="0" outlined dark color="primaryDark">
-                      <v-icon class="mr-1">
-                        mdi-face-man
-                      </v-icon>
-                      新增醫生</v-btn
-                    >
+                  <div class="itemContent ">
+                    <div class="item" v-for="i in item.morning" :key="i.time">
+                      <div class="">
+                        <span> {{ i.place }}</span>
+                        <span v-if="item.status === false" class="name text-truncate">新增醫生</span>
+                      </div>
+                      <v-btn :class="{ hide: item.status }" class="functionBtn" @click.stop="" elevation="0">
+                        <v-icon color="primaryDark" dark>mdi-delete</v-icon>
+                      </v-btn>
+                    </div>
                   </div>
                 </td>
               </tr>
