@@ -107,6 +107,10 @@
   height: 65px;
   padding-left: 1.5rem;
   border-bottom: 1px solid $gray;
+  .v-image__image {
+    background-size: unset;
+    background-position: center left !important;
+  }
   .title {
     margin-bottom: 0;
     font-size: 2rem !important;

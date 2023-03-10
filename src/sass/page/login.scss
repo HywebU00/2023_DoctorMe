@@ -1,5 +1,4 @@
 .loginPage {
-  // position: absolute;
   position: relative;
   width: 100%;
   top: 0;
@@ -30,11 +29,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5rem;
+    height: 100vh;
+
     z-index: 1;
     position: relative;
     .v-card {
       width: 60%;
+
       max-width: 36rem;
       min-height: 36rem;
       padding: 3rem;
@@ -52,7 +53,13 @@
       padding-bottom: 0;
       padding-top: 0;
       .v-image {
-        max-width: 100px;
+        max-width: 165px;
+        height: 138px;
+        margin-bottom: 2rem;
+        @include screen('tablet') {
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+        }
       }
       h5 {
         width: 100%;

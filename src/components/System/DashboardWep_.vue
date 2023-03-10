@@ -13,7 +13,7 @@
             <v-list-item-avatar class="">
               <v-img src="~@/assets/Logo.svg"></v-img>
             </v-list-item-avatar>
-            <v-list-item-title class="title">DoctorMe</v-list-item-title>
+            <v-img src="~@/assets/logo_text.svg"></v-img>
           </v-list-item>
           <v-btn icon @click.stop="mini = !mini" class="mx-2 sidebarBtn  sidebarBtnInTitle" elevation="3" color="secondary" fab>
             <v-icon class="material-icons-round" :mini-variant.sync="mini">
@@ -63,7 +63,8 @@
               <v-list-item-avatar class="">
                 <v-img src="~@/assets/Logo.svg"></v-img>
               </v-list-item-avatar>
-              <v-list-item-title class="title">DoctorMe</v-list-item-title>
+              <v-img src="~@/assets/logo_text.svg"></v-img>
+              <!-- <v-list-item-title class="title">DoctorMe</v-list-item-title> -->
             </v-list-item>
             <!-- pc版本user按鈕 start -->
             <div class="userContent">

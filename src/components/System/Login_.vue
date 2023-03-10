@@ -5,8 +5,7 @@
         <v-card class="">
           <!-- 智慧醫療互動登入 start -->
           <v-card-title>
-            <v-img :aspect-ratio="1 / 1" lazy-src="~@/assets/Logo.svg" src="~@/assets/Logo.svg"></v-img>
-            <h5 color="primaryDark" text>智慧醫療互動</h5>
+            <v-img :aspect-ratio="1 / 1" lazy-src="~@/assets/Login_logo.svg" src="~@/assets/Login_logo.svg"></v-img>
           </v-card-title>
           <v-card-text>
             <v-form class="infoForm" ref="form" v-model="valid" lazy-validation>
