@@ -694,6 +694,41 @@
     p {
       color: $dark;
     }
+    .radioList {
+      label {
+        margin-right: 1rem;
+      }
+      .v-radio {
+        margin-bottom: 0.5rem;
+      }
+    }
+    .dataList {
+      list-style: none;
+      padding-left: 0;
+      color: $dark;
+    }
+    .labelTitle {
+      font-weight: 500;
+    }
+    .inputList {
+      li {
+        display: flex;
+        align-items: center;
+        position: relative;
+        &::before {
+          content: '•';
+          left: -1rem;
+          font-size: 1.5rem;
+          position: absolute;
+        }
+        .title {
+          margin-right: 0.5rem;
+          font-size: 1rem !important;
+          color: $dark;
+          font-weight: 400;
+        }
+      }
+    }
   }
   .v-input__control {
     .v-messages {

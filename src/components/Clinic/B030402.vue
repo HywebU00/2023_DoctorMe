@@ -28,12 +28,69 @@
         </div>
       </v-card>
       <div class="d-flex">
-        <v-btn class="ml-auto mb-3" color="accent">
+        <!-- <v-btn class="ml-auto mb-3" color="accent">
           <v-icon class="mr-2">
             mdi-calendar-account
           </v-icon>
           <span>休假代班設定</span>
-        </v-btn>
+        </v-btn> -->
+        <v-dialog v-model="dialog" persistent max-width="500px">
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn class="ml-auto mb-3" color="accent" v-bind="attrs" v-on="on">
+              <v-icon class="mr-2">
+                mdi-calendar-account
+              </v-icon>
+              <span>休假代班設定</span>
+            </v-btn>
+          </template>
+          <v-card class="modal">
+            <v-card-title>
+              <h5 color="primaryDark" text>新增預約</h5>
+              <v-spacer></v-spacer>
+              <button>
+                <v-icon @click="dialog = false">
+                  close
+                </v-icon>
+              </button>
+            </v-card-title>
+            <v-card-text>
+              <label class="labelTitle" for="">選擇診間</label>
+              <v-autocomplete v-model="item1" :items="items1" dense label="科別" solo item-text="text"> </v-autocomplete>
+              <label class="labelTitle" for="">預約號碼</label>
+              <v-text-field dense placeholder="請輸入預約號碼" outlined required></v-text-field>
+              <v-checkbox label="安排至最後一號"></v-checkbox>
+              <ul class="dataList">
+                <li>時間：週一</li>
+                <li>時段：上午診</li>
+              </ul>
+              <v-radio-group class="radioList" v-model="checkType" row>
+                <label>是否開放視訊看診</label>
+                <v-radio color="secondary" label="是" value="01"></v-radio>
+                <v-radio color="secondary" label="否" value="02"></v-radio>
+              </v-radio-group>
+              <v-radio-group class="radioList" v-model="checkType2" row>
+                <label>是否開放新冠診療</label>
+                <v-radio color="secondary" label="是" value="01"></v-radio>
+                <v-radio color="secondary" label="否" value="02"></v-radio>
+              </v-radio-group>
+              <v-checkbox label="限制可預約人數"></v-checkbox>
+              <ul class="inputList">
+                <li><span class="title">一般看診</span><v-text-field dense placeholder="請輸入最大可預約人數" outlined required></v-text-field></li>
+                <li><span class="title">視訊看診</span><v-text-field dense placeholder="請輸入最大可預約人數" outlined required></v-text-field></li>
+                <li><span class="title">新冠診療</span><v-text-field dense placeholder="請輸入最大可預約人數" outlined required></v-text-field></li>
+              </ul>
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn text @click="dialog = false">
+                取消
+              </v-btn>
+              <v-btn color="primaryDark" dark @click="dialog = false">
+                確認
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
       </div>
 
       <div class="reserveTable">
@@ -186,6 +243,7 @@ export default {
       // switch value
       openDate: ['週二'],
       checkType: null,
+      checkType2: null,
       switch1: true,
       switch2: true,
       switch5: '關閉',
