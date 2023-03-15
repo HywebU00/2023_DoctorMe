@@ -508,7 +508,6 @@ export default {
     },
     scrollBar() {
       const scrollBar = this.$refs.scrollBar;
-
       OverlayScrollbars(scrollBar, {
         scrollbars: {
           visibility: 'auto',

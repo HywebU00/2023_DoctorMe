@@ -87,6 +87,14 @@
       <v-card class="card" elevation="0">
         <label> <v-icon color="secondary">mdi-numeric-1-circle</v-icon> 預約號碼設定</label><span class="infoText">設定預約給號規則</span>
         <div class="cardContent">
+          <div class="inlineInput_group ">
+            <span>從</span>
+            <v-text-field class="inlineInput" placeholder="請輸入起始號碼" dense solo></v-text-field>
+            <span>開始給號，每次跳號間隔</span>
+            <v-text-field class="inlineInput" placeholder="請輸入給號間隔數字" dense solo></v-text-field>
+            <span>號</span>
+          </div>
+
           <v-radio-group class="radioList" v-model="checkType" row>
             <label>選擇預約給號類型</label>
             <v-radio color="secondary" label="連續流水號" value="01"></v-radio>
