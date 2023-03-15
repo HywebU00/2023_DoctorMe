@@ -175,7 +175,7 @@
   .scrollContent {
     position: relative !important;
     z-index: 999 !important;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 100%;
     .v-list-group {
       div {
@@ -297,7 +297,7 @@
   background-color: $backgroundColor;
   .v-main {
     margin-top: 64px;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: calc(100% - 64px);
   }
 }
