@@ -42,9 +42,9 @@
         margin-left: 0.5rem;
       }
     }
-    @include screen('notebook') {
-      margin-bottom: 0.75rem;
-    }
+    // @include screen('notebook') {
+    //   margin-bottom: 0.75rem;
+    // }
     @include screen('mobile') {
       margin-bottom: 0.75rem;
       margin-left: 2rem;
@@ -107,8 +107,8 @@
       margin-left: 0.75rem;
       margin-bottom: 0.25rem;
       max-width: 200px;
+
       @include screen('notebook') {
-        // width: calc(30% - 0.75rem);
         width: calc(25% - 0.75rem);
         &:nth-child(3n - 1) {
           margin-left: 0;
@@ -117,6 +117,7 @@
       }
       @include screen('mobile') {
         width: calc(50% - 0.75rem);
+        margin-right: 0 !important;
       }
       .v-select__selections {
         flex-wrap: nowrap;
@@ -132,38 +133,16 @@
     }
     .v-btn {
       font-weight: 700;
+      max-height: 38px;
       margin-left: 0.75rem;
       &:last-child {
         margin-left: 0.5rem;
+        @include screen('mobile') {
+          margin-left: 0.25rem;
+        }
       }
     }
-    // .selectItem {
-    //   display: flex;
-    //   width: 100%;
-    //   margin-bottom: 0.5rem;
-    //   margin-right: 2rem;
-    //   @include screen('tablet') {
-    //     flex-wrap: wrap;
-    //   }
-    //   .v-input {
-    //     &:nth-last-child(1) {
-    //       margin-right: 0;
-    //     }
-    //     @include screen('tablet') {
-    //       max-width: 50%;
-    //     }
-    //   }
-    //   .limitInput {
-    //     max-width: 200px;
-    //   }
-    //   .v-btn {
-    //     margin-right: 0.5rem;
-    //     min-width: 95px;
-    //     &:nth-last-child(1) {
-    //       margin-right: 0;
-    //     }
-    //   }
-    // }
+
     &:nth-last-child(1) {
       justify-content: flex-end;
       @include screen('notebook') {
@@ -328,6 +307,12 @@
   button {
     margin: 0 auto;
     display: block;
+    height: auto;
+    min-height: 41px;
+    span {
+      white-space: normal;
+      padding: 0.25rem 0;
+    }
   }
 }
 .emptyText {
@@ -959,6 +944,10 @@ button.editBtn.v-btn {
   .inlineInput {
     width: auto;
     max-width: 168px;
+  }
+
+  @include screen('mobile') {
+    margin-bottom: 0.5rem;
   }
   span {
     margin-right: 1rem;

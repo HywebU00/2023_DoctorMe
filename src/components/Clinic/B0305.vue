@@ -28,7 +28,7 @@
             </thead>
             <tbody>
               <tr v-for="(item, index) in desserts" :key="item.name">
-                <td>{{ item.name }}</td>
+                <td class="text-no-wrap">{{ item.name }}</td>
                 <td>
                   <div class="switchGroup">
                     <label for=""> {{ item.switch ? '已啟用' : '關閉' }}</label>

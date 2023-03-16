@@ -29,13 +29,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 
     z-index: 1;
     position: relative;
     .v-card {
       width: 60%;
-
+      margin: 2rem 0;
       max-width: 36rem;
       min-height: 36rem;
       padding: 3rem;

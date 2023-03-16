@@ -5,6 +5,7 @@
     padding: 0.75rem;
     display: flex;
     justify-content: right;
+    flex-wrap: wrap;
     .v-input {
       max-width: 150px !important;
       border-radius: 0.2rem;
@@ -36,6 +37,15 @@
       color: $primaryDark;
       &::before {
         opacity: 0;
+      }
+    }
+    @include screen('mobile') {
+      .v-input,
+      .v-item-group {
+        margin-bottom: 0.2rem;
+      }
+      .spacer {
+        display: none;
       }
     }
   }
@@ -167,7 +177,6 @@
   thead th {
     white-space: nowrap;
   }
-
   .switch {
     label {
       margin-bottom: 0;

@@ -87,7 +87,7 @@
           <span>訂閱方案</span>
         </h3>
       </div>
-      <div class="d-flex">
+      <div class="d-flex payCardGroup">
         <v-card class="card payCard">
           <div class="title" color="secondary" dark>
             <h6>免費基本版</h6>
