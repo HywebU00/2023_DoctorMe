@@ -79,6 +79,43 @@
           </v-card>
         </div>
       </div>
+      <div class="d-flex justify-content-center mb-5">
+        <div style="width:75%;" class="mt-3">
+          <h4 class="text-center" color="primary">DoctorMe 前台登入頁面</h4>
+          <v-card>
+            <v-simple-table class="index_table">
+              <template v-slot:default>
+                <thead>
+                  <tr>
+                    <th class="text-left">
+                      編號
+                    </th>
+                    <th class="text-left">
+                      頁面名稱
+                    </th>
+                    <th class="text-left">
+                      連結
+                    </th>
+                    <th class="text-left width">
+                      備註
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(item, i) in clientSidePages" :key="item.name">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>
+                      <a :href="item.link">{{ item.link }}</a>
+                    </td>
+                    <td style="white-space: nowrap;">{{ item.note }}</td>
+                  </tr>
+                </tbody>
+              </template>
+            </v-simple-table>
+          </v-card>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -194,6 +231,28 @@ export default {
           name: '7.基本設定',
           link: '',
           note: '同L2-1',
+        },
+      ],
+      clientSidePages: [
+        {
+          name: '試用表單頁面',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/mpLogin',
+          note: '',
+        },
+        {
+          name: '帳戶建立完成頁面',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/mpfinish',
+          note: '',
+        },
+        {
+          name: '帳戶建置中/完成啟用中',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/mpbuild',
+          note: '',
+        },
+        {
+          name: '診所ID 站台登入資訊',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/epaper',
+          note: '同 epaper',
         },
       ],
     };

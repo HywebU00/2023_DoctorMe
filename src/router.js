@@ -7,6 +7,13 @@ import Login_changePassword from './components/System/Login_changePassword';
 import Login_epaper from './components/System/Login_epaper';
 import AppMobile from './components/System/AppMobile.vue';
 
+//前台登入頁面
+import mpLogin from './components/System/mp_Login';
+import mpFinish from './components/System/mp_Finish';
+
+//啟用頁面
+import mpBuild from './components/System/mp_Build';
+
 //wep1
 import DashboardWep from './components/System/DashboardWep_';
 import index from './components/System/index';
@@ -116,6 +123,21 @@ export default new Router({
           component: B0401,
         },
       ],
+    },
+    {
+      path: '/mpLogin',
+      name: 'mpLogin',
+      component: mpLogin,
+    },
+    {
+      path: '/mpFinish',
+      name: 'mpFinish',
+      component: mpFinish,
+    },
+    {
+      path: '/mpBuild',
+      name: 'mpBuild',
+      component: mpBuild,
     },
     {
       path: '/Login',
