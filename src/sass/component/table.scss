@@ -153,6 +153,7 @@
       }
       table tbody {
         .closed {
+          color: $gray3;
           .itemContent {
             align-content: center;
             min-width: 200px;
@@ -160,13 +161,19 @@
             .item {
               background: unset;
             }
+            .empty {
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              color: $gray3;
+              height: 100%;
+              align-items: center;
+              cursor: pointer;
+            }
           }
           background: lighten($gray, 5);
           &:hover {
             background: lighten($gray, 5) !important;
-          }
-          td {
-            color: $gray3;
           }
         }
       }

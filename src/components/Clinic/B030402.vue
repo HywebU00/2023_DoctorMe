@@ -92,7 +92,6 @@
           </v-card>
         </v-dialog>
       </div>
-
       <div class="reserveTable">
         <div class="theadFilter">
           <v-menu v-model="menu2" :close-on-content-click="false" transition="scale-transition">
@@ -132,10 +131,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="item in tableList" :key="item.time" :class="{ closed: item.status }">
-                <td class="text-center">{{ item.time }}</td>
-                <td>
+              <tr v-for="item in tableList" :key="item.time">
+                <td :class="{ closed: item.status }" class="text-center">{{ item.time }}</td>
+                <td :class="{ closed: item.morning.length === 0 }">
                   <div class="itemContent">
+                    <div class="empty">
+                      <span v-if="item.morning.length === 0" class="name text-truncate">休診</span>
+                    </div>
                     <div class="item" v-for="i in item.morning" :key="i.time">
                       <div class="">
                         <span> {{ i.place }}</span>
@@ -147,9 +149,12 @@
                     </div>
                   </div>
                 </td>
-                <td>
+                <td :class="{ closed: item.afternoon.length === 0 }">
                   <div class="itemContent">
-                    <div class="item" v-for="i in item.morning" :key="i.time">
+                    <div class="empty">
+                      <span v-if="item.afternoon.length === 0" class="name text-truncate">休診</span>
+                    </div>
+                    <div class="item" v-for="i in item.afternoon" :key="i.time">
                       <div class="">
                         <span> {{ i.place }}</span>
                         <span v-if="item.status === false" class="name text-truncate">新增醫生<span class="evenText">雙</span></span>
@@ -160,9 +165,12 @@
                     </div>
                   </div>
                 </td>
-                <td>
+                <td :class="{ closed: item.night.length === 0 }">
                   <div class="itemContent ">
-                    <div class="item" v-for="i in item.morning" :key="i.time">
+                    <div class="empty">
+                      <span v-if="item.night.length === 0" class="name text-truncate">休診</span>
+                    </div>
+                    <div class="item" v-for="i in item.night" :key="i.time">
                       <div class="">
                         <span> {{ i.place }}</span>
                         <span v-if="item.status === false" class="name text-truncate">新增醫生</span>
@@ -268,7 +276,7 @@ export default {
       tableList: [
         {
           time: '週一',
-          morning: [{ place: '診間一 : ' }, { place: '診間一 : ' }, { place: '診間一 : ' }],
+          morning: [],
           afternoon: [{ place: '診間一 : ' }, { place: '診間一 : ' }, { place: '診間一 : ' }],
           night: [{ place: '診間一 : ' }, { place: '診間一 : ' }, { place: '診間一 : ' }],
           status: false,
@@ -310,9 +318,9 @@ export default {
         },
         {
           time: '週日',
-          morning: [{ place: '休診' }],
-          afternoon: [{ place: '休診' }],
-          night: [{ place: '休診' }],
+          morning: [],
+          afternoon: [],
+          night: [],
           status: true,
         },
       ],
