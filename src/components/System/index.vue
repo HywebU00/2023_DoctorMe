@@ -191,6 +191,11 @@ export default {
           note: '',
         },
         {
+          name: '4-2.會員管理-群發訊息（完整版時開發）',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/B0402',
+          note: '',
+        },
+        {
           name: '8.LINE串接設定',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/B08',
           note: '',
