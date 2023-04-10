@@ -5,7 +5,7 @@
       <v-card elevation="0">
         <v-toolbar flat>
           <v-toolbar-title>
-            <v-img lazy-src="~@/assets/Login_logo.svg" src="~@/assets/indexLogo.svg"></v-img>
+            <v-img src="~@/assets/indexLogo.svg"></v-img>
           </v-toolbar-title>
 
           <v-spacer></v-spacer>

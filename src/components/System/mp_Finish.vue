@@ -5,9 +5,8 @@
       <v-card elevation="0">
         <v-toolbar flat>
           <v-toolbar-title>
-            <v-img lazy-src="~@/assets/Login_logo.svg" src="~@/assets/indexLogo.svg"></v-img>
+            <v-img src="~@/assets/indexLogo.svg"></v-img>
           </v-toolbar-title>
-
           <v-spacer></v-spacer>
           <ul>
             <li v-for="i in 3" :key="i" color="primaryDark"><a href=""> 產品介紹</a></li>
