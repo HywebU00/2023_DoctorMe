@@ -76,6 +76,19 @@
                   </v-btn> -->
                 <v-btn outlined color="primaryDark"> 叫號管理 </v-btn>
               </v-card>
+              <div alt="間隔用，請刪除" style="height:10px;"></div>
+              <v-card class="cardItem">
+                <v-card-title class="room">
+                  {{ item.room }}
+                </v-card-title>
+                <v-card-text>
+                  <span class="doctor">{{ item.doctor }}醫生</span>
+                  <span class="d-block text-center">預約總數:41人</span>
+                </v-card-text>
+                <v-btn color="primaryDark" dark>
+                  預約資料
+                </v-btn>
+              </v-card>
             </div>
           </div>
           <div class="swiper-button-next sliderBtnNext"></div>

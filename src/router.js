@@ -31,6 +31,7 @@ import B030402 from './components/Clinic/B030402';
 import B0305 from './components/Clinic/B0305';
 import B0401 from './components/Clinic/B0401';
 import B0402 from './components/Clinic/B0402';
+import B07 from './components/Clinic/B07';
 import B08 from './components/Clinic/B08';
 import B09 from './components/Clinic/B09';
 
@@ -87,6 +88,11 @@ export default new Router({
           path: '/B08',
           // name: 'Line串接設定',
           component: B08,
+        },
+        {
+          path: '/B07',
+
+          component: B07,
         },
         {
           path: '/B09',

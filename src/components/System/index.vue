@@ -196,6 +196,11 @@ export default {
           note: '',
         },
         {
+          name: '7.叫號螢幕設定（完整版）',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/B07',
+          note: '',
+        },
+        {
           name: '8.LINE串接設定',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/B08',
           note: '',

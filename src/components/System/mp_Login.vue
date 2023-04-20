@@ -7,7 +7,6 @@
           <v-toolbar-title>
             <v-img src="~@/assets/indexLogo.svg"></v-img>
           </v-toolbar-title>
-
           <v-spacer></v-spacer>
           <ul>
             <li v-for="i in 3" :key="i" color="primaryDark"><a href=""> 產品介紹</a></li>
