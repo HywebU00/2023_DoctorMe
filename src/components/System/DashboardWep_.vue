@@ -118,9 +118,24 @@
                   </v-card-text>
                 </v-card>
               </v-menu>
-              <v-btn class="userBtn" plain>
+              <!-- <v-btn class="userBtn" plain>
                 <span>林小華</span>
-              </v-btn>
+              </v-btn> -->
+              <v-menu offset-y>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn class="userBtn" color="#fff" v-bind="attrs" depressed v-on="on">
+                    <span>林曉華</span>
+                  </v-btn>
+                </template>
+                <v-list class="text-center ">
+                  <v-list-item @click="onClick">
+                    <v-list-item-title>個人資料</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item @click="onClick">
+                    <v-list-item-title>登出</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
             </div>
             <!-- pc版本user按鈕 end  -->
             <!-- mobile版本user按鈕 start -->
