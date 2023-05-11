@@ -992,8 +992,8 @@ button.editBtn.v-btn {
 }
 .gotoTopBtn {
   bottom: 5rem;
+  transition: 0.5s all;
   &.hide {
-    transition: 0.5s all;
     scale: 0;
   }
 }

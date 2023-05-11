@@ -234,7 +234,7 @@
           <router-view></router-view>
         </v-main>
         <!-- 消失時增加 className hide  -->
-        <v-btn class="gotoTopBtn " fab dark fixed right color="secondary">
+        <v-btn :class="{ hide: scrollPosition }" class="gotoTopBtn" @click="scrollToTop" fab dark fixed right color="secondary">
           <v-icon>keyboard_arrow_up</v-icon>
         </v-btn>
       </main>
@@ -345,6 +345,7 @@ export default {
       ],
       expand: false,
       mini: false,
+      scrollPosition: true,
     };
   },
   methods: {
@@ -367,10 +368,16 @@ export default {
       let vm = this;
     },
     scrollToTop() {
-      const main = this.$refs.main;
-      main.scrollTo({
-        top: 0,
-        behavior: 'smooth',
+      const osInstance = OverlayScrollbars(this.$refs.scrollBar.$el);
+      const { viewport } = osInstance.elements();
+      viewport.scrollTo({ top: 0, behavior: 'smooth' }); // set scroll offset
+    },
+    getScrollPosition() {
+      const osInstance = OverlayScrollbars(this.$refs.scrollBar.$el);
+      const { viewport } = osInstance.elements();
+      viewport.addEventListener('scroll', () => {
+        const { scrollTop } = viewport; // get scroll offset
+        scrollTop >= 120 ? (this.scrollPosition = false) : (this.scrollPosition = true);
       });
     },
     scrollBar() {
@@ -390,11 +397,6 @@ export default {
           autoHideDelay: 500,
         },
       });
-      this.scrollTo();
-    },
-    scrollTo() {
-      let main = OverlayScrollbars(this.$refs.scrollBar.$el);
-      console.log(main);
     },
   },
   watch: {
@@ -404,6 +406,7 @@ export default {
   mounted() {
     var vm = this;
     this.scrollBar();
+    this.getScrollPosition();
   },
   created() {
     var vm = this;
