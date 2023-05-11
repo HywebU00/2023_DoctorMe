@@ -749,9 +749,31 @@
       margin-top: 0;
     }
   }
+  .noteInfo {
+    font-size: 1rem;
+    font-weight: 500;
+    color: $gray3;
+    margin-left: 0.25rem;
+  }
   .title {
     label {
       margin: 0;
+    }
+    h3 {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .haveInputLabel {
+    display: flex;
+    align-items: center;
+    label {
+      color: $gray2;
+      margin-bottom: 0;
+    }
+    .v-input {
+      padding-top: 0;
+      max-width: 13rem;
     }
   }
   .datepickerBlock {
@@ -821,9 +843,6 @@
         }
       }
     }
-    // span {
-    //   margin-right: 0.5rem;
-    // }
   }
 }
 .reserveBlock {
@@ -969,5 +988,12 @@ button.editBtn.v-btn {
   .v-tabs-items {
     margin: 1.5rem 0;
     background: rgba(0, 0, 0, 0) !important;
+  }
+}
+.gotoTopBtn {
+  bottom: 5rem;
+  &.hide {
+    transition: 0.5s all;
+    scale: 0;
   }
 }

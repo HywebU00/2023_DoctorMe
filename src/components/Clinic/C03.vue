@@ -77,6 +77,20 @@
           </v-list-item-group>
         </v-list> -->
         <!-- 選擇醫生列表 end -->
+
+        <!-- 選擇號碼區塊 start -->
+        <div class="title mb-2">
+          <h3><span>請選擇給號號碼</span><span class="noteInfo">目前預約總數：0，最後一號：-</span></h3>
+        </div>
+        <div class="d-flex haveInputLabel"><label for="setNum">自訂給號號碼：</label> <v-text-field id="setNum" placeholder="請輸入號碼"></v-text-field></div>
+        <div class="settingBtnList">
+          <v-btn-toggle>
+            <v-btn style="border:1px solid !important;" v-for="i in 50" :key="i">
+              <span>{{ i }}</span>
+            </v-btn>
+          </v-btn-toggle>
+        </div>
+        <!-- 選擇號碼區塊 end -->
       </v-form>
       <!-- 預約摘要 start -->
       <div class="infoData">

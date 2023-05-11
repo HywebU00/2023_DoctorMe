@@ -230,10 +230,13 @@
           </div>
           <!-- user按鈕列表 -->
         </div>
-
         <v-main :class="{ closeMenu: mini }" ref="scrollBar">
           <router-view></router-view>
         </v-main>
+        <!-- 消失時增加 className hide  -->
+        <v-btn class="gotoTopBtn " fab dark fixed right color="secondary">
+          <v-icon>keyboard_arrow_up</v-icon>
+        </v-btn>
       </main>
     </div>
   </v-app>
@@ -269,19 +272,17 @@ export default {
   data() {
     return {
       defaultOptions: { animationData: animationData },
-
       dialog: false,
       drawer: null,
       startTime: null,
       endTime: null,
       refreshId: null,
       anim: null,
-
       dialogMobile: false,
       notifications: false,
       sound: true,
       widgets: false,
-
+      fab: false,
       items: [
         {
           icon: 'assignment',
@@ -389,6 +390,11 @@ export default {
           autoHideDelay: 500,
         },
       });
+      this.scrollTo();
+    },
+    scrollTo() {
+      let main = OverlayScrollbars(this.$refs.scrollBar.$el);
+      console.log(main);
     },
   },
   watch: {
@@ -410,10 +416,10 @@ export default {
 };
 </script>
 <style>
-.rounded-list {
+/* .rounded-list {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-}
+} */
 </style>

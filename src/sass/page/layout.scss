@@ -361,3 +361,30 @@
     }
   }
 }
+.settingBtnList {
+  .v-btn-toggle {
+    background: unset !important;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .v-btn {
+      margin: 0.25rem;
+      border-radius: 5px !important;
+      color: $primaryDark;
+      background: #fff;
+    }
+    .v-btn--active {
+      &::before {
+        background: $primaryDark;
+        opacity: 1;
+      }
+      color: #fff;
+    }
+  }
+  > div .v-btn-toggle:not(.v-btn-toggle--group) {
+    .v-btn {
+      border: 1px solid $primaryDark !important;
+    }
+  }
+}
