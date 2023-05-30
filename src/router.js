@@ -6,6 +6,7 @@ import Login from './components/System/Login_';
 import Login_changePassword from './components/System/Login_changePassword';
 import Login_epaper from './components/System/Login_epaper';
 import AppMobile from './components/System/AppMobile.vue';
+import mpIndex from './components/System/mp_Index';
 
 //前台登入頁面
 import mpLogin from './components/System/mp_Login';
@@ -42,17 +43,6 @@ import L05 from './components/Line/L05';
 import L0201 from './components/Line/L0201';
 
 export default new Router({
-  // scrollBehavior: (to, from, savedPosition) => {
-  //   let scrollTo = 0;
-
-  //   if (to.hash) {
-  //     scrollTo = to.hash;
-  //   } else if (savedPosition) {
-  //     scrollTo = savedPosition.y;
-  //   }
-
-  //   return goTo(scrollTo);
-  // },
   routes: [
     {
       path: '/',
@@ -155,6 +145,11 @@ export default new Router({
       path: '/Login',
       name: 'Login',
       component: Login,
+    },
+    {
+      path: '/mpIndex',
+      name: 'mpIndex',
+      component: mpIndex,
     },
     {
       path: '/Login_changePassword',

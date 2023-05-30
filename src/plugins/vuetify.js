@@ -33,6 +33,7 @@ export default new Vuetify({
         accent: '#17214C',
         error: '#FF5252',
         success: '#67c23a',
+        errorSecondary: '#ff006c',
       },
     },
   },

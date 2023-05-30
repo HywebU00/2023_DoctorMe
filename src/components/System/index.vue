@@ -245,6 +245,11 @@ export default {
       ],
       clientSidePages: [
         {
+          name: '產品首頁',
+          link: 'https://hywebu00.github.io/2023_DoctorMe/#/mpIndex',
+          note: '',
+        },
+        {
           name: '試用表單頁面',
           link: 'https://hywebu00.github.io/2023_DoctorMe/#/mpLogin',
           note: '',
