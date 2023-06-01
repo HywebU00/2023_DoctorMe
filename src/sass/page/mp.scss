@@ -284,7 +284,8 @@
       background-size: cover;
       background-color: #fff;
       > div {
-        margin: 0 5rem;
+        margin: 0 3rem;
+        width: 100%;
         max-width: 1440px;
         ul {
           display: flex;
@@ -298,7 +299,7 @@
         }
         h2 {
           color: $primaryDark;
-          margin: 5rem 0;
+          margin: 5rem 0 3.75rem 0;
           font-weight: bolder;
           text-align: center;
           font-size: 2.2rem;
@@ -312,6 +313,30 @@
         p {
           font-weight: bolder;
           font-size: 1.25rem;
+        }
+        @media (max-width: 960px) {
+          margin: 0 5rem;
+        }
+      }
+    }
+    .container button,
+    .banner button {
+      font-weight: bolder;
+      padding: 0 1.5rem;
+      position: relative;
+      i {
+        margin-left: 1rem;
+        font-size: 1.25rem;
+        position: absolute;
+        top: 0.1rem;
+        right: 0;
+      }
+      span {
+        padding-right: 2rem;
+      }
+      &:hover {
+        i {
+          right: -0.75rem;
         }
       }
     }
@@ -355,41 +380,424 @@
           padding-right: 3rem;
         }
       }
+      @media (max-width: 1264px) {
+        .item,
+        .item:first-child {
+          display: block;
+        }
+        .infoContainer {
+          margin-bottom: 2rem;
+        }
+        .item,
+        .item:first-child {
+          margin-bottom: 2rem;
+          // &:first-child {
+          //   border: 0px;
+          //   border-bottom: 1px solid $secondary;
+          // }
+
+          .v-image {
+            margin: 0 auto;
+            margin-bottom: 1rem;
+          }
+        }
+      }
+      @media (max-width: 959px) {
+        .item,
+        .item:first-child {
+          display: flex;
+        }
+        .item:first-child {
+          border: 0px;
+          border-bottom: 1px solid $secondary;
+        }
+      }
+      @include screen('tablet') {
+        .item,
+        .item:first-child {
+          display: block;
+          .v-image {
+            margin: 0 auto;
+            margin-bottom: 1rem;
+          }
+        }
+        .item:first-child {
+          border: 0px;
+          border-bottom: 1px solid $secondary;
+        }
+      }
     }
     .userInfoSection {
       background-image: url('~@/assets/mp/img_bg01.jpg');
-      ul {
-        display: flex;
+      .v-image {
+        width: 10rem;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 50%;
+      }
+      .container {
+        margin-bottom: 2rem;
+      }
+      .col {
+        &:nth-child(even) {
+          margin-top: 4rem;
+        }
+      }
+      h3 {
+        line-height: 1.4;
+        span {
+          display: block;
+          font-size: 2.75rem;
+          margin-left: 0.25rem;
+        }
+      }
+      .item {
+        max-width: 320px;
+        margin: 0 2em;
+        margin-top: -3rem;
+
+        color: $primaryDark;
+        p {
+          font-size: 1rem;
+          color: #3d3d3d;
+          font-weight: 500;
+          line-height: 2rem;
+        }
+      }
+      .row {
+        .col {
+          &:first-child {
+            .item {
+              margin-left: 0;
+              max-width: calc(320px - 2rem);
+            }
+          }
+          &:last-child {
+            .item {
+              margin-right: 0;
+              max-width: calc(320px - 2rem);
+            }
+          }
+        }
+      }
+      @media (max-width: 1264px) {
+        .row {
+          .item,
+          .col:first-child .item,
+          .col:last-child .item {
+            margin: 0 auto;
+
+            max-width: 80%;
+            margin-left: 2rem;
+          }
+          .col:nth-child(even) {
+            margin-top: 0;
+          }
+        }
+      }
+      @media (max-width: 959px) {
+        .row {
+          .col {
+            display: flex;
+            align-items: center;
+            .v-image {
+              width: 12.5rem;
+              max-width: 12.5rem;
+              height: 12.5rem;
+            }
+          }
+        }
+      }
+      @include screen('tablet') {
+        .row .col {
+          display: block;
+        }
       }
     }
     .clinicInfoSection {
+      position: relative;
+      &::after {
+        position: absolute;
+        content: '';
+        background-image: url('~@/assets/mp/img_shadow.png');
+        left: 0;
+        top: 0;
+        width: 420px;
+        height: 690px;
+      }
+      .row {
+        margin-bottom: 1rem;
+        .col {
+          &:first-child {
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+      .v-image {
+        margin-right: 1rem;
+      }
+      ul {
+        padding: 0;
+        li {
+          margin-bottom: 1rem;
+        }
+      }
+      h3 {
+        color: $primaryDark;
+        display: flex;
+        align-items: flex-start;
+        font-weight: bolder;
+        span.num {
+          font-size: 2.75rem;
+          margin-right: 0.5rem;
+          margin-top: -0.75rem;
+        }
+      }
+      p {
+        font-size: 1rem;
+        color: #3d3d3d;
+        font-weight: 500;
+        line-height: 2rem;
+        margin-left: 2.25rem;
+      }
+      @media (max-width: 960px) {
+        .v-image {
+          margin: 0;
+          max-width: 300px;
+          margin: 0 auto;
+        }
+      }
     }
     .productSection {
+      position: relative;
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        background: url('~@/assets/mp/bg_dark_mask.png') no-repeat;
+        width: 100%;
+        height: 321px;
+      }
+      > div {
+        margin: 2rem 0 6rem 0;
+      }
       background-image: url('~@/assets/mp/img_bg_dark_03.jpg');
       div {
         h2 {
           color: #fff;
+          margin-bottom: 0;
         }
+
         .subtitle {
-          color: pink;
+          color: #ffaddf;
+          font-size: 1.5rem;
+          font-weight: bolder;
+          display: block;
+          text-align: center;
+          margin: 1.5rem 10rem;
+          padding-bottom: 1.75rem;
+          border-bottom: 3px solid rgba(153, 189, 255, 0.38);
+        }
+        .col {
+          .v-image {
+            width: 80px;
+            margin: 0 auto;
+          }
+          span {
+            display: block;
+            text-align: center;
+            font-size: 1.25rem;
+            margin: 1rem 0;
+            color: #95eaff;
+            font-weight: bolder;
+            position: relative;
+          }
         }
       }
     }
     .systemSection {
+      .container {
+        margin-bottom: 5rem;
+      }
+      .v-image {
+        width: 100px;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+      }
+      h3 {
+        text-align: center;
+        color: $primaryDark;
+      }
+      p {
+        text-align: center;
+        font-size: 1rem;
+        color: #3d3d3d;
+        font-weight: 400;
+        line-height: 1.5rem;
+        width: 8rem;
+        margin: 0 auto;
+      }
     }
     .priceSection {
       background-image: url('~@/assets/mp/img_bg02.jpg');
+      .payCard {
+        max-width: 354px;
+        padding-bottom: 0;
+        width: 100%;
+        border-radius: 0.75rem;
+        .title {
+          margin-bottom: 0;
+          h6 {
+            margin-top: 2.25rem;
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+          }
+          p {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            span {
+              font-size: 3rem;
+            }
+          }
+          background: $primaryDark;
+          position: relative;
+          &::before {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 12px;
+            top: 0;
+            left: 0;
+            border-radius: 0.75rem 0.75rem 0 0;
+            background: linear-gradient(to right, rgba(113, 255, 197, 1) 17%, rgba(23, 33, 76, 1) 99%);
+          }
+        }
+        ul {
+          margin: 2rem 2rem 1.5rem 2rem;
+        }
+        li {
+          width: 100%;
+          font-weight: 500;
+          margin: 0.75rem 0;
+          i {
+            font-weight: bolder;
+          }
+        }
+      }
+      .col {
+        display: flex;
+        justify-content: flex-start;
+        &:nth-child(2) {
+          justify-content: center;
+          .title {
+            &::before {
+              background: linear-gradient(to right, rgba(255, 132, 0, 1) 17%, rgba(23, 33, 76, 1) 99%);
+            }
+          }
+        }
+        &:nth-child(3) {
+          justify-content: flex-end;
+          .title {
+            &::before {
+              background: linear-gradient(to right, rgba(255, 0, 108, 1) 17%, rgba(23, 33, 76, 1) 99%);
+            }
+          }
+        }
+      }
+      p.infoText {
+        display: block;
+        margin-top: 3.5rem;
+        text-align: center;
+        color: $primaryDark;
+        font-size: 1rem;
+        letter-spacing: 0.05rem;
+      }
+      .container {
+        margin-bottom: 5rem;
+      }
+      @media (max-width: 1264px) {
+        .row .col {
+          justify-content: center;
+        }
+      }
+      @media (max-width: 960px) {
+        .payCard {
+          .title p span {
+            font-size: 2rem;
+          }
+        }
+      }
     }
     .clinicServeSection {
+      height: 24rem;
+      position: relative;
       background-image: url('~@/assets/mp/img_heart.png');
       background-size: contain;
       background-position: left;
+      .container {
+        display: flex;
+        justify-content: flex-end;
+        span.block {
+          display: block;
+        }
+        h2 {
+          text-align: start;
+          line-height: 3.25rem;
+          margin: 0 0 1rem 0;
+        }
+      }
+      @include screen('notebook') {
+        background-size: cover;
+        &::after {
+          position: absolute;
+          content: '';
+          background-color: #fff;
+          opacity: 0.7;
+          height: 100%;
+          width: 100%;
+          z-index: -1;
+        }
+      }
     }
     .introduceSection {
+      height: 24rem;
       background-image: url('~@/assets/mp/img_serve.jpg');
       background-size: contain;
       background-position: right;
       background-color: #f3f3f3;
+      position: relative;
+      .container {
+        display: flex;
+        justify-content: flex-start;
+        h2 {
+          text-align: start;
+          margin: 0 0 1rem 0;
+        }
+        h2 + span {
+          display: block;
+          line-height: 1.5rem;
+          margin-bottom: 2rem;
+        }
+        span.block {
+          display: block;
+        }
+      }
+      @include screen('notebook') {
+        &::after {
+          position: absolute;
+          content: '';
+          background-color: #fff;
+          opacity: 0.6;
+          height: 100%;
+          width: 100%;
+          z-index: -1;
+        }
+      }
+      @include screen('mobile') {
+        background-size: cover;
+      }
     }
   }
   footer {
