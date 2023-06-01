@@ -61,34 +61,34 @@
       <!-- banner start -->
       <section class="banner">
         <div>
-          <h1>
+          <h1 data-aos="fade-right" data-aos-mirror="true" data-aos-duration="1500">
             提供Line即時看診預約服務<br />
             讓您的診所成為家庭的健康互動中心
           </h1>
           <span>
             <!-- <v-img src="~@/assets/"></v-img> -->
-            <p>專為醫療診所設計的智慧醫療互動平台</p>
+            <p data-aos="fade-left" data-aos-mirror="true" data-aos-duration="2000">專為醫療診所設計的智慧醫療互動平台</p>
           </span>
-          <v-btn elevation="0" color="primaryDark" dark>立即免費試用 <v-icon color="#fff">mdi-arrow-right</v-icon></v-btn>
+          <v-btn data-aos="fade-right" data-aos-mirror="true" data-aos-duration="1500" elevation="0" color="primaryDark" dark>立即免費試用 <v-icon color="#fff">mdi-arrow-right</v-icon></v-btn>
         </div>
       </section>
       <!-- banner end -->
       <!-- 診所的日常工作中，您是否常遇到. start -->
       <section class="infoSection">
         <div class="">
-          <h2>診所的日常工作中，您是否常遇到......</h2>
+          <h2 data-aos="fade-down" data-aos-duration="1000">診所的日常工作中，您是否常遇到......</h2>
           <v-container>
             <v-row class="infoContainer">
               <v-col class="item" cols="12" md="6">
-                <v-img style="width:200px;" src="~@/assets/mp/img_people_01.png"></v-img>
-                <div class="">
+                <v-img data-aos="fade-right" data-aos-duration="1000" style="width:200px;" src="~@/assets/mp/img_people_01.png"></v-img>
+                <div class="" data-aos="fade-right" data-aos-duration="1000">
                   <h3>診所業者端</h3>
                   <p>診所櫃檯人力負擔大，櫃檯人員除了處理現場掛號、接聽預約電話外，還得注意診間叫號狀況、提醒預約就診者回診.......</p>
                 </div></v-col
               >
               <v-col class="item" cols="12" md="6">
-                <v-img style="width:200px;" src="~@/assets/mp/img_people_02.png"></v-img>
-                <div class="">
+                <v-img data-aos="fade-left" data-aos-duration="1000" style="width:200px;" src="~@/assets/mp/img_people_02.png"></v-img>
+                <div class="" data-aos="fade-left" data-aos-duration="1000">
                   <h3>診所業者端</h3>
                   <p>診所櫃檯人力負擔大，櫃檯人員除了處理現場掛號、接聽預約電話外，還得注意診間叫號狀況、提醒預約就診者回診.......</p>
                 </div>
@@ -101,14 +101,14 @@
       <!--身為 就診者 start -->
       <section class="userInfoSection ">
         <div class="">
-          <h2>
+          <h2 data-aos="fade-down" data-aos-duration="1000">
             身為
             <span>就診者</span>
             ，使用DoctorMe您可以......
           </h2>
           <v-container>
             <v-row>
-              <v-col class="col" cols="12" md="4"
+              <v-col class="col" cols="12" md="4" data-aos="fade-up" data-aos-duration="1000"
                 ><v-img contain src="~@/assets/mp/function_icon_01.png"></v-img>
                 <div class="item">
                   <h3>
@@ -118,7 +118,7 @@
                   <p>不用再打電話也無需下載APP，透過Line官方帳號即可隨時預約門診，簡單好上手</p>
                 </div>
               </v-col>
-              <v-col class="col" cols="12" md="4"
+              <v-col class="col" cols="12" md="4" data-aos="fade-up" data-aos-duration="1500"
                 ><v-img contain src="~@/assets/mp/function_icon_02.png"></v-img>
                 <div class="item">
                   <h3>
@@ -128,7 +128,7 @@
                   <p>代理家戶親友進行預約，協助不便使用手機的親友也能使用預約服務，即刻照護親友的預約就診狀況</p>
                 </div></v-col
               >
-              <v-col class="col" cols="12" md="4">
+              <v-col class="col" cols="12" md="4" data-aos="fade-up" data-aos-duration="2000">
                 <v-img contain src="~@/assets/mp/function_icon_03.png"></v-img>
                 <div class="item">
                   <h3>
@@ -146,33 +146,33 @@
       <!--身為 診所業者 start -->
       <section class="clinicInfoSection">
         <div class="">
-          <h2>
+          <h2 data-aos="fade-down" data-aos-duration="1000">
             身為
             <span>診所業者</span>
             使用DoctorMe您可以......
           </h2>
           <v-container>
             <v-row>
-              <v-col class="col" cols="12" md="6">
+              <v-col class="col" cols="12" md="6" data-aos="fade-up" data-aos-duration="1100">
                 <v-img src="~@/assets/mp/img_computer.png"></v-img>
               </v-col>
               <v-col class="col" cols="12" md="6">
                 <ul>
-                  <li>
+                  <li data-aos="fade-up" data-aos-duration="1000">
                     <h3>
                       <span class="num">1</span>
                       <span>預約作業數位化，診所管理最強助力</span>
                     </h3>
                     <p>預約管理流程全面數位化，減輕診所行政管理負擔，最大化看診產能，後台提供數據報表資料，輕鬆掌握診所預約動態</p>
                   </li>
-                  <li>
+                  <li data-aos="fade-up" data-aos-duration="1500">
                     <h3>
                       <span class="num">2</span>
                       <span>多元預約規則設定，因應不同診療需求</span>
                     </h3>
                     <p>後台可設定多樣化的預約規則，包含服務種類、細項、說明、給號方式...... 最大的彈性條件，自由設置最符合您診所的預約機制</p>
                   </li>
-                  <li>
+                  <li data-aos="fade-up" data-aos-duration="2000">
                     <h3>
                       <span class="num">3</span>
                       <span>智慧管理服務，帶領您成為家庭的健康中心</span>
@@ -190,10 +190,10 @@
       <section class="productSection">
         <div class="">
           <div class="mb-8">
-            <h2>
+            <h2 data-aos="fade-down" data-aos-duration="1000">
               就診者端功能
             </h2>
-            <span class="subtitle">「自由預約、隨時查看叫號、門診資訊」</span>
+            <span data-aos="fade-down" data-aos-duration="1000" class="subtitle">「自由預約、隨時查看叫號、門診資訊」</span>
             <v-container>
               <v-row>
                 <v-col class="col" cols="4" md="2">
@@ -224,10 +224,10 @@
             </v-container>
           </div>
           <div>
-            <h2>
+            <h2 data-aos="fade-down" data-aos-duration="1000">
               診所業者端功能
             </h2>
-            <span class="subtitle">「預約服務智慧化，輕鬆管理診所業務」</span>
+            <span data-aos="fade-down" data-aos-duration="1000" class="subtitle">「預約服務智慧化，輕鬆管理診所業務」</span>
             <v-container>
               <v-row>
                 <v-col class="col" cols="4" md="2">
@@ -263,28 +263,28 @@
       <!--安全且 持續進化 的系統  start -->
       <section class="systemSection">
         <div class="">
-          <h2>
+          <h2 data-aos="fade-down" data-aos-duration="1000">
             安全且
             <span>持續進化</span>
             的系統
           </h2>
           <v-container>
             <v-row>
-              <v-col cols="12" sm="4">
+              <v-col data-aos="fade-up" data-aos-duration="1000" cols="12" sm="4">
                 <v-img src="~@/assets/mp/safe_icon_01.png"></v-img>
                 <h3>
                   資料安全機制
                 </h3>
                 <p>所有資料加密保護 保護個人資料安全</p>
               </v-col>
-              <v-col cols="12" sm="4">
+              <v-col data-aos="fade-up" data-aos-duration="1500" cols="12" sm="4">
                 <v-img src="~@/assets/mp/safe_icon_02.png"></v-img>
                 <h3>
                   功能持續進化
                 </h3>
                 <p>持續發展產品功能 認真滿足客戶需求</p>
               </v-col>
-              <v-col cols="12" sm="4">
+              <v-col data-aos="fade-up" data-aos-duration="2000" cols="12" sm="4">
                 <v-img src="~@/assets/mp/safe_icon_03.png"></v-img>
                 <h3>
                   快速技術支援
@@ -297,12 +297,12 @@
       </section>
       <section class="priceSection">
         <div class="">
-          <h2>
+          <h2 data-aos="fade-down" data-aos-duration="1000">
             DoctorMe 方案價格
           </h2>
           <v-container>
             <v-row>
-              <v-col class="col" cols="12" md="4">
+              <v-col data-aos="fade-up" data-aos-duration="1000" class="col" cols="12" md="4">
                 <v-card class="card payCard">
                   <div class="title" color="primaryDark" dark>
                     <h6>基礎版</h6>
@@ -348,7 +348,7 @@
                   </ul>
                 </v-card>
               </v-col>
-              <v-col class="col" cols="12" md="4">
+              <v-col data-aos="fade-up" data-aos-duration="1500" class="col" cols="12" md="4">
                 <v-card class="card payCard">
                   <div class="title" color="primaryDark" dark>
                     <h6>基本版</h6>
@@ -394,7 +394,7 @@
                   </ul>
                 </v-card>
               </v-col>
-              <v-col class="col" cols="12" md="4">
+              <v-col data-aos="fade-up" data-aos-duration="2000" class="col" cols="12" md="4">
                 <v-card class="card payCard">
                   <div class="title" color="primaryDark" dark>
                     <h6>基礎版</h6>
@@ -494,6 +494,10 @@ import lottie from 'lottie-web';
 import 'overlayscrollbars/styles/overlayscrollbars.css';
 import { OverlayScrollbars } from 'overlayscrollbars';
 
+//aos
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 export default {
   data() {
     return {
@@ -524,6 +528,8 @@ export default {
       path: 'animations/discussion.json',
     });
     this.scrollBar();
+    AOS.init();
+    console.log(AOS);
   },
 };
 </script>

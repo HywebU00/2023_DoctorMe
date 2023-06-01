@@ -47,7 +47,7 @@
       margin-bottom: 0;
 
       li {
-        margin-right: 3rem;
+        margin-right: 2rem;
         font-weight: 700;
         &:last-child {
           margin-right: 0;
@@ -466,18 +466,18 @@
       }
       .row {
         .col {
-          &:first-child {
-            .item {
-              margin-left: 0;
-              max-width: calc(320px - 2rem);
-            }
-          }
-          &:last-child {
-            .item {
-              margin-right: 0;
-              max-width: calc(320px - 2rem);
-            }
-          }
+          // &:first-child {
+          //   .item {
+          //     // margin-left: 0;
+          //     max-width: calc(320px - 2rem);
+          //   }
+          // }
+          // &:last-child {
+          //   .item {
+          //     // margin-right: 0;
+          //     max-width: calc(320px - 2rem);
+          //   }
+          // }
         }
       }
       @media (max-width: 1264px) {
