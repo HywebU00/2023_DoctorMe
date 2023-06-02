@@ -1,16 +1,6 @@
 .mp {
   main {
     position: relative;
-    // &:after {
-    //   position: fixed;
-    //   content: '';
-    //   bottom: 0;
-    //   width: 100%;
-    //   height: 600px;
-    //   background: url('~@/assets/wave_bg.svg') no-repeat;
-    //   background-position: bottom;
-    //   background-size: contain;
-    // }
   }
   header {
     .mpLogo {
@@ -23,7 +13,8 @@
       padding: 0 1.5rem;
       border-radius: 2rem;
     }
-    box-shadow: none;
+
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     padding: 0 2rem;
     position: sticky;
     background: #fff;
@@ -69,13 +60,49 @@
       background: #fff !important;
       border: 2px solid #ececec;
     }
+    .mobileContenet {
+      display: block;
+      position: absolute;
+      border-radius: 0;
+      width: 100%;
+      top: 56px;
+      ul {
+        display: block;
+
+        padding: 0;
+        margin: 1rem 2rem;
+        li {
+          margin: 0;
+          display: flex;
+          width: 100%;
+          justify-content: center;
+          a {
+            display: block;
+            width: 100%;
+            padding: 0.5rem;
+            text-align: center;
+            &:hover {
+              background-color: #ececec;
+              border-radius: 0.25rem;
+            }
+          }
+          button {
+            margin-top: 0.5rem;
+          }
+        }
+      }
+    }
     @include screen('tablet') {
-      padding: 0 1rem;
+      padding: 0;
       ul {
         display: none;
       }
       .mobileBtn {
         display: block;
+        margin-right: 2rem;
+      }
+      .v-toolbar__title {
+        margin-left: 2rem;
       }
     }
   }
@@ -317,6 +344,9 @@
         @media (max-width: 960px) {
           margin: 0 5rem;
         }
+        @include screen('mobile') {
+          margin: 0 3rem;
+        }
       }
     }
     .container button,
@@ -348,8 +378,36 @@
       p {
         color: #fff;
       }
-
+      .subtitle {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        .v-image {
+          width: 1.5rem;
+          max-width: 1.75rem;
+          height: 1.75rem;
+          margin-right: 0.75rem;
+          margin-bottom: 0.5rem;
+        }
+        p {
+          margin-bottom: 0;
+        }
+      }
       background-image: url('~@/assets/mp/img_banner.jpg');
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 3rem;
+        width: 432px;
+        height: 70px;
+        background: url('~@/assets/mp/doctorMe_text.png') no-repeat;
+      }
+      @include screen('tablet') {
+        &::after {
+          right: 0;
+        }
+      }
     }
     .infoSection {
       .infoContainer {
@@ -378,6 +436,10 @@
         .v-image + div {
           margin: 0 0 0 3rem;
           padding-right: 3rem;
+          @include screen('mobile') {
+            margin: 0;
+            padding: 0;
+          }
         }
       }
       @media (max-width: 1264px) {
@@ -391,10 +453,6 @@
         .item,
         .item:first-child {
           margin-bottom: 2rem;
-          // &:first-child {
-          //   border: 0px;
-          //   border-bottom: 1px solid $secondary;
-          // }
 
           .v-image {
             margin: 0 auto;
@@ -455,7 +513,6 @@
         max-width: 320px;
         margin: 0 2em;
         margin-top: -3rem;
-
         color: $primaryDark;
         p {
           font-size: 1rem;
@@ -464,22 +521,7 @@
           line-height: 2rem;
         }
       }
-      .row {
-        .col {
-          // &:first-child {
-          //   .item {
-          //     // margin-left: 0;
-          //     max-width: calc(320px - 2rem);
-          //   }
-          // }
-          // &:last-child {
-          //   .item {
-          //     // margin-right: 0;
-          //     max-width: calc(320px - 2rem);
-          //   }
-          // }
-        }
-      }
+
       @media (max-width: 1264px) {
         .row {
           .item,
@@ -508,6 +550,16 @@
           }
         }
       }
+      @include screen('mobile') {
+        .row {
+          .item,
+          .col:first-child .item,
+          .col:last-child .item {
+            margin: 0;
+            max-width: unset;
+          }
+        }
+      }
       @include screen('tablet') {
         .row .col {
           display: block;
@@ -524,6 +576,13 @@
         top: 0;
         width: 420px;
         height: 690px;
+      }
+      @include screen('tablet') {
+        &::after {
+          width: 80%;
+          height: 20rem;
+          background-size: contain;
+        }
       }
       .row {
         margin-bottom: 1rem;
@@ -599,6 +658,9 @@
           margin: 1.5rem 10rem;
           padding-bottom: 1.75rem;
           border-bottom: 3px solid rgba(153, 189, 255, 0.38);
+          @include screen('mobile') {
+            margin: 1.5rem 2rem;
+          }
         }
         .col {
           .v-image {
@@ -735,7 +797,8 @@
       position: relative;
       background-image: url('~@/assets/mp/img_heart.png');
       background-size: contain;
-      background-position: left;
+
+      background-position: -10rem;
       .container {
         display: flex;
         justify-content: flex-end;
@@ -750,6 +813,7 @@
       }
       @include screen('notebook') {
         background-size: cover;
+
         &::after {
           position: absolute;
           content: '';
@@ -798,6 +862,9 @@
       @include screen('mobile') {
         background-size: cover;
       }
+    }
+    .gotoTopBtn {
+      background: #3d3d3d;
     }
   }
   footer {

@@ -9,50 +9,46 @@
           </v-toolbar-title>
           <v-spacer></v-spacer>
           <ul>
-            <li color="primaryDark"><a href=""> 首頁</a></li>
-            <li color="primaryDark"><a href=""> 功能介紹</a></li>
-            <li color="primaryDark"><a href=""> 價格方案</a></li>
-            <li color="primaryDark"><a href=""> 聯絡我們</a></li>
+            <li color="primaryDark"><a> 首頁</a></li>
+            <li color="primaryDark"><a @click="scrollToHref('product')"> 功能介紹</a></li>
+            <li color="primaryDark"><a @click="scrollToHref('price')"> 價格方案</a></li>
+            <li color="primaryDark"><a @click="scrollToHref('contact')"> 聯絡我們</a></li>
             <li><v-btn class="applyBtn" elevation="0">立即免費試用</v-btn></li>
           </ul>
-          <v-dialog v-model="dialogMobile" fullscreen hide-overlay transition="dialog-bottom-transition">
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn elevation="0" class="mobileBtn" v-bind="attrs" v-on="on" @click="expand = !expand">
-                <v-icon class="material-icons-round">
-                  menu
-                </v-icon>
-              </v-btn>
-            </template>
-            <v-card class="dialogMobileCard">
-              <v-card-title>
-                <v-spacer></v-spacer>
-                <v-btn icon @click="dialogMobile = false">
-                  <v-icon>mdi-close</v-icon>
-                </v-btn>
-              </v-card-title>
-              <v-card-text>
-                <div class="">
-                  <v-img lazy-src="~@/assets/indexLogo.svg" src="~@/assets/indexLogo.svg"></v-img>
-                </div>
-                <ul>
-                  <li v-for="i in 3" :key="i">
-                    <a href="">
-                      <v-btn color="accent" block>
-                        疫苗注射
-                      </v-btn>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <v-btn color="secondary" block>
-                        立即免費試用
-                      </v-btn>
-                    </a>
-                  </li>
-                </ul>
-              </v-card-text>
+          <v-btn elevation="0" class="mobileBtn" @click="expand = !expand">
+            <v-icon class="material-icons-round">
+              menu
+            </v-icon>
+          </v-btn>
+          <v-expand-transition>
+            <v-card v-show="expand" class="mobileContenet">
+              <ul>
+                <li>
+                  <a href="">
+                    首頁
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    功能介紹
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    價格方案
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    聯絡我們
+                  </a>
+                </li>
+                <li>
+                  <v-btn class="applyBtn" elevation="0">立即免費試用</v-btn>
+                </li>
+              </ul>
             </v-card>
-          </v-dialog>
+          </v-expand-transition>
         </v-toolbar>
       </v-card>
     </header>
@@ -61,22 +57,22 @@
       <!-- banner start -->
       <section class="banner">
         <div>
-          <h1 data-aos="fade-right" data-aos-mirror="true" data-aos-duration="1500">
+          <h1 data-aos="fade-right" data-aos-duration="1500">
             提供Line即時看診預約服務<br />
             讓您的診所成為家庭的健康互動中心
           </h1>
-          <span>
-            <!-- <v-img src="~@/assets/"></v-img> -->
-            <p data-aos="fade-left" data-aos-mirror="true" data-aos-duration="2000">專為醫療診所設計的智慧醫療互動平台</p>
+          <span class="subtitle" data-aos="fade-left" data-aos-duration="2000">
+            <v-img src="~@/assets/mp/title_logo.png"></v-img>
+            <p>專為醫療診所設計的智慧醫療互動平台</p>
           </span>
-          <v-btn data-aos="fade-right" data-aos-mirror="true" data-aos-duration="1500" elevation="0" color="primaryDark" dark>立即免費試用 <v-icon color="#fff">mdi-arrow-right</v-icon></v-btn>
+          <v-btn data-aos="fade-right" data-aos-duration="1500" elevation="0" color="primaryDark" dark>立即免費試用 <v-icon color="#fff">mdi-arrow-right</v-icon></v-btn>
         </div>
       </section>
       <!-- banner end -->
       <!-- 診所的日常工作中，您是否常遇到. start -->
       <section class="infoSection">
         <div class="">
-          <h2 data-aos="fade-down" data-aos-duration="1000">診所的日常工作中，您是否常遇到......</h2>
+          <h2>診所的日常工作中，您是否常遇到......</h2>
           <v-container>
             <v-row class="infoContainer">
               <v-col class="item" cols="12" md="6">
@@ -101,7 +97,7 @@
       <!--身為 就診者 start -->
       <section class="userInfoSection ">
         <div class="">
-          <h2 data-aos="fade-down" data-aos-duration="1000">
+          <h2>
             身為
             <span>就診者</span>
             ，使用DoctorMe您可以......
@@ -146,7 +142,7 @@
       <!--身為 診所業者 start -->
       <section class="clinicInfoSection">
         <div class="">
-          <h2 data-aos="fade-down" data-aos-duration="1000">
+          <h2>
             身為
             <span>診所業者</span>
             使用DoctorMe您可以......
@@ -187,10 +183,10 @@
       </section>
       <!--身為 診所業者 end -->
       <!--就診者端功能  start -->
-      <section class="productSection">
+      <section class="productSection" ref="product">
         <div class="">
           <div class="mb-8">
-            <h2 data-aos="fade-down" data-aos-duration="1000">
+            <h2>
               就診者端功能
             </h2>
             <span data-aos="fade-down" data-aos-duration="1000" class="subtitle">「自由預約、隨時查看叫號、門診資訊」</span>
@@ -224,7 +220,7 @@
             </v-container>
           </div>
           <div>
-            <h2 data-aos="fade-down" data-aos-duration="1000">
+            <h2>
               診所業者端功能
             </h2>
             <span data-aos="fade-down" data-aos-duration="1000" class="subtitle">「預約服務智慧化，輕鬆管理診所業務」</span>
@@ -263,7 +259,7 @@
       <!--安全且 持續進化 的系統  start -->
       <section class="systemSection">
         <div class="">
-          <h2 data-aos="fade-down" data-aos-duration="1000">
+          <h2>
             安全且
             <span>持續進化</span>
             的系統
@@ -295,9 +291,9 @@
           </v-container>
         </div>
       </section>
-      <section class="priceSection">
+      <section class="priceSection" ref="price">
         <div class="">
-          <h2 data-aos="fade-down" data-aos-duration="1000">
+          <h2>
             DoctorMe 方案價格
           </h2>
           <v-container>
@@ -397,7 +393,7 @@
               <v-col data-aos="fade-up" data-aos-duration="2000" class="col" cols="12" md="4">
                 <v-card class="card payCard">
                   <div class="title" color="primaryDark" dark>
-                    <h6>基礎版</h6>
+                    <h6>專業版</h6>
                     <p>NT$ <span>4,000</span> /月</p>
                   </div>
                   <ul>
@@ -460,7 +456,7 @@
       </section>
       <!-- 提升診所服務 end -->
       <!-- 預約顧問介紹 start -->
-      <section class="introduceSection">
+      <section class="introduceSection" ref="contact">
         <v-container>
           <div class="">
             <h2>預約顧問介紹、諮詢</h2>
@@ -485,15 +481,14 @@
       </div>
       <div><p>Copyright© 2023 Hyweb Technology Inc. All Rights Reserved.</p></div>
     </footer>
+    <!-- 消失時增加 className hide  -->
+    <v-btn :class="{ hide: scrollPosition }" class="gotoTopBtn" @click="scrollToTop" fab dark fixed right color="#3d3d3d">
+      <v-icon>keyboard_arrow_up</v-icon>
+    </v-btn>
   </v-app>
 </template>
 
 <script>
-import lottie from 'lottie-web';
-//scrollbar
-import 'overlayscrollbars/styles/overlayscrollbars.css';
-import { OverlayScrollbars } from 'overlayscrollbars';
-
 //aos
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -504,32 +499,39 @@ export default {
       expand: false,
       dialogMobile: false,
       checkbox: null,
+      scrollPosition: false,
     };
   },
   methods: {
-    scrollBar() {
-      const scrollContent = this.$refs.scrollContent.$el;
-
-      OverlayScrollbars(scrollContent, {
-        scrollbars: {
-          visibility: 'auto',
-          autoHide: 'leave',
-          autoHideDelay: 500,
-        },
+    scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
       });
+    },
+    getScrollPosition() {
+      window.addEventListener('scroll', (e) => {
+        let scrollTop = window.scrollY;
+        scrollTop >= 120 ? (this.scrollPosition = false) : (this.scrollPosition = true);
+      });
+    },
+    closeMobileMenu() {
+      window.addEventListener('resize', () => {
+        let viewWidth = this.$refs.scrollContent.$el.clientWidth;
+        viewWidth >= 768 ? (this.expand = false) : '';
+      });
+    },
+    scrollToHref(refName) {
+      let element = this.$refs[refName];
+      let hrefContent = element.offsetTop;
+      window.scrollTo({ top: hrefContent, behavior: 'smooth' });
     },
   },
   mounted() {
-    lottie.loadAnimation({
-      container: this.$refs.discussion,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'animations/discussion.json',
-    });
-    this.scrollBar();
     AOS.init();
-    console.log(AOS);
+    this.getScrollPosition();
+    this.closeMobileMenu();
   },
 };
 </script>
