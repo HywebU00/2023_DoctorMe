@@ -58,55 +58,62 @@
         <section class="imgContent">
           <div class="img">
             <div class="text">
-              <h1>免費試用，無期限</h1>
+              <h1>預約顧問諮詢</h1>
               <p>
-                DoctorMe免費提供您的診所基本的智慧預約系統<br />
-                立即申請帳戶，輕鬆維繫您與客戶的互動。
+                立即預約諮詢，我們將安排專業顧問介紹，<br />
+                提供最適合您診所的智慧解決方案。。
               </p>
             </div>
             <div class="applyImg">
-              <img src="~@/assets/mp/img_login.png" />
+              <img src="~@/assets/mp/img_login_03.png" />
             </div>
           </div>
         </section>
         <section class="formContent">
           <v-form class="infoForm">
-            <label>診所基本資訊</label>
+            <label>我要預約</label>
             <div class="formGroup">
-              <label for="Num">醫事機構代號</label>
-              <v-text-field placeholder="請填寫醫事機構代號10碼" id="Nnm" dense></v-text-field>
-              <label for="Name">診所名稱</label>
+              <label for="Name">您的姓名</label>
               <v-text-field id="Name" dense></v-text-field>
+              <label for="mail">Email</label>
+              <v-text-field placeholder=" " type="mail" id="mail" dense></v-text-field>
               <label for="phone">診所電話</label>
               <v-text-field placeholder="+886" type="tel" id="phone" dense></v-text-field>
               <label for="id">
-                診所ID
-                <span color="primaryDark">* 診所 ID 為診所預約網址的一部分，確認後將無法修改或變更</span></label
-              >
+                診所名稱
+              </label>
               <v-text-field id="id" dense></v-text-field>
-            </div>
-            <label>帳戶登入資訊</label>
-            <div class="formGroup">
-              <label for="userName">您的姓名</label>
-              <v-text-field id="userName" dense></v-text-field>
-              <label for="idnum">帳號 <span>* 6位以上的英文數字組合，大小寫有區別</span></label>
-              <v-text-field type="password" id="idnum" dense></v-text-field>
-              <label for="password">密碼 <span>* 6位以上的英文數字組合，大小寫有區別</span></label>
-              <v-text-field type="password" id="password" dense></v-text-field>
-              <label for="mail">Email</label>
-              <v-text-field placeholder=" " type="mail" id="mail" dense></v-text-field>
-              <label for="mobile">診所電話</label>
-              <v-text-field placeholder="+886" type="tel" id="mobile" dense></v-text-field>
-              <div class="checkboxInline" for="">
-                <v-checkbox id="ok" v-model="checkbox" required></v-checkbox><label for="ok">我同意<a href="">使用者條款</a></label>
-              </div>
+              <label for="note">
+                需求說明
+              </label>
+              <v-textarea id="note" outlined placeholder="請填寫需求說明" background-color="#fff" name="input-7-4" value=""></v-textarea>
+              <label for="time">希望聯繫時段</label>
+              <v-select id="time" :items="items"></v-select>
             </div>
           </v-form>
-          <ul>
-            <li>※ 診所預約服務帳戶建立後，<span>您將為預設的系統管理員。</span></li>
-            <li>※ 請勿冒用他人身份及診所資訊，以免觸法。</li>
-          </ul>
-          <v-btn class="submitBtn" color="primaryDark" block dark rounded>建立帳戶</v-btn>
+
+          <template>
+            <div class="text-center">
+              <v-dialog v-model="dialog" max-width="400">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn class="submitBtn" v-bind="attrs" v-on="on" color="primaryDark" block dark rounded>送出表單</v-btn>
+                </template>
+                <v-card class="dialogCard">
+                  <v-card-title class="d-flex">
+                    <v-icon @click="dialog = false">mdi-window-close</v-icon>
+                  </v-card-title>
+                  <v-card-text>
+                    <h3>感謝您的來信</h3>
+                    <p>
+                      我們已經收到您的諮詢表單 <br />
+                      將會立即安排專人與您聯繫
+                    </p>
+                    <v-btn block class="submitBtn" @click="dialog = false" color="primaryDark" dark rounded>返回首頁</v-btn>
+                  </v-card-text>
+                </v-card>
+              </v-dialog>
+            </div>
+          </template>
         </section>
       </div>
       <!-- 消失時增加 className hide  -->
@@ -128,6 +135,8 @@ export default {
       dialogMobile: false,
       checkbox: null,
       scrollPosition: false,
+      items: ['09:00 - 11:00', '13:00 - 15:00', '15:00 - 18:00'],
+      dialog: false,
     };
   },
   methods: {

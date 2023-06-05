@@ -7,6 +7,7 @@ import Login_changePassword from './components/System/Login_changePassword';
 import Login_epaper from './components/System/Login_epaper';
 import AppMobile from './components/System/AppMobile.vue';
 import mpIndex from './components/System/mp_Index';
+import mpReserve from './components/System/mp_Reserve';
 
 //前台登入頁面
 import mpLogin from './components/System/mp_Login';
@@ -140,6 +141,11 @@ export default new Router({
       path: '/mpBuild',
       name: 'mpBuild',
       component: mpBuild,
+    },
+    {
+      path: '/mpReserve',
+      name: 'mpReserve',
+      component: mpReserve,
     },
     {
       path: '/Login',
