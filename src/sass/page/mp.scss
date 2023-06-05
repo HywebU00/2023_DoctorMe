@@ -19,9 +19,6 @@
       border-radius: 2rem;
     }
 
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-    // padding: 0 2rem;
-
     position: fixed;
     background: #fff;
     z-index: 99;
@@ -36,6 +33,7 @@
         width: 100%;
         padding: 0;
         .v-toolbar__content {
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
           padding: 0 2em;
           @include screen('tablet') {
             padding: 0;
