@@ -389,6 +389,7 @@
   .content.build {
     height: 100vh;
     position: relative;
+    margin-top: -64px;
     .text {
       margin-bottom: 2rem;
       @include screen('tablet') {
