@@ -130,20 +130,7 @@
                                     <p style="color:rgba(144, 144, 144, 1);font-size: 1rem; text-align: center;margin-bottom:2rem; ">此信件為系統自動發出信件，請勿直接回覆，謝謝。</p>
                                   </td>
                                 </tr>
-                                <tr>
-                                  <td width="774" align="center">
-                                    <!--photo start-->
-                                    <img src="../../assets/letter_img.svg" style="margin-top:5rem;" width="500" />
-                                    <!--photo end-->
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td width="774" align="center">
-                                    <!--photo start-->
-                                    <img src="../../assets/happy_announcement.svg" style="margin-top:5rem;" width="400" />
-                                    <!--photo end-->
-                                  </td>
-                                </tr>
+
                                 <tr>
                                   <td>
                                     <!--最新消息 start-->
