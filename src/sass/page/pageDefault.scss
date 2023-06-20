@@ -217,7 +217,7 @@
 }
 
 .dataSection {
-  padding: 0rem 2rem 0 2rem;
+  padding: 0rem 2rem 0.5rem 2rem;
   flex-wrap: wrap;
   > div {
     width: 100%;
@@ -296,8 +296,6 @@
   }
 }
 .emptyImg {
-  // margin: 10rem 0;
-  // width: 30%;
   margin: 10rem auto;
   img {
     display: block;
@@ -330,6 +328,11 @@
     thead {
       th {
         padding: 1rem;
+      }
+    }
+    tbody {
+      td > i.theme--light.v-icon.v-icon.v-icon--disabled {
+        color: #ccc !important;
       }
     }
   }
@@ -367,6 +370,17 @@
   button.cancelBtn {
     color: $gray3;
     background: darken($grayLight, 3) !important;
+  }
+  .v-data-table {
+    thead {
+      tr > th > span {
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+      tr > th > i {
+        font-size: 1.25rem;
+      }
+    }
   }
 }
 .tableTitle {
@@ -995,5 +1009,37 @@ button.editBtn.v-btn {
   transition: 0.5s all;
   &.hide {
     scale: 0;
+  }
+}
+
+.v-tooltip__content {
+  background: #fff;
+  color: #4b4b4b;
+  max-width: 280px;
+  box-shadow: $boxShadow;
+  padding: 1rem;
+
+  .clinicTooltip {
+    &::after {
+      position: absolute;
+      content: '';
+
+      width: 0;
+      height: 0;
+      right: -0.5rem;
+      top: calc(50% - 1rem);
+      border-style: solid;
+      border-width: 10.5px 0 10.5px 10px;
+      border-color: transparent transparent transparent #ffffff;
+      filter: drop-shadow(1px 1px 0.5px rgba(30, 30, 0, 0.2));
+    }
+  }
+}
+.v-tooltip__content.menuable__content__active {
+  opacity: 1;
+}
+.clinicTooltipBtn {
+  + button {
+    margin-top: -0.5rem;
   }
 }

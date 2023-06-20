@@ -156,6 +156,118 @@
             </template>
           </v-card>
         </template>
+        <div class="title">
+          <h3>
+            <span>診間設定</span>
+          </h3>
+        </div>
+
+        <template>
+          <v-card class="tabletList">
+            <v-card-title>
+              <div class="ml-auto">
+                <v-btn class="cancelBtn" depressed>刪除</v-btn>
+                <v-dialog v-model="dialog3" persistent max-width="500px">
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn color="primaryDark" dark v-bind="attrs" v-on="on">
+                      新增
+                    </v-btn>
+                  </template>
+                  <v-card class="modal">
+                    <v-card-title>
+                      <h5 color="primaryDark" text>新增診間</h5>
+                      <v-spacer></v-spacer>
+                      <button>
+                        <v-icon @click="dialog3 = false">
+                          close
+                        </v-icon>
+                      </button>
+                    </v-card-title>
+                    <v-card-text>
+                      <label for="">說明</label>
+                      <v-text-field dense placeholder="請輸入診間名稱" outlined required></v-text-field>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn text @click="dialog3 = false">
+                        取消
+                      </v-btn>
+
+                      <v-btn color="primaryDark" dark @click="dialog3 = false">
+                        新增
+                      </v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
+              </div>
+            </v-card-title>
+            <!-- 診間設定table start -->
+            <template>
+              <v-data-table :headers="roomHeaders" :items="roomsDesserts" class="elevation-1" :single-select="singleSelect" item-key="name" show-select>
+                <template v-slot:header.actions="{ headers }">
+                  <span class="mr-2">排序</span>
+                  <!-- tooltip start -->
+                  <v-tooltip class="clinicTooltipBtn" left>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-icon v-bind="attrs" v-on="on" @click="show = !show" color="secondary">mdi-help-circle</v-icon>
+                    </template>
+                    <span>
+                      <div class="clinicTooltip">
+                        <p>排序影響診間於頁面的顯示順序，將由排序最上方的診間依序展開顯示。建議診間名稱命名帶入數字，並照順序由上往下排列（第一診、第二診... ...）。</p>
+                        <img src="~@/assets/sort_img.svg" alt="" />
+                      </div>
+                    </span>
+                  </v-tooltip>
+                  <!-- tooltip end -->
+                </template>
+                <template v-slot:item.calories="{ item }">
+                  <!-- <v-icon>mdi-pencil</v-icon> -->
+                  <v-dialog v-model="dialog5" persistent max-width="500px">
+                    <template v-slot:activator="{ on, attrs }">
+                      <!-- <v-btn color="primaryDark" dark v-bind="attrs" v-on="on">
+                      新增
+                    </v-btn> -->
+                      <v-icon v-bind="attrs" v-on="on">mdi-pencil</v-icon>
+                    </template>
+                    <v-card class="modal">
+                      <v-card-title>
+                        <h5 color="primaryDark" text>編輯診間</h5>
+                        <v-spacer></v-spacer>
+                        <button>
+                          <v-icon @click="dialog5 = false">
+                            close
+                          </v-icon>
+                        </button>
+                      </v-card-title>
+                      <v-card-text>
+                        <label for="">診間名稱</label>
+                        <v-text-field dense value="診間一" outlined required></v-text-field>
+                      </v-card-text>
+                      <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn text @click="dialog5 = false">
+                          取消
+                        </v-btn>
+
+                        <v-btn color="primaryDark" dark @click="dialog5 = false">
+                          新增
+                        </v-btn>
+                      </v-card-actions>
+                    </v-card>
+                  </v-dialog>
+                </template>
+                <template v-slot:item.actions="{ item, index }">
+                  <v-icon disabled class="mr-3" v-if="index === 0">mdi-chevron-up</v-icon>
+                  <v-icon class="mr-3" v-else>mdi-chevron-up</v-icon>
+                  <v-icon disabled v-if="index === roomsDesserts.length - 1">mdi-chevron-down</v-icon>
+                  <v-icon v-else>mdi-chevron-down</v-icon>
+                  <!-- 按鈕排列第一個不能點擊網上 最後一個不能點擊往下 -->
+                </template>
+              </v-data-table>
+            </template>
+            <!-- 診間設定table end -->
+          </v-card>
+        </template>
       </div>
       <!-- 預約摘要 end -->
     </section>
@@ -233,6 +345,7 @@ export default {
       menu6: false,
       menu7: false,
       menu8: false,
+      menu9: false,
       items1: [{ text: '家醫科' }, { text: '牙科' }, { text: '胸腔科' }, { text: '內科' }],
       item1: '家醫科',
       items2: [{ text: '上午診' }, { text: '下午診' }, { text: '晚上診' }],
@@ -250,6 +363,8 @@ export default {
       search: '',
       dialog: false,
       dialog2: false,
+      dialog3: false,
+      dialog5: false,
       dialogDelete: false,
 
       editedIndex: -1,
@@ -281,28 +396,18 @@ export default {
         { text: '說明', value: 'content' },
         { text: '類型', value: 'type', width: '100px' },
       ],
-      // headers: [
-      //   {
-      //     text: 'Dessert (100g serving)',
-      //     align: 'start',
-      //     sortable: false,
-      //     value: 'date',
-      //   },
-      //   { text: ' content', value: 'content' },
-      //   { text: 'Fat (g)', value: 'fat' },
-      // ],
-      // desserts: [
-      //   {
-      //     name: 'Frozen Yogurt',
-      //     content: 159,
-      //     fat: 6.0,
-      //   },
-      //   {
-      //     name: 'Ice cream sandwich',
-      //     content: 237,
-      //     fat: 9.0,
-      //   },
-      // ],
+      roomHeaders: [
+        {
+          text: '診間名稱',
+          align: 'start',
+          sortable: false,
+          value: 'name',
+        },
+        { text: '編輯', value: 'calories', sortable: false, width: 60 },
+        { text: '排序', value: 'actions', sortable: false, width: 120 },
+      ],
+      roomsDesserts: [],
+
       desserts: [
         {
           name: '2022/01/01 ',
@@ -325,11 +430,36 @@ export default {
           type: '休診',
         },
       ],
+
+      roomDesserts: [
+        {
+          roomName: '2022/01/01 ',
+          content: '',
+          edit: '休診',
+        },
+        {
+          roomName: '2022/02/10 ',
+          content: '',
+          edit: '休診',
+        },
+      ],
     };
   },
 
   methods: {
-    initialize() {},
+    initialize() {
+      this.roomsDesserts = [
+        {
+          name: '診間ㄧ',
+        },
+        {
+          name: '診間二',
+        },
+        {
+          name: '診間三',
+        },
+      ];
+    },
     formatDate(date) {
       if (!date) return null;
 
