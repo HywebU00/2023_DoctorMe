@@ -220,13 +220,10 @@
                   </v-tooltip>
                   <!-- tooltip end -->
                 </template>
-                <template v-slot:item.calories="{ item }">
+                <template v-slot:item.calories="{ item, index }">
                   <!-- <v-icon>mdi-pencil</v-icon> -->
-                  <v-dialog v-model="dialog5" persistent max-width="500px">
+                  <v-dialog v-model="clinicDialog[index]" persistent max-width="500px">
                     <template v-slot:activator="{ on, attrs }">
-                      <!-- <v-btn color="primaryDark" dark v-bind="attrs" v-on="on">
-                      新增
-                    </v-btn> -->
                       <v-icon v-bind="attrs" v-on="on">mdi-pencil</v-icon>
                     </template>
                     <v-card class="modal">
@@ -234,7 +231,7 @@
                         <h5 color="primaryDark" text>編輯診間</h5>
                         <v-spacer></v-spacer>
                         <button>
-                          <v-icon @click="dialog5 = false">
+                          <v-icon @click="clinicDialog[index] = false">
                             close
                           </v-icon>
                         </button>
@@ -245,11 +242,11 @@
                       </v-card-text>
                       <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn text @click="dialog5 = false">
+                        <v-btn text @click="clinicDialog[index] = false">
                           取消
                         </v-btn>
 
-                        <v-btn color="primaryDark" dark @click="dialog5 = false">
+                        <v-btn color="primaryDark" dark @click="clinicDialog[index] = false">
                           新增
                         </v-btn>
                       </v-card-actions>
@@ -364,9 +361,8 @@ export default {
       dialog: false,
       dialog2: false,
       dialog3: false,
-      dialog5: false,
+      clinicDialog: {},
       dialogDelete: false,
-
       editedIndex: -1,
       tableSelect: ['視訊', '門診'],
       //右側選單資料
