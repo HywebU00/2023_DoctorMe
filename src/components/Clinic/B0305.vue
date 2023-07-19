@@ -129,6 +129,17 @@
             <label>預約完成時，自動傳送預約成功line訊息給會員</label>
             <v-switch v-model="openDate" color="secondary" value="週日"></v-switch>
           </div>
+          <div class=""></div>
+          <!-- alert start -->
+          <v-alert class="alert errorTextAlert">
+            <div class="d-flex ">
+              <div class="text">
+                <v-icon class="material-icons-round">warning</v-icon>
+                <p>提醒您，依據您所使用的LINE官方帳號方案，LINE推播訊息可能產生額外費用，可參考 <a href="#">說明</a>。</p>
+              </div>
+            </div>
+          </v-alert>
+          <!-- alert end -->
         </div>
       </v-card>
     </section>
