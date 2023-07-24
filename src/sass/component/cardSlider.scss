@@ -143,6 +143,22 @@
       }
     }
   }
+  .switch {
+    display: flex;
+    align-items: center;
+    label {
+      font-size: 1rem;
+      margin: 0;
+      margin-right: 1rem;
+      font-weight: 400;
+    }
+    .v-input {
+      margin: 0;
+    }
+    .v-messages {
+      min-height: 0;
+    }
+  }
   .radioList {
     label {
       font-size: 1rem;
