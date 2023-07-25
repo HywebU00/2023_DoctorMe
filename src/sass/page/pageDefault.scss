@@ -600,7 +600,6 @@
   overflow: hidden;
   background: #fff;
   position: fixed;
-  // height: calc(100% - 64px);
   top: 64px;
   right: 0px;
   bottom: 0;
@@ -628,8 +627,8 @@
 .offcanvasBody {
   padding: 0.5rem 0;
   width: calc(300px - 2rem);
-  height: calc(100vh - (115px + 64px + 32px + 1rem));
-  // overflow-y: auto;
+  // height: calc(100vh - (115px + 64px + 32px + 1rem));
+  height: calc(100vh - (64px + 32px + 1rem));
   ul {
     list-style-type: none;
     padding-left: 0;
@@ -656,6 +655,7 @@
   }
 }
 .offcanvasFooter {
+  display: none;
   width: calc(100% - 2rem);
   background: #fff;
   padding-top: 0.5rem;
@@ -670,6 +670,15 @@
     background: darken($grayLight, 3) !important;
   }
 }
+.offcanvas.hasBtnList {
+  .offcanvasBody {
+    height: calc(100vh - (115px + 64px + 32px + 1.5rem));
+  }
+  .offcanvasFooter {
+    display: block;
+  }
+}
+
 .modal.v-card {
   border-radius: 0.2rem;
   .v-text-field__details {
