@@ -24,17 +24,16 @@
           <div class="scrollContent" ref="scrollContent">
             <v-list>
               <template v-for="item in items">
-                <v-list-group v-if="item.children" :key="item.text" v-model="item.model" active-class="primaryDark white--text">
+                <v-list-group v-if="item.children" ref="menuHasItem" :key="item.text" v-model="item.model" active-class="primaryDark white--text">
                   <template v-slot:activator>
                     <v-icon class="material-icons-round navIcon">{{ item.icon }}</v-icon>
                     <v-list-item-title>{{ item.text }}</v-list-item-title>
                   </template>
                   <v-list-item v-for="(child, i) in item.children" :key="i" link v-ripple="{ class: `primary--text rounded-list` }" @click="pushObject(child.link)">
-                    <!-- <v-list-item-action> </v-list-item-action> -->
-                    <v-list-item-content>
+                    <v-list-item-content @click="addActiveStyle($event)">
                       <v-list-item-title>
-                        <li>{{ child.text }}</li></v-list-item-title
-                      >
+                        <li>{{ child.text }}</li>
+                      </v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                 </v-list-group>
@@ -397,6 +396,20 @@ export default {
           autoHideDelay: 500,
         },
       });
+    },
+    addActiveStyle(targetItem) {
+      let targetDom = targetItem.target;
+      let menuHasItem = this.$refs.menuHasItem;
+      function removeClass(list) {
+        list.forEach((item) => {
+          item.classList.remove('active');
+        });
+      }
+      menuHasItem.forEach((item) => {
+        let list = item.$el.querySelectorAll('li');
+        removeClass(list);
+      });
+      targetDom.classList.add('active');
     },
   },
   watch: {

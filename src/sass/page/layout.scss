@@ -216,9 +216,16 @@
     .v-list-item__title {
       li {
         margin-left: 2.5rem;
+        line-height: 3rem;
         &::marker {
           font-size: 1.2rem;
         }
+      }
+    }
+    .v-list-item__content {
+      padding: 0;
+      li.active {
+        color: $primaryDark;
       }
     }
   }
