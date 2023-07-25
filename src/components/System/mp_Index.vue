@@ -85,8 +85,8 @@
               <v-col class="item" cols="12" md="6">
                 <v-img data-aos="fade-left" data-aos-duration="1000" style="width:200px;" src="~@/assets/mp/img_people_02.png"></v-img>
                 <div class="" data-aos="fade-left" data-aos-duration="1000">
-                  <h3>診所業者端</h3>
-                  <p>診所櫃檯人力負擔大，櫃檯人員除了處理現場掛號、接聽預約電話外，還得注意診間叫號狀況、提醒預約就診者回診.......</p>
+                  <h3>就診者端</h3>
+                  <p>預約掛號和查詢叫號狀況都需靠電話聯繫，遇到診所尖峰時段，還得等待電話接聽，不然就得跑到診所現場人擠人......</p>
                 </div>
               </v-col>
             </v-row>

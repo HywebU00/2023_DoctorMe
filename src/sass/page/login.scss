@@ -39,6 +39,19 @@
       max-width: 36rem;
       min-height: 36rem;
       padding: 3rem;
+      .loginInfo {
+        text-align: center;
+        p {
+          margin: 1.4rem 0;
+          color: $gray2;
+          font-weight: 700;
+          a {
+            text-decoration: underline;
+            color: $primaryDark;
+            font-weight: 700;
+          }
+        }
+      }
       @include screen('notebook') {
         width: 70%;
         padding: 2rem;

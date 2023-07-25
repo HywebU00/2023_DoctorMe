@@ -22,6 +22,10 @@
               <v-btn color="primaryDark" dark block class="mr-4">
                 登入
               </v-btn>
+              <div class="loginInfo">
+                <p>有任何問題嗎？<a href="">提交問題單</a>，我們將立刻回覆您</p>
+                <small>Copyright © 2023 凌網科技股份有限公司</small>
+              </div>
             </v-form>
           </v-card-text>
           <!-- 智慧醫療互動登入 end -->
