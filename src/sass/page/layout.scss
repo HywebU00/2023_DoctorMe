@@ -344,17 +344,25 @@
   }
 }
 .notificationsCardList {
+  .v-card__text {
+    padding: 0;
+    max-height: calc(100vh - 64px);
+    overflow-y: scroll;
+  }
   max-width: 20rem;
   ul {
     list-style: none;
-    padding: 0;
+    padding: 0.5rem 0;
     margin-bottom: 0;
     li {
+      padding: 0.5rem 1rem;
+      position: relative;
       display: flex;
+      cursor: pointer;
       align-items: flex-start;
-      margin-bottom: 1rem;
+      overflow: hidden;
       &:last-child {
-        margin-bottom: 0;
+        padding-bottom: 1rem;
       }
       p {
         margin-bottom: 0;
@@ -364,6 +372,9 @@
       span {
         color: $gray3;
         font-size: 0.8rem;
+      }
+      &:hover {
+        background: rgba(0, 0, 0, 0.04);
       }
     }
   }

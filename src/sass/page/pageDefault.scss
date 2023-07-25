@@ -1052,3 +1052,45 @@ button.editBtn.v-btn {
     margin-top: -0.5rem;
   }
 }
+
+// effect btn transition
+.effect-btn {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+.activeBtn {
+  &:before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: calc(50% - 150px);
+    width: 300px;
+    height: 300px;
+    background-color: darken($grayLight, 20%);
+    border-radius: 100%;
+    animation: scaleOut 0.3s ease-out;
+    opacity: 0;
+  }
+}
+.v-menu-transition-enter-active,
+.v-menu-transition-leave-active {
+  transition: 0.3s all !important;
+}
+
+//active item CSS
+@keyframes scaleOut {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

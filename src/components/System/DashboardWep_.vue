@@ -99,20 +99,20 @@
                 <v-card class="notificationsCardList">
                   <v-card-text>
                     <ul>
-                      <li>
+                      <li v-for="item in 10" :key="item" @click="btnEffect($event)">
                         <div class="">
                           <p>未有啟用的門診表，無法提供預約服務。點擊以啟用或新增門診表。</p>
                           <span class="">1小時前</span>
                         </div>
                         <v-icon color="secondary">mdi-circle-medium</v-icon>
                       </li>
-                      <li>
+                      <!-- <li>
                         <div class="">
                           <p>未有啟用的門診表，無法提供預約服務。點擊以啟用或新增門診表。</p>
                           <span class="">1小時前</span>
                         </div>
                         <v-icon color="secondary">mdi-circle-medium</v-icon>
-                      </li>
+                      </li> -->
                     </ul>
                   </v-card-text>
                 </v-card>
@@ -410,6 +410,14 @@ export default {
         removeClass(list);
       });
       targetDom.classList.add('active');
+    },
+    btnEffect(e) {
+      let self = e.target;
+      self.setAttribute('class', 'effect-btn activeBtn');
+      setTimeout(function() {
+        self.removeAttribute('class', 'activeBtn');
+        self.setAttribute('class', 'effect-btn');
+      }, 300);
     },
   },
   watch: {
