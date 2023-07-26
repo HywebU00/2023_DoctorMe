@@ -10,7 +10,7 @@
       <ul class="lineInfo">
         <li><span class="infoTitle">Callback URL</span> <v-icon>mdi-alert-octagon-outline</v-icon>請複製下方Callback URL連結，並貼上至 <a class="infoLink" href="javascript:;">LINE 管理者後台</a> 的 Webhool URL 欄位</li>
         <li class="darkText">
-          https://catclinic.hyclinic/v2/bot/linebot/ <v-btn outlined color="primaryDark" class="copyBtn" dark small @click="snackbar = true">複製</v-btn>
+          https://catclinic.hyclinic/v2/bot/linebot/ <v-btn outlined color="primaryDark" class="copyBtn" small @click="snackbar = true">複製</v-btn>
           <v-snackbar right top v-model="snackbar" color="success">
             {{ text }}
             <template v-slot:action="{ attrs }">
@@ -29,7 +29,7 @@
           <h3><span>串接設定</span></h3>
           <v-dialog v-model="dialog" persistent max-width="500px">
             <template v-slot:activator="{ on, attrs }">
-              <v-btn color="primaryDark" small dark v-bind="attrs" v-on="on">
+              <v-btn color="primaryDark" small v-bind="attrs" v-on="on">
                 編輯
               </v-btn>
             </template>
@@ -58,7 +58,7 @@
                 <v-btn text @click="dialog = false">
                   取消
                 </v-btn>
-                <v-btn color="primaryDark" dark @click="dialog = false">
+                <v-btn color="primaryDark" @click="dialog = false">
                   儲存
                 </v-btn>
               </v-card-actions>

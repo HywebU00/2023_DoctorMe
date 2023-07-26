@@ -28,7 +28,7 @@
               <v-text-field id="password" dense outlined v-model="password" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]" placeholder="請輸入密碼" :type="show1 ? 'text' : 'password'" hint="At least 8 characters" @click:append="show1 = !show1"></v-text-field>
               <label for="password">請再次輸入新密碼</label>
               <v-text-field id="password" dense outlined v-model="password" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]" placeholder="請輸入密碼" :type="show1 ? 'text' : 'password'" hint="At least 8 characters" @click:append="show1 = !show1"></v-text-field>
-              <v-btn color="primaryDark" dark block class="mr-4">
+              <v-btn color="primaryDark" block class="mr-4">
                 登入
               </v-btn>
             </v-form>
@@ -51,7 +51,7 @@
                 新密碼已設定成功，請使用您的新密碼登入DoctorMe，持續使用便捷智慧的診所預約服務
               </p>
             </div>
-            <v-btn color="primaryDark" dark block class="mr-4">
+            <v-btn color="primaryDark" block class="mr-4">
               返回登入頁
             </v-btn>
           </v-card-text>

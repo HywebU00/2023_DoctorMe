@@ -144,7 +144,7 @@
     </section>
     <div class="btnSection" :class="{ closeMenu: mini }">
       <v-btn outlined color="primaryDark" style="background:#fff;" dark>上一步</v-btn>
-      <v-btn color="primaryDark" dark>下一步</v-btn>
+      <v-btn color="primaryDark">下一步</v-btn>
     </div>
   </div>
 </template>

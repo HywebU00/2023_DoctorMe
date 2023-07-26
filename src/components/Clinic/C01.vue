@@ -22,7 +22,7 @@
         <div class="selectGroup">
           <v-autocomplete v-model="item1" :items="items1" dense label="科別" solo item-text="text"> </v-autocomplete>
           <v-select v-model="item2" :items="items2" dense small-chips label="所有時段" multiple solo item-text="text" no-data-text="查無資料" :rules="requiredRules"> </v-select>
-          <v-btn class="submitBtn" depressed color="primaryDark" dark>
+          <v-btn class="submitBtn" depressed color="primaryDark">
             搜尋
           </v-btn>
         </div>
@@ -37,7 +37,7 @@
             <p>提醒您，您目前所選擇的日期非當日。</p>
           </div>
           <v-spacer></v-spacer>
-          <v-btn color="primaryDark" dark>切換至當日（2022/11/10）</v-btn>
+          <v-btn color="primaryDark">切換至當日（2022/11/10）</v-btn>
         </div>
       </v-alert>
       <!-- alert-end -->
@@ -46,7 +46,7 @@
         <div class="emptyImg">
           <img src="~@/assets/empty.svg" alt="" />
           <p>無門診資訊</p>
-          <v-btn class="submitBtn" depressed color="primaryDark" dark>
+          <v-btn class="submitBtn" depressed color="primaryDark">
             診所尚未完成設定，請先完成診所設定以啟動完整服務
           </v-btn>
         </div>
@@ -68,10 +68,10 @@
                   <span class="doctor">{{ item.doctor }}醫生</span>
                   <span class="number">{{ item.standby }}號</span>
                 </v-card-text>
-                <v-btn color="primaryDark" dark>
+                <v-btn color="primaryDark">
                   預約資料
                 </v-btn>
-                <!-- <v-btn color="primaryDark" dark block @click="toggle">
+                <!-- <v-btn color="primaryDark"  block @click="toggle">
                     預約資料
                   </v-btn> -->
                 <v-btn outlined color="primaryDark"> 叫號管理 </v-btn>
@@ -85,7 +85,7 @@
                   <span class="doctor">{{ item.doctor }}醫生</span>
                   <span class="d-block text-center">預約總數:41人</span>
                 </v-card-text>
-                <v-btn color="primaryDark" dark>
+                <v-btn color="primaryDark">
                   預約資料
                 </v-btn>
               </v-card>

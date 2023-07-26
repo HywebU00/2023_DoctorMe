@@ -19,7 +19,7 @@
                 <v-checkbox v-model="checkbox" :rules="[(v) => !!v || 'You must agree to continue!']" label="記住我" required></v-checkbox>
                 <a href="javascript:;">忘記密碼</a>
               </div>
-              <v-btn color="primaryDark" dark block class="mr-4">
+              <v-btn color="primaryDark" block class="mr-4">
                 登入
               </v-btn>
               <div class="loginInfo">

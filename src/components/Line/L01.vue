@@ -43,7 +43,7 @@
       </div>
       <div class="footerSection">
         <v-checkbox v-model="checkbox" color="success" label="我已閱讀並同意上述說明。" required></v-checkbox>
-        <v-btn block color="primaryDark" dark> 下一步</v-btn>
+        <v-btn block color="primaryDark"> 下一步</v-btn>
       </div>
     </div>
   </v-app>

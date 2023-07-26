@@ -26,7 +26,7 @@
                   <v-btn class="v-btn mr-2" depressed>
                     取消
                   </v-btn>
-                  <v-btn class="submitBtn" depressed color="primaryDark" dark>
+                  <v-btn class="submitBtn" depressed color="primaryDark">
                     新增
                   </v-btn>
                 </div>
@@ -36,7 +36,7 @@
                   <v-btn class="v-btn mr-2" depressed>
                     取消
                   </v-btn>
-                  <v-btn class="submitBtn" depressed color="primaryDark" dark>
+                  <v-btn class="submitBtn" depressed color="primaryDark">
                     新增
                   </v-btn>
                 </div>
@@ -49,7 +49,7 @@
                   <v-btn class="v-btn mr-2" depressed>
                     取消
                   </v-btn>
-                  <v-btn class="submitBtn" depressed color="primaryDark" dark>
+                  <v-btn class="submitBtn" depressed color="primaryDark">
                     新增
                   </v-btn>
                 </div>

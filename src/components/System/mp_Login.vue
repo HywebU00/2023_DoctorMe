@@ -106,7 +106,7 @@
             <li>※ 診所預約服務帳戶建立後，<span>您將為預設的系統管理員。</span></li>
             <li>※ 請勿冒用他人身份及診所資訊，以免觸法。</li>
           </ul>
-          <v-btn class="submitBtn" color="primaryDark" block dark rounded>建立帳戶</v-btn>
+          <v-btn class="submitBtn" color="primaryDark" block rounded>建立帳戶</v-btn>
         </section>
       </div>
       <!-- 消失時增加 className hide  -->

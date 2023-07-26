@@ -110,7 +110,7 @@
                 <v-btn class="cancelBtn" depressed>刪除</v-btn>
                 <v-dialog v-model="dialog" persistent max-width="500px">
                   <template v-slot:activator="{ on, attrs }">
-                    <v-btn color="primaryDark" dark v-bind="attrs" v-on="on">
+                    <v-btn color="primaryDark" v-bind="attrs" v-on="on">
                       新增
                     </v-btn>
                   </template>
@@ -143,7 +143,7 @@
                         取消
                       </v-btn>
 
-                      <v-btn color="primaryDark" dark @click="dialog = false">
+                      <v-btn color="primaryDark" @click="dialog = false">
                         新增
                       </v-btn>
                     </v-card-actions>
@@ -169,7 +169,7 @@
                 <v-btn class="cancelBtn" depressed>刪除</v-btn>
                 <v-dialog v-model="dialog3" persistent max-width="500px">
                   <template v-slot:activator="{ on, attrs }">
-                    <v-btn color="primaryDark" dark v-bind="attrs" v-on="on">
+                    <v-btn color="primaryDark" v-bind="attrs" v-on="on">
                       新增
                     </v-btn>
                   </template>
@@ -193,7 +193,7 @@
                         取消
                       </v-btn>
 
-                      <v-btn color="primaryDark" dark @click="dialog3 = false">
+                      <v-btn color="primaryDark" @click="dialog3 = false">
                         新增
                       </v-btn>
                     </v-card-actions>
@@ -246,7 +246,7 @@
                           取消
                         </v-btn>
 
-                        <v-btn color="primaryDark" dark @click="clinicDialog[index] = false">
+                        <v-btn color="primaryDark" @click="clinicDialog[index] = false">
                           新增
                         </v-btn>
                       </v-card-actions>
@@ -275,7 +275,7 @@
       <!-- 取消預約 視窗＋按鈕 start -->
       <v-dialog v-model="dialog2" persistent max-width="600px">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn color="primaryDark" dark v-bind="attrs" v-on="on">儲存</v-btn>
+          <v-btn color="primaryDark" v-bind="attrs" v-on="on">儲存</v-btn>
         </template>
         <v-card class="modal">
           <v-card-title>
@@ -293,7 +293,7 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primaryDark" dark @click="changeData">
+            <v-btn color="primaryDark" @click="changeData">
               確認變更
             </v-btn>
             <v-snackbar class="" right top v-model="snackbar" timeout="5000" color="success">

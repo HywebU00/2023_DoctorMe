@@ -62,7 +62,7 @@
             </div>
             <div class="footer">
               <v-btn class="v-btn" depressed>取消訂閱</v-btn>
-              <v-btn class="submitBtn" depressed color="primaryDark" dark>變更方案</v-btn>
+              <v-btn class="submitBtn" depressed color="primaryDark">變更方案</v-btn>
             </div>
           </v-card>
         </div>
@@ -161,7 +161,7 @@
       </div>
     </section>
     <div class="btnSection" :class="{ closeMenu: mini }">
-      <v-btn color="primaryDark" dark>返回</v-btn>
+      <v-btn color="primaryDark">返回</v-btn>
     </div>
   </div>
 </template>

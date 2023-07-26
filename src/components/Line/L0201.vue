@@ -175,7 +175,7 @@
                   <v-btn text @click="dialog = false">
                     取消
                   </v-btn>
-                  <v-btn color="primaryDark" dark @click="dialog = false">
+                  <v-btn color="primaryDark" @click="dialog = false">
                     確認
                   </v-btn>
                 </v-card-actions>
@@ -187,8 +187,8 @@
       <div class="footerSection">
         <v-checkbox v-model="checkbox" color="success" label="我已閱讀並同意上述說明。" required></v-checkbox>
         <div class="btnList">
-          <v-btn color="primaryDark" dark> 下一步</v-btn>
-          <v-btn outlined style="background:#fff;" color="primaryDark" dark> 下一步</v-btn>
+          <v-btn color="primaryDark"> 下一步</v-btn>
+          <v-btn outlined style="background:#fff;" color="primaryDark"> 下一步</v-btn>
         </div>
       </div>
     </div>

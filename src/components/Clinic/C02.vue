@@ -12,7 +12,7 @@
         </v-btn>
         <v-dialog v-model="dialog" persistent max-width="500px">
           <template v-slot:activator="{ on, attrs }">
-            <v-btn color="primaryDark" dark v-bind="attrs" v-on="on">
+            <v-btn color="primaryDark" v-bind="attrs" v-on="on">
               新增預約
             </v-btn>
           </template>
@@ -36,7 +36,7 @@
               <v-btn text @click="dialog = false">
                 取消
               </v-btn>
-              <v-btn color="primaryDark" dark @click="dialog = false">
+              <v-btn color="primaryDark" @click="dialog = false">
                 確認
               </v-btn>
             </v-card-actions>
@@ -65,7 +65,7 @@
               </template>
               <template v-slot:[`item.check`]="{ item }">
                 <span>{{ item.check }}</span>
-                <v-btn depressed color="primaryDark" dark>報到</v-btn>
+                <v-btn depressed color="primaryDark" >報到</v-btn>
                 <v-btn depressed color="rgba(236, 236, 236, 1)">取消報到</v-btn>
               </template>
               <template v-slot:[`item.file`]="{ item }">
@@ -140,7 +140,7 @@
               </template>
               <template v-slot:[`item.check`]="{ item }">
                 <span>{{ item.check }}</span>
-                <v-btn class="checkBtn" depressed color="primaryDark" dark>報到</v-btn>
+                <v-btn class="checkBtn" depressed color="primaryDark">報到</v-btn>
                 <v-btn class="cancelBtn" depressed>取消報到</v-btn>
               </template>
               <template v-slot:[`item.file`]="item">
@@ -251,12 +251,12 @@
           </ul>
         </div>
         <div class="offcanvasFooter">
-          <!-- <v-btn color="primaryDark" dark block>更改預約</v-btn> -->
+          <!-- <v-btn color="primaryDark"  block>更改預約</v-btn> -->
           <v-btn class="cancelBtn" depressed block>取消報到</v-btn>
           <!-- 取消預約 視窗＋按鈕 start -->
           <v-dialog v-model="dialog2" persistent max-width="600px">
             <template v-slot:activator="{ on, attrs }">
-              <v-btn color="primaryDark" dark block v-bind="attrs" v-on="on">取消預約</v-btn>
+              <v-btn color="primaryDark" block v-bind="attrs" v-on="on">取消預約</v-btn>
             </template>
             <v-card class="modal">
               <v-card-title>
@@ -273,7 +273,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primaryDark" dark @click="dialog2 = false">
+                <v-btn color="primaryDark" @click="dialog2 = false">
                   確認取消
                 </v-btn>
               </v-card-actions>

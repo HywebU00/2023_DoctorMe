@@ -6,6 +6,10 @@
         <h3>
           <span>預約名單</span>
         </h3>
+        <!-- 改變 offcanvasBtnList 的 boolean -->
+        <v-btn color="primary" dark @click="offcanvasBtnList = !offcanvasBtnList">
+          改變側邊資料按鈕列(模擬用)
+        </v-btn>
       </div>
       <div class="selectNav">
         <div class="selectGroup selectWidth">
@@ -29,10 +33,10 @@
           <v-autocomplete v-model="doctor" :items="doctors" dense label="醫生" solo item-text="text"> </v-autocomplete>
           <v-autocomplete v-model="doctor" :items="doctors" class="limitInput" dense label="所有狀態" solo item-text="text"> </v-autocomplete>
 
-          <v-btn class="submitBtn" depressed color="primaryDark" dark>
+          <v-btn class="submitBtn" depressed color="primaryDark">
             查詢
           </v-btn>
-          <v-btn class="submitBtn" depressed color="primaryDark" dark>
+          <v-btn class="submitBtn" depressed color="primaryDark">
             重設
           </v-btn>
         </div>
@@ -74,7 +78,7 @@
       <!-- 拖曳區塊 end-->
     </section>
     <!-- offcanvas start -->
-    <section class="offcanvas" :class="{ open: openOffcanvas }">
+    <section class="offcanvas" :class="[{ open: openOffcanvas }, { hasBtnList: offcanvasBtnList }]">
       <div class="">
         <div class="offcanvasHeader">
           <h5>林小凌</h5>
@@ -92,7 +96,7 @@
           <h5>更改預約</h5> -->
           <!-- 更改預約 header end -->
         </div>
-        <div class="offcanvasBody">
+        <div class="offcanvasBody" ref="scrollBar">
           <h6>預約資訊</h6>
           <ul>
             <li>
@@ -161,12 +165,12 @@
           </ul>
         </div>
         <div class="offcanvasFooter">
-          <!-- <v-btn color="primaryDark" dark block>更改預約</v-btn> -->
+          <!-- <v-btn color="primaryDark" block>更改預約</v-btn> -->
           <v-btn class="cancelBtn" depressed block>取消報到</v-btn>
           <!-- 取消預約 視窗＋按鈕 start -->
           <v-dialog v-model="dialog2" persistent max-width="600px">
             <template v-slot:activator="{ on, attrs }">
-              <v-btn color="primaryDark" dark block v-bind="attrs" v-on="on">取消預約</v-btn>
+              <v-btn color="primaryDark" block v-bind="attrs" v-on="on">取消預約</v-btn>
             </template>
             <v-card class="modal">
               <v-card-title>
@@ -183,7 +187,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primaryDark" dark @click="dialog2 = false">
+                <v-btn color="primaryDark" @click="dialog2 = false">
                   確認取消
                 </v-btn>
               </v-card-actions>
@@ -199,6 +203,9 @@
 <script>
 //swiper 套件
 import { mapGetters, mapActions } from 'vuex';
+//scrollbar
+import 'overlayscrollbars/styles/overlayscrollbars.css';
+import { OverlayScrollbars } from 'overlayscrollbars';
 // import vue2Dropzone from 'vue2-dropzone';
 // import 'vue2-dropzone/dist/vue2Dropzone.min.css';
 
@@ -247,6 +254,7 @@ export default {
         addRemoveLinks: true,
         addDownloadLinks: true,
       },
+      offcanvasBtnList: false,
       expand: false,
       selectExpand: false,
       picker: new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10),
@@ -410,6 +418,17 @@ export default {
       const [month, day, year] = date.split('/');
       return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
     },
+    scrollBar() {
+      const scrollBar = this.$refs.scrollBar;
+      console.log(scrollBar);
+      OverlayScrollbars(scrollBar, {
+        scrollbars: {
+          visibility: 'auto',
+          autoHide: 'leave',
+          autoHideDelay: 500,
+        },
+      });
+    },
   },
   created: function() {
     // 此時物件尚未被init;
@@ -432,7 +451,8 @@ export default {
     },
   },
   mounted() {
-    this.init();
+    // this.init();
+    this.scrollBar();
   },
 };
 </script>

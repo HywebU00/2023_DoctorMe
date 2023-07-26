@@ -96,7 +96,7 @@
             <div class="text-center">
               <v-dialog v-model="dialog" max-width="400">
                 <template v-slot:activator="{ on, attrs }">
-                  <v-btn class="submitBtn" v-bind="attrs" v-on="on" color="primaryDark" block dark rounded>送出表單</v-btn>
+                  <v-btn class="submitBtn" v-bind="attrs" v-on="on" color="primaryDark" block rounded>送出表單</v-btn>
                 </template>
                 <v-card class="dialogCard">
                   <v-card-title class="d-flex">
@@ -108,7 +108,7 @@
                       我們已經收到您的諮詢表單 <br />
                       將會立即安排專人與您聯繫
                     </p>
-                    <v-btn block class="submitBtn" @click="dialog = false" color="primaryDark" dark rounded>返回首頁</v-btn>
+                    <v-btn block class="submitBtn" @click="dialog = false" color="primaryDark" rounded>返回首頁</v-btn>
                   </v-card-text>
                 </v-card>
               </v-dialog>

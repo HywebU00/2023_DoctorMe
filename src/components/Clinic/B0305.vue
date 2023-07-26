@@ -150,7 +150,7 @@
       <!-- 取消預約 視窗＋按鈕 start -->
       <v-dialog v-model="dialog2" persistent max-width="600px">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn color="primaryDark" dark v-bind="attrs" v-on="on">儲存</v-btn>
+          <v-btn color="primaryDark" v-bind="attrs" v-on="on">儲存</v-btn>
         </template>
         <v-card class="modal">
           <v-card-title>
@@ -167,7 +167,7 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primaryDark" dark @click="changeData">
+            <v-btn color="primaryDark" @click="changeData">
               確認變更
             </v-btn>
             <v-snackbar class="" right top v-model="snackbar" timeout="5000" color="success">

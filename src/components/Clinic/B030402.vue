@@ -85,7 +85,7 @@
               <v-btn text @click="dialog = false">
                 取消
               </v-btn>
-              <v-btn color="primaryDark" dark @click="dialog = false">
+              <v-btn color="primaryDark" @click="dialog = false">
                 確認
               </v-btn>
             </v-card-actions>
@@ -160,7 +160,7 @@
                         <span v-if="item.status === false" class="name text-truncate">新增醫生<span class="evenText">雙</span></span>
                       </div>
                       <v-btn :class="{ hide: item.status }" class="functionBtn" @click.stop="" elevation="0">
-                        <v-icon color="primaryDark" dark>mdi-delete</v-icon>
+                        <v-icon color="primaryDark">mdi-delete</v-icon>
                       </v-btn>
                     </div>
                   </div>
@@ -176,7 +176,7 @@
                         <span v-if="item.status === false" class="name text-truncate">新增醫生</span>
                       </div>
                       <v-btn :class="{ hide: item.status }" class="functionBtn" @click.stop="" elevation="0">
-                        <v-icon color="primaryDark" dark>mdi-delete</v-icon>
+                        <v-icon color="primaryDark">mdi-delete</v-icon>
                       </v-btn>
                     </div>
                   </div>

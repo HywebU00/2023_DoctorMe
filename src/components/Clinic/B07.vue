@@ -13,7 +13,7 @@
         <div class="emptyImg">
           <img src="~@/assets/projections.svg" alt="" />
           <p>此為完整版限定功能，點選下方按鈕升級方案以使用完整服務</p>
-          <v-btn class="submitBtn" depressed color="primaryDark" dark>
+          <v-btn class="submitBtn" depressed color="primaryDark">
             立即升級方案
           </v-btn>
         </div>

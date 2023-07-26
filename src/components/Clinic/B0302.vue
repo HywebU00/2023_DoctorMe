@@ -6,7 +6,7 @@
         <h3>
           <span>新增看診科別</span>
         </h3>
-        <v-btn color="primaryDark" dark>
+        <v-btn color="primaryDark">
           新增科別
         </v-btn>
       </div>
@@ -14,7 +14,7 @@
         <h3>
           <span>林小凌<small>（啟用）</small></span>
         </h3>
-        <v-btn color="primaryDark" dark>
+        <v-btn color="primaryDark">
           刪除醫生
         </v-btn>
       </div>
@@ -22,10 +22,10 @@
         <div class="selectGroup">
           <v-autocomplete v-model="item1" :items="items1" dense label="科別" solo item-text="text" class="ml-0"> </v-autocomplete>
           <v-text-field placeholder="請輸入醫生名稱" prepend-inner-icon="mdi-magnify" dense solo></v-text-field>
-          <v-btn class="submitBtn" depressed color="primaryDark" dark>
+          <v-btn class="submitBtn" depressed color="primaryDark">
             查詢
           </v-btn>
-          <v-btn class="submitBtn" depressed color="primaryDark" dark>
+          <v-btn class="submitBtn" depressed color="primaryDark">
             重設
           </v-btn>
         </div>
@@ -44,7 +44,7 @@
           <v-btn class="v-btn mr-2" depressed>
             刪除
           </v-btn>
-          <v-btn class="submitBtn" depressed color="primaryDark" dark>
+          <v-btn class="submitBtn" depressed color="primaryDark">
             更換
           </v-btn>
         </v-card>
@@ -55,7 +55,7 @@
           <v-btn class="v-btn mr-2" depressed>
             取消
           </v-btn>
-          <v-btn class="submitBtn" depressed color="primaryDark" dark>
+          <v-btn class="submitBtn" depressed color="primaryDark">
             新增
           </v-btn>
         </div>
@@ -65,7 +65,7 @@
           <v-btn class="v-btn mr-2" depressed>
             取消
           </v-btn>
-          <v-btn class="submitBtn" depressed color="primaryDark" dark>
+          <v-btn class="submitBtn" depressed color="primaryDark">
             新增
           </v-btn>
         </div>
@@ -84,7 +84,7 @@
           <v-btn class="v-btn mr-2" depressed>
             取消
           </v-btn>
-          <v-btn class="submitBtn" depressed color="primaryDark" dark>
+          <v-btn class="submitBtn" depressed color="primaryDark">
             新增
           </v-btn>
         </div>
@@ -305,7 +305,7 @@
     </section>
     <div class="btnSection" :class="{ closeMenu: mini }">
       <v-btn outlined color="primaryDark" style="background:#fff;" dark>返回</v-btn>
-      <v-btn color="primaryDark" dark>新增</v-btn>
+      <v-btn color="primaryDark">新增</v-btn>
     </div>
     <!-- offcanvas start -->
     <section class="offcanvas" :class="{ open: openOffcanvas }">
@@ -395,12 +395,12 @@
           </ul>
         </div>
         <div class="offcanvasFooter">
-          <!-- <v-btn color="primaryDark" dark block>更改預約</v-btn> -->
+          <!-- <v-btn color="primaryDark"  block>更改預約</v-btn> -->
           <v-btn class="cancelBtn" depressed block>取消報到</v-btn>
           <!-- 取消預約 視窗＋按鈕 start -->
           <v-dialog v-model="dialog2" persistent max-width="600px">
             <template v-slot:activator="{ on, attrs }">
-              <v-btn color="primaryDark" dark block v-bind="attrs" v-on="on">取消預約</v-btn>
+              <v-btn color="primaryDark" block v-bind="attrs" v-on="on">取消預約</v-btn>
             </template>
             <v-card class="modal">
               <v-card-title>
@@ -417,7 +417,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primaryDark" dark @click="dialog2 = false">
+                <v-btn color="primaryDark" @click="dialog2 = false">
                   確認取消
                 </v-btn>
               </v-card-actions>

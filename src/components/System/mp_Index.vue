@@ -65,7 +65,7 @@
             <v-img src="~@/assets/mp/title_logo.png"></v-img>
             <p>專為醫療診所設計的智慧醫療互動平台</p>
           </span>
-          <v-btn data-aos="fade-right" data-aos-duration="1500" elevation="0" color="primaryDark" dark>立即免費試用 <v-icon color="#fff">mdi-arrow-right</v-icon></v-btn>
+          <v-btn data-aos="fade-right" data-aos-duration="1500" elevation="0" color="primaryDark">立即免費試用 <v-icon color="#fff">mdi-arrow-right</v-icon></v-btn>
         </div>
       </section>
       <!-- banner end -->
@@ -300,7 +300,7 @@
             <v-row>
               <v-col data-aos="fade-up" data-aos-duration="1000" class="col" cols="12" md="4">
                 <v-card class="card payCard">
-                  <div class="title" color="primaryDark" dark>
+                  <div class="title" color="primaryDark">
                     <h6>基礎版</h6>
                     <p>NT$ <span>0</span> /月</p>
                   </div>
@@ -346,7 +346,7 @@
               </v-col>
               <v-col data-aos="fade-up" data-aos-duration="1500" class="col" cols="12" md="4">
                 <v-card class="card payCard">
-                  <div class="title" color="primaryDark" dark>
+                  <div class="title" color="primaryDark">
                     <h6>基本版</h6>
                     <p>NT$ <span>2,400</span> /月</p>
                   </div>
@@ -392,7 +392,7 @@
               </v-col>
               <v-col data-aos="fade-up" data-aos-duration="2000" class="col" cols="12" md="4">
                 <v-card class="card payCard">
-                  <div class="title" color="primaryDark" dark>
+                  <div class="title" color="primaryDark">
                     <h6>專業版</h6>
                     <p>NT$ <span>4,000</span> /月</p>
                   </div>
@@ -450,7 +450,7 @@
               提升診所服務，創造良好的醫病關係<span class="block"></span>從<span>DcotorMe智慧醫療服務</span>
               開始
             </h2>
-            <v-btn color="primaryDark" elevation="0" dark>立即免費使用 <v-icon color="#fff">mdi-arrow-right</v-icon></v-btn>
+            <v-btn color="primaryDark" elevation="0">立即免費使用 <v-icon color="#fff">mdi-arrow-right</v-icon></v-btn>
           </div>
         </v-container>
       </section>
@@ -461,7 +461,7 @@
           <div class="">
             <h2>預約顧問介紹、諮詢</h2>
             <span>尋找專業顧問嗎？立即預約諮詢，我們將安排專業顧問介紹，<span class="block"></span>提供最適合您診所的智慧解決方案。</span>
-            <v-btn color="primaryDark" elevation="0" dark>與顧問聯繫 <v-icon color="#fff">mdi-arrow-right</v-icon></v-btn>
+            <v-btn color="primaryDark" elevation="0">與顧問聯繫 <v-icon color="#fff">mdi-arrow-right</v-icon></v-btn>
           </div>
         </v-container>
       </section>

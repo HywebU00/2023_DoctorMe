@@ -5,7 +5,7 @@
       <div class="title">
         <h3>
           <span>群發訊息</span>
-          <v-btn class="" depressed color="primaryDark" dark>
+          <v-btn class="" depressed color="primaryDark">
             發送訊息
           </v-btn>
         </h3>
@@ -29,10 +29,10 @@
                     </template>
                     <v-date-picker width="250px" class="datePicker" v-model="date" no-title @input="menu2 = false"></v-date-picker>
                   </v-menu>
-                  <v-btn class="submitBtn" depressed color="primaryDark" dark>
+                  <v-btn class="submitBtn" depressed color="primaryDark">
                     查詢
                   </v-btn>
-                  <v-btn class="submitBtn" depressed color="primaryDark" dark>
+                  <v-btn class="submitBtn" depressed color="primaryDark">
                     重設
                   </v-btn>
                 </div>
