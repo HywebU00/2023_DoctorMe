@@ -605,6 +605,9 @@
   bottom: 0;
   > div {
     padding: 1rem;
+    height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
   }
 }
 .offcanvas.open {
@@ -626,9 +629,6 @@
 }
 .offcanvasBody {
   padding: 0.5rem 0;
-  width: calc(300px - 2rem);
-  // height: calc(100vh - (115px + 64px + 32px + 1rem));
-  height: calc(100vh - (64px + 32px + 1rem));
   ul {
     list-style-type: none;
     padding-left: 0;
@@ -655,11 +655,9 @@
   }
 }
 .offcanvasFooter {
-  display: none;
-  width: calc(100% - 2rem);
   background: #fff;
   padding-top: 0.5rem;
-  position: absolute;
+  width: 100%;
   bottom: 1rem;
   button {
     margin-bottom: 0.5rem;
@@ -668,14 +666,6 @@
   button.cancelBtn {
     color: $gray3;
     background: darken($grayLight, 3) !important;
-  }
-}
-.offcanvas.hasBtnList {
-  .offcanvasBody {
-    height: calc(100vh - (115px + 64px + 32px + 1.5rem));
-  }
-  .offcanvasFooter {
-    display: block;
   }
 }
 

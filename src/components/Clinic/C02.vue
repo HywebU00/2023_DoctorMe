@@ -6,10 +6,6 @@
         <h3>
           <span>預約名單</span>
         </h3>
-        <!-- 改變 offcanvasBtnList 的 boolean -->
-        <v-btn color="primary" dark @click="offcanvasBtnList = !offcanvasBtnList">
-          改變側邊資料按鈕列(模擬用)
-        </v-btn>
         <v-dialog v-model="dialog" persistent max-width="500px">
           <template v-slot:activator="{ on, attrs }">
             <v-btn color="primaryDark" v-bind="attrs" v-on="on">
@@ -164,7 +160,7 @@
       <!-- 拖曳區塊 end-->
     </section>
     <!-- offcanvas start -->
-    <section class="offcanvas" :class="[{ open: openOffcanvas }, { hasBtnList: offcanvasBtnList }]">
+    <section class="offcanvas" :class="{ open: openOffcanvas }">
       <div class="">
         <div class="offcanvasHeader">
           <h5>林小凌</h5>
@@ -338,7 +334,6 @@ export default {
         addRemoveLinks: true,
         addDownloadLinks: true,
       },
-      offcanvasBtnList: false,
       expand: false,
       selectExpand: false,
       picker: new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10),
