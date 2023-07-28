@@ -678,7 +678,8 @@ ul.clinicList {
     display: flex;
     align-items: center;
   }
-  .name {
+  .name,
+  .default {
     margin-left: 1rem;
     color: $gray3;
   }

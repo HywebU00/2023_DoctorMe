@@ -48,6 +48,20 @@
             更換
           </v-btn>
         </v-card>
+
+        <label for="">醫生形象圖片</label>
+        <v-card class="uploadImgCard">
+          <div class="header ">
+            <v-img cover lazy-src="~@/assets/default_img.png" height="70" width="70" src="~@/assets/default_img.png"></v-img>
+
+            <span class="default">點擊上傳按鈕以上傳圖像。</span>
+          </div>
+          <v-spacer></v-spacer>
+
+          <v-btn class="submitBtn" depressed color="primaryDark">
+            上傳
+          </v-btn>
+        </v-card>
         <label for=""> <v-icon class="errorIcon">mdi-alert-octagon-outline</v-icon>科別</label>
         <v-autocomplete class="inlineInput" v-model="item1" :items="items1" dense label="科別" solo item-text="text"> </v-autocomplete>
 
@@ -73,7 +87,12 @@
         <label for="">醫生形象圖片</label>
         <div class="dropInput">
           <vueDropzone ref="myVueDropzoneFile" id="dropzoneFile" :options="dropzonePicOptions" @vdropzone-success="successUploadFile" @vdropzone-removed-file="removedFile" @vdropzone-download-file="downloadFile"></vueDropzone>
-          <small>只能上傳jpg/png文件，且不超過500kb</small>
+          <div class="infoText">
+            <small>只能上傳jpg/png文件，且不超過500kb</small>
+            <v-btn class="submitBtn" depressed color="primaryDark">
+              取消更換
+            </v-btn>
+          </div>
         </div>
         <!-- 拖曳區塊 end-->
         <label for="idNum">科別名稱</label>

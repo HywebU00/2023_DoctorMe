@@ -941,10 +941,16 @@
     border: 1px solid rgba(0, 0, 0, 0.42);
     border-radius: 0.5rem;
   }
+  .infoText {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
   small {
     display: block;
     text-align: end;
-    margin-top: 0.25rem;
+
     margin-right: 1rem;
     color: rgba(0, 0, 0, 0.6);
   }
