@@ -325,3 +325,44 @@
     }
   }
 }
+.infoData {
+  margin-bottom: 0.5rem;
+  .theme--light.v-data-table {
+    background-color: unset;
+  }
+  table {
+    margin-bottom: 1rem;
+  }
+  .dataTable {
+    th {
+      font-size: 1.125rem !important;
+      color: $dark !important;
+    }
+    tr {
+      th,
+      td {
+        &:first-child {
+          padding-left: 0;
+          color: $dark !important;
+          font-weight: 800;
+          width: 140px;
+        }
+      }
+    }
+    tbody {
+      &:before {
+        content: '_';
+        display: block;
+        line-height: 0.5rem;
+        color: transparent;
+      }
+      td {
+        border: 0px !important;
+        height: 38px !important;
+      }
+    }
+  }
+  .theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:hover:not(.v-data-table__expanded__content):not(.v-data-table__empty-wrapper) {
+    background-color: transparent;
+  }
+}

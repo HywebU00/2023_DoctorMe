@@ -68,6 +68,61 @@
         </div>
         <!-- 訂閱方案 end -->
       </div>
+      <div class="">
+        <div class="title">
+          <h3>
+            <span>帳戶資訊</span>
+          </h3>
+        </div>
+        <!-- 帳戶資訊 start -->
+        <div class="infoData">
+          <v-simple-table class="dataTable">
+            <template v-slot:default>
+              <thead>
+                <tr>
+                  <th colspan="2">
+                    診所資訊
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="item in data" :key="item.name">
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.calories }}</td>
+                </tr>
+              </tbody>
+            </template>
+          </v-simple-table>
+          <v-simple-table class="dataTable">
+            <template v-slot:default>
+              <thead>
+                <tr>
+                  <th colspan="2">
+                    診所資訊
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="item in data2" :key="item.name">
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.calories }}</td>
+                </tr>
+              </tbody>
+            </template>
+          </v-simple-table>
+        </div>
+        <!-- 帳戶資訊 end -->
+      </div>
+      <!-- alert start -->
+      <v-alert class="alert infoAlert">
+        <div class="d-flex ">
+          <div class="text">
+            <v-icon>mdi-alert-octagon-outline</v-icon>
+            <p>尚未新增任何看診科別，點擊上方「新增科別」按鈕，開始新增看診科別，始能進行預約服務。</p>
+          </div>
+        </div>
+      </v-alert>
+      <!-- alert end -->
       <v-card class=" settingCard ">
         <div class="item">
           <h4 class="">診所設定</h4>
@@ -255,6 +310,38 @@ export default {
       SelectItems: ['視訊', '門診'],
       progressValue: 70,
       //
+      data: [
+        {
+          name: '診所名稱',
+          calories: '凌網診所台北總院',
+        },
+        {
+          name: '醫事機構代碼',
+          calories: '3532022464',
+        },
+        {
+          name: '診所ID',
+          calories: 'catclinic',
+        },
+        {
+          name: '診所電話',
+          calories: '02-99999999',
+        },
+      ],
+      data2: [
+        {
+          name: '姓名',
+          calories: '林曉華',
+        },
+        {
+          name: '信箱',
+          calories: 'catclinic＠gmail.com',
+        },
+        {
+          name: '聯絡電話',
+          calories: '0989009888',
+        },
+      ],
     };
   },
 
