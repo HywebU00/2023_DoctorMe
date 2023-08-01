@@ -330,6 +330,13 @@
   .theme--light.v-data-table {
     background-color: unset;
   }
+  .text {
+    color: $gray3;
+    a {
+      color: $primaryDark;
+      font-weight: bold;
+    }
+  }
   table {
     margin-bottom: 1rem;
   }

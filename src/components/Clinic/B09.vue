@@ -76,6 +76,7 @@
         </div>
         <!-- 帳戶資訊 start -->
         <div class="infoData">
+          <div class="text">若帳戶資訊有誤，請 <a href="#">與我們聯絡</a>，我們會盡快為您處理，操作問題可參閱 <a href="#">系統教學</a>。</div>
           <v-simple-table class="dataTable">
             <template v-slot:default>
               <thead>
