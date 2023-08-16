@@ -74,7 +74,7 @@
       <!-- 拖曳區塊 end-->
     </section>
     <!-- offcanvas start -->
-    <section class="offcanvas" :class="{ open: openOffcanvas }">
+    <section class="offcanvas" :class="[{ open: openOffcanvas }, { hasBtnList: offcanvasBtnList }]">
       <div class="">
         <div class="offcanvasHeader">
           <h5>林小凌</h5>
@@ -257,6 +257,7 @@ export default {
 
       //表單的ＪＳ
       search: '',
+      offcanvasBtnList: true,
       dialog: false,
       dialog2: false,
       dialogDelete: false,
