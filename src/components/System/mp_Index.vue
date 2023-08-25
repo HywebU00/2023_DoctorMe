@@ -9,7 +9,7 @@
           </v-toolbar-title>
           <v-spacer></v-spacer>
           <ul>
-            <li color="primaryDark"><a> 首頁</a></li>
+            <li color="primaryDark"><a @click="scrollToHref('banner')"> 首頁</a></li>
             <li color="primaryDark"><a @click="scrollToHref('product')"> 功能介紹</a></li>
             <li color="primaryDark"><a @click="scrollToHref('price')"> 價格方案</a></li>
             <li color="primaryDark"><a @click="scrollToHref('contact')"> 聯絡我們</a></li>
@@ -23,29 +23,11 @@
           <v-expand-transition>
             <v-card v-show="expand" class="mobileContenet">
               <ul>
-                <li>
-                  <a href="">
-                    首頁
-                  </a>
-                </li>
-                <li>
-                  <a href="">
-                    功能介紹
-                  </a>
-                </li>
-                <li>
-                  <a href="">
-                    價格方案
-                  </a>
-                </li>
-                <li>
-                  <a href="">
-                    聯絡我們
-                  </a>
-                </li>
-                <li>
-                  <v-btn class="applyBtn" elevation="0">立即免費試用</v-btn>
-                </li>
+                <li color="primaryDark"><a @click="scrollToHref('banner')"> 首頁</a></li>
+                <li color="primaryDark"><a @click="scrollToHref('product')"> 功能介紹</a></li>
+                <li color="primaryDark"><a @click="scrollToHref('price')"> 價格方案</a></li>
+                <li color="primaryDark"><a @click="scrollToHref('contact')"> 聯絡我們</a></li>
+                <li><v-btn class="applyBtn" elevation="0">立即免費試用</v-btn></li>
               </ul>
             </v-card>
           </v-expand-transition>
@@ -55,7 +37,7 @@
     <!-- header end-->
     <main class="mpIndex main">
       <!-- banner start -->
-      <section class="banner">
+      <section class="banner" ref="banner">
         <div>
           <h1 data-aos="fade-right" data-aos-duration="1500">
             提供Line即時看診預約服務<br />

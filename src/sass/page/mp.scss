@@ -6,6 +6,9 @@
     background-size: cover;
     min-height: calc(100vh - 64px);
     background-attachment: fixed;
+    @include screen('mobile') {
+      margin-top: 56px;
+    }
   }
   header {
     .mpLogo {
